@@ -16,7 +16,8 @@ export const initialState = {
     errors: [],
     cooldown: null,
     snitches: 0,
-    isLoading: false
+    isLoading: false,
+    serverError: null
   },
   gameState: {
     room_id: 0,
@@ -45,7 +46,8 @@ export const initialState = {
     errors: [],
     difficulty: 0,
     // newProof: "",
-    isLoading: false
+    isLoading: false,
+    serverError: null
   },
   // occurs only if someone examines a specific item
   itemState: {
@@ -58,6 +60,7 @@ export const initialState = {
     attributes: "",
     cooldown: 0,
     errors: [],
-    messages: []
+    messages: [],
+    serverError: null
   }
 };
