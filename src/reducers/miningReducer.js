@@ -27,20 +27,23 @@ import {
 export const miningReducer = (state, { type, payload }) => {
   switch (type) {
     case GETTING_LAST_PROOF:
+    case MINING_START:
       return {
         ...state,
         isLoading: true
       };
     case GET_LAST_PROOF_SUCCESS:
+    case MINING_SUCCESS:
       return {
         ...state,
         ...payload,
         isLoading: false
       };
     case GET_LAST_PROOF_FAILURE:
+    case MINING_FAILURE:
       return {
         ...state,
-        error: payload,
+        serverError: payload,
         isLoading: false
       };
     // case FINDING_NEW_PROOF:
@@ -51,23 +54,6 @@ export const miningReducer = (state, { type, payload }) => {
     //   return {
     //     ...state
     //   };
-    case MINING_START:
-      return {
-        ...state,
-        isLoading: true
-      };
-    case MINING_SUCCESS:
-      return {
-        ...state,
-        ...payload,
-        isLoading: false
-      };
-    case MINING_FAILURE:
-      return {
-        ...state,
-        ...payload,
-        isLoading: false
-      };
     default:
       return state;
   }
