@@ -32,7 +32,8 @@ export const initialState = {
     players: [],
     items: [],
     isLoading: false,
-    coins: 0
+    coins: 0,
+    serverError: null
   },
   miningState: {
     index: 0,
