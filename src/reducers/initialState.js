@@ -42,7 +42,9 @@ export const initialState = {
     cooldown: 0,
     messages: [],
     errors: [],
-    difficulty: 0
+    difficulty: 0,
+    // newProof: "",
+    isLoading: false
   },
   // occurs only if someone examines a specific item
   itemState: {
