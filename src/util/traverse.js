@@ -1,6 +1,6 @@
 import { map } from "./map";
 import { walkBack } from "./makeGraph";
-import { dashBack } from "./powers";
+import { dashBack, withDash } from "./powers";
 
 export function getPathToRoom(startingRoom, graph, roomId) {
   console.log("STARTING ROOM BFS", startingRoom);
