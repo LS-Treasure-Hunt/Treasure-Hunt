@@ -1,4 +1,6 @@
 // write the algorithms to utilize dash and other powers that need to be figured out
+import { dash, fly, move } from "../actions";
+
 export async function dashBack(dispatch, path) {
   let startingRoom;
   while (path.length > 0) {
@@ -15,21 +17,14 @@ export async function dashBack(dispatch, path) {
         rooms
       );
       console.log("DASHING", dashing);
-      if (path.length === 0) {
-        return dashing;
-      }
     } else {
       let direction = startingRoom[0];
-      let move;
       for (let i = 1; i < startingRoom.length; i++) {
         if (startingRoom[i].terrain !== "CAVE") {
-          move = await fly(dispatch, direction);
+          await fly(dispatch, direction);
         } else {
-          move = await move(dispatch, direction, `${startingRoom[i].room_id}`);
+          await move(dispatch, direction, `${startingRoom[i].room_id}`);
         }
-      }
-      if (path.length === 0) {
-        return fly;
       }
     }
   }
@@ -42,7 +37,7 @@ export function withDash(path, map) {
   let neighbors = Object.entries(map[startingRoom.room_id].neighbors); // [['n', 123], ...]
 
   let initialDirection = neighbors.filter(
-    ([key, value]) => value === path[1].room_id
+    ([, value]) => value === path[1].room_id
   )[0][0];
 
   let dashPath = [initialDirection];
@@ -88,7 +83,7 @@ export function withDash(path, map) {
           // update direction
           neighbors = Object.entries(map[nextRoom.room_id].neighbors);
           let currentDirection = neighbors.filter(
-            ([key, value]) => value === path[i + 1].room_id
+            ([, value]) => value === path[i + 1].room_id
           )[0][0];
           if (initialDirection !== currentDirection) {
             initialDirection = currentDirection;

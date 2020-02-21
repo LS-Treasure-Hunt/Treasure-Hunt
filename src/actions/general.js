@@ -1,4 +1,4 @@
-// examine, take, drop, sell, status, carry, receive
+// examine, take, drop, sell, status, carry, receive, pray, name change, transmog
 import { axiosWithAuth } from "../util/axiosWIthAuth";
 import { wait } from "./cooldown";
 
@@ -121,7 +121,7 @@ export const playerStatus = async dispatch => {
     wait(res.data.cooldown);
     return res.data;
   } catch (err) {
-      console.log("error", err.response);
-      dispatch({ type: STATUS_ERROR, payload: err.response });
+    console.log("error", err.response);
+    dispatch({ type: STATUS_ERROR, payload: err.response });
   }
 };
