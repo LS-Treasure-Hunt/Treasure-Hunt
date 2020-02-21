@@ -1,4 +1,4 @@
-// examine, take, drop, sell, carry, receive
+// examine, take, drop, sell, status, carry, receive
 import { axiosWithAuth } from "../util/axiosWIthAuth";
 import { wait } from "./cooldown";
 
@@ -106,5 +106,22 @@ export const receive = async (dispatch, item) => {
   } catch (err) {
     console.log("Error occurred! ", err.response);
     dispatch({ type: RECEIVE_ERROR, payload: err.response });
+  }
+};
+
+export const START_STATUS = "START_STATUS";
+export const STATUS_SUCCESS = "STATUS_SUCCESS";
+export const STATUS_ERROR = "STATUS_ERROR";
+
+export const playerStatus = async dispatch => {
+  dispatch({ type: START_STATUS });
+  try {
+    const res = await axiosWithAuth().get("adv/status/");
+    dispatch({ type: STATUS_SUCCESS, payload: res.data });
+    wait(res.data.cooldown);
+    return res.data;
+  } catch (err) {
+      console.log("error", err.response);
+      dispatch({ type: STATUS_ERROR, payload: err.response });
   }
 };

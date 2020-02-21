@@ -22,7 +22,16 @@ import {
   CARRY_ERROR,
   START_RECEIVE,
   RECEIVE_SUCCESS,
-  RECEIVE_ERROR
+  RECEIVE_ERROR,
+  START_DASH,
+  DASH_SUCCESS,
+  DASH_ERROR,
+  START_RECALL,
+  RECALL_SUCCESS,
+  RECALL_ERROR,
+  START_WARP,
+  WARP_SUCCESS,
+  WARP_ERROR
 } from "../actions";
 
 export const gameReducer = (state, { type, payload }) => {
@@ -35,6 +44,9 @@ export const gameReducer = (state, { type, payload }) => {
     case START_DROP:
     case START_CARRY:
     case START_RECEIVE:
+    case START_DASH:
+    case START_RECALL:
+    case START_WARP:
       return {
         ...state,
         isLoading: true
@@ -47,6 +59,9 @@ export const gameReducer = (state, { type, payload }) => {
     case DROP_SUCCESS:
     case CARRY_SUCCESS:
     case RECEIVE_SUCCESS:
+    case DASH_SUCCESS:
+    case RECALL_SUCCESS:
+    case WARP_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -60,6 +75,9 @@ export const gameReducer = (state, { type, payload }) => {
     case DROP_ERROR:
     case CARRY_ERROR:
     case RECEIVE_ERROR:
+    case DASH_ERROR:
+    case RECALL_ERROR:
+    case WARP_ERROR:
       return {
         ...state,
         isLoading: false,
