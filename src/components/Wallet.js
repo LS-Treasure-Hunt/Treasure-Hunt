@@ -9,6 +9,12 @@ export const Wallet = () => {
       <div>Wallet</div>
       <div>Gold: {playerState.gold}</div>
       <div>Coins: {gameState.coins}</div>
+      <div>
+        Inventory:{" "}
+        {playerState.inventory.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </div>
     </div>
   );
 };
