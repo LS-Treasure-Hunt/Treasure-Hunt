@@ -73,6 +73,7 @@ export async function walkBackForGold(dispatch, path) {
     }
   }
   if (player.encumbrance >= player.strength) {
+    // put in option to go to transmorg
     console.log(
       `Selling due to encumbrance. Current gold before selling: ${player.gold}`
     );
