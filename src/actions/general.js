@@ -62,9 +62,12 @@ export const SELL_ERROR = "SELL_ERROR";
 export const sell = async (dispatch, item) => {
   dispatch({ type: START_SELL });
   try {
-    const res = await axiosWithAuth().post("adv/sell/", { name: item });
-    // console.log("res.data ", res.data);
+    const res = await axiosWithAuth().post("adv/sell/", {
+      name: item,
+      confirm: "yes"
+    });
     dispatch({ type: SELL_SUCCESS, payload: res.data });
+    console.log(`Sold ${item}`);
     wait(res.data.cooldown);
     return res.data;
   } catch (err) {

@@ -11,17 +11,13 @@ export async function sellTreasure(dispatch, room, inventory) {
 
   if (room.room_id !== 1) {
     // encumbered flight is worse than encumbered move
-    move("w", "1");
+    await move(dispatch, "w", 1);
     console.log("Going to shop");
   }
 
   console.log("Inventory", inventory);
   for (let i = 0; i < inventory.length; i++) {
-    try {
-      await sell(dispatch, inventory[i]);
-    } catch (err) {
-      alert(err);
-    }
+    await sell(dispatch, inventory[i]);
   }
 }
 

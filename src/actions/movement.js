@@ -11,6 +11,7 @@ export const move = async (dispatch, dir, nextRoom = null) => {
     nextRoom !== null
       ? { direction: dir, next_room_id: `${nextRoom}` }
       : { direction: dir };
+
   dispatch({ type: START_MOVE });
   try {
     const res = await axiosWithAuth().post("adv/move/", command);
