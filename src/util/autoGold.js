@@ -37,7 +37,7 @@ export async function collectTreasure(dispatch, map) {
 export async function traverseForGold(dispatch, target, map) {
   let room = await initGame(dispatch);
   let path = getPathToRoom(map[room.room_id], map, target);
-  console.log("room", room, "path", path);
+  // console.log("room", room, "path", path);
 
   return await walkBackForGold(dispatch, path);
 }
@@ -46,7 +46,6 @@ export async function walkBackForGold(dispatch, path) {
   let startingRoom = path.shift();
   let nextRoom = null;
   let player = await playerStatus(dispatch);
-  console.log("PLAYER", player);
   let newRoom = await initGame(dispatch);
 
   // console.log("walkBack path", path, "startingRoom", startingRoom);
