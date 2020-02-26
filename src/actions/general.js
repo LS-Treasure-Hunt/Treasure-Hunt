@@ -9,7 +9,7 @@ export const INIT_ERROR = "INIT_ERROR";
 export const initGame = async dispatch => {
   dispatch({ type: START_INIT });
   try {
-    const res = await axiosWithAuth().get("adv/init");
+    const res = await axiosWithAuth().get("adv/init/");
     dispatch({ type: INIT_SUCCESS, payload: res.data });
     wait(res.data.cooldown);
     return res.data;
@@ -52,6 +52,24 @@ export const take = async (dispatch, item) => {
   } catch (err) {
     console.log("Error occurred! ", err.response);
     dispatch({ type: TAKE_ERROR, payload: err.response });
+  }
+};
+
+export const START_SELL = "START_SELL";
+export const SELL_SUCCESS = "SELL_SUCCESS";
+export const SELL_ERROR = "SELL_ERROR";
+
+export const sell = async (dispatch, item) => {
+  dispatch({ type: START_SELL });
+  try {
+    const res = await axiosWithAuth().post("adv/sell/", { name: item });
+    // console.log("res.data ", res.data);
+    dispatch({ type: SELL_SUCCESS, payload: res.data });
+    wait(res.data.cooldown);
+    return res.data;
+  } catch (err) {
+    console.log("Error occurred! ", err.response);
+    dispatch({ type: SELL_ERROR, payload: err.response });
   }
 };
 
@@ -116,7 +134,7 @@ export const STATUS_ERROR = "STATUS_ERROR";
 export const playerStatus = async dispatch => {
   dispatch({ type: START_STATUS });
   try {
-    const res = await axiosWithAuth().get("adv/status/");
+    const res = await axiosWithAuth().post("adv/status/");
     dispatch({ type: STATUS_SUCCESS, payload: res.data });
     wait(res.data.cooldown);
     return res.data;
