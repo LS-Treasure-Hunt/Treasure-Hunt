@@ -94,7 +94,6 @@ export function withDash(path, map) {
           // change direction and add to sub path
           dashPath = [initialDirection];
           // add the last few rooms and complete the path
-          dashPath.push(nextRoom);
           dashPath.push(path[i + 1]);
           finalPath.push(dashPath);
         } else {
