@@ -47,12 +47,14 @@ export const mine = async (dispatch, newProof) => {
   dispatch({ type: START_MINING });
   try {
     const res = await axiosWithAuth().post("bc/mine/", { proof: newProof });
-    // console.log(res.data);
+    console.log("Success! ", res.data);
     dispatch({ type: MINING_SUCCESS, payload: res.data });
     wait(res.data.cooldown);
     return res.data;
   } catch (err) {
     console.log("Error occurred!: ", err.response);
+    console.log("Failed...", err.response.data.errors);
     dispatch({ type: MINING_ERROR, payload: err.response });
+    wait(err.response.data.cooldown);
   }
 };
