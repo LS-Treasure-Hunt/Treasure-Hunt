@@ -7,6 +7,9 @@ import Stats from "./Stats";
 import RoomInfo from "./RoomInfo";
 import Wallet from "./Wallet";
 import Gear from "./Gear";
+import Mode from "./Mode";
+import Messages from "./Messages"
+
 
 
 
@@ -21,12 +24,13 @@ const Dashboard = () => {
         <Wallet />
       </section>
       <section className="middle">
+      <Abilities />
       <RoomInfo />
       </section>
       <section className="bottom">
-      <p className="mode">[MODE] Switch between different automated modes. dpad for manual directional control, text input for sending request body?</p>
-      <p className="log">[LOGS]</p>
-      <Abilities /></section>
+      <Mode />
+      <Messages />
+      </section>
      
     </div>
   );

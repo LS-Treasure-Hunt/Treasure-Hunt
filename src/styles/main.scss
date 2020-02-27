@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans');
 
-$fuschia-dk: #452434;
+$fuchsia-dk: #452434;
 $royal-dk: #30346d;
 $almost-black: #140c1c;
 $purple: #597dcf;
 $almost-cyan: #6dc3cb;
+$cool-gray: #4d494d;
+$warm-gray: #757161; 
+$brown: #864d30;
+$latte: #d3aa9a;
+$pumpkin-pie: #d37d2c;
 
 body {
     margin: 0;
@@ -21,7 +26,7 @@ h1 {
     font-family: 'Alegreya', serif;
     font-size: 20px;
     margin: 0;
-    color: $purple;
+    color: $almost-cyan;
 }
 
 h2 {
@@ -39,24 +44,10 @@ h2 {
     color: red
 }
 
-p, ul {
+p, ul, li, label {
     font-family: 'Alegreya Sans', sans-serif;
     font-size: 16px;
-    margin: 10px;
-    color: $purple;
-}
-
-
-ul {
-    display: flex;
-    flex-direction: column;
-    margin: 0
-}
-
-
-li {  
-    font-family: 'Alegreya Sans', sans-serif;
-    font-size: 16px;
+    margin: 0px;
     color: $purple;
 }
 
@@ -78,8 +69,10 @@ li {
 }
 
 .middle {
+    width: 200px;
+    min-width: 100px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
 }
 
@@ -89,13 +82,12 @@ li {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    overflow:scroll 
 }
 
 .inventory-button {
     font-family: 'Alegreya Sans', sans-serif;
     font-size: 16px;
-    border: 1px solid #333;
-    border-radius: 2px;
 }
 
 .inventory {
@@ -106,10 +98,43 @@ li {
     
 }
 
-.stats, .gear, .wallet, .roomInfo {
+.stats, .gear, .wallet, .roomInfo, .messages, .abilities {
     padding: 10px
 }
 
 .abilities {
-    border: 1px solid magenta
+    .locked {
+        background-color: $cool-gray;
+        opacity: .6;
+        color: $warm-gray;
+        border-color: $cool-gray;
+        border-style: ridge;
+    }
+    .unavailable {
+        background-color: $brown;
+        opacity: .6;
+        border-style: inset;
+        border-color: $warm-gray
+    }
+    .available {
+        background-color: $brown;
+        opacity: 1;
+        border-style: outset;
+    }
+    ul {
+        list-style-type: none
+    }
+    li {
+        border-width: 5px;
+        border-color: $warm-gray $pumpkin-pie;
+        padding: 5px 8px;
+        color: $latte;
+        text-align:center;
+        margin: 1px
+    }
+}
+
+button {
+    height: 30px;
+    width: 100px
 }

@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStateValue } from "../hooks/useStateValue";
 
 export const Abilities = () => {
   const [{ playerState }] = useStateValue();
-
-  console.log(playerState);
+  const [abilities, setAbilities] = useState({
+    "PRAY": "unavailable",
+    "MINE": "available",
+    "FLIGHT": "locked",
+    "DASH": "locked",
+    "CARRY": "locked",
+    "RECALL": "locked",
+    "WARP": "locked"
+  })
+  
+  playerState.abilities.map((s) => {
+    return s.toUpperCase() 
+  })
   return (
-    <div classList="abilities">
-      <div>Abilities</div>
+    <div className="abilities">
+  
+  <div>Abilities</div>
       <ul>
-        <li>PRAY</li>
-        <li>FLIGHT</li>
-        <li>DASH</li>
-        <li>CARRY</li>
-        <li>RECALL</li>
-        <li>WARP</li>
+        {Object.keys(abilities).map((k)=>
+        <li className={abilities[k]}>{k}</li>)}
       </ul>
 
     </div>

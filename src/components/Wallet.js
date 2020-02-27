@@ -19,8 +19,8 @@ export const Wallet = () => {
     <div className="inventory-button" onClick={() => setInventory(!showInventory)}><p>Inventory {showInventory ? "▸" : "▾"}</p></div>
     </div>
     {showInventory && (
-        <div classList="inventory">
-          <h2>Inventory</h2>
+        <div className="inventory">
+          <h1>Inventory</h1>
           {" "}
           <ul>
             {playerState.inventory.map((item, i) => (
