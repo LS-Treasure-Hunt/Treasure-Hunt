@@ -7,6 +7,7 @@ import { useStateValue } from "./hooks/useStateValue";
 
 // components
 import Dashboard from "./components/Dashboard";
+import Map from "./components/Map";
 
 function App() {
   const [{ gameState }, dispatch] = useStateValue();
@@ -21,6 +22,7 @@ function App() {
     <div className="App">
       Treasure Hunt!
       <Dashboard />
+      <Map map={map} />
     </div>
   );
 }

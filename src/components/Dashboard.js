@@ -6,7 +6,7 @@ import Abilities from "./Abilities";
 import Wallet from "./Wallet";
 import Gear from "./Gear";
 import Stats from "./Stats";
-import Room from "./Room";
+import RoomInfo from "./RoomInfo";
 
 const Dashboard = () => {
   const [{ playerState, gameState }] = useStateValue();
@@ -16,7 +16,7 @@ const Dashboard = () => {
       <Abilities />
       <Wallet />
       <Gear />
-      <Room />
+      <RoomInfo />
     </div>
   );
 };

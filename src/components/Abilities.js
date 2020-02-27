@@ -3,7 +3,7 @@ import { useStateValue } from "../hooks/useStateValue";
 
 export const Abilities = () => {
   const [{ playerState }] = useStateValue();
-  console.log(playerState);
+
   return (
     <div>
       <div>Unlocked Abilities</div>

@@ -146,3 +146,20 @@ export const playerStatus = async dispatch => {
     dispatch({ type: STATUS_ERROR, payload: err.response });
   }
 };
+
+export const START_TRANSMOG = "START_TRANSMOG";
+export const TRANSMOG_SUCCESS = "TRANSMOG_SUCCESS";
+export const TRANSMOG_ERROR = "TRANSMOG_ERROR";
+
+export const transmogrify = async dispatch => {
+  dispatch({ type: START_TRANSMOG });
+  try {
+    const res = await axiosWithAuth().post("adv/transmogrify/");
+    dispatch({ type: TRANSMOG_SUCCESS, payload: res.data });
+    wait(res.data.cooldown);
+    return res.data;
+  } catch (err) {
+    console.log("error", err.response);
+    dispatch({ type: TRANSMOG_ERROR, payload: err.response });
+  }
+};
