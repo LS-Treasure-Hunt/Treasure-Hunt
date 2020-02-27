@@ -1,8 +1,6 @@
 import React from "react";
 import Room from "./Room";
 
-import { useStateValue } from "../hooks/useStateValue";
-
 const Map = ({ map }) => {
   let worldMap = Object.values(map);
 
