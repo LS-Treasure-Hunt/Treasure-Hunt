@@ -3,14 +3,22 @@ import { useStateValue } from "../hooks/useStateValue";
 
 export const Abilities = () => {
   const [{ playerState }] = useStateValue();
+
   console.log(playerState);
   return (
-    <div>
-      <div>Unlocked Abilities</div>
-      {playerState.abilities.map((ability, i) => (
-        <li key={i}>{ability.toUpperCase()}</li>
-      ))}
+    <div classList="abilities">
+      <div>Abilities</div>
+      <ul>
+        <li>PRAY</li>
+        <li>FLIGHT</li>
+        <li>DASH</li>
+        <li>CARRY</li>
+        <li>RECALL</li>
+        <li>WARP</li>
+      </ul>
+
     </div>
+      
   );
 };
 
