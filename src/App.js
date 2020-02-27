@@ -20,7 +20,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div class="app">
+    <div className="app">
       {/* <Dashboard /> */}
       <Map map={map} />
     </div>
