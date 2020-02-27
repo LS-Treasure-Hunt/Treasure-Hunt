@@ -8,8 +8,6 @@ import RoomInfo from "./RoomInfo";
 import Wallet from "./Wallet";
 import Gear from "./Gear";
 
-
-
 const Dashboard = () => {
   const [{ playerState, gameState }] = useStateValue();
 
@@ -21,13 +19,16 @@ const Dashboard = () => {
         <Wallet />
       </section>
       <section className="middle">
-      <RoomInfo />
+        <RoomInfo />
       </section>
       <section className="bottom">
-      <p className="mode">[MODE] Switch between different automated modes. dpad for manual directional control, text input for sending request body?</p>
-      <p className="log">[LOGS]</p>
-      <Abilities /></section>
-     
+        <p className="mode">
+          [MODE] Switch between different automated modes. dpad for manual
+          directional control, text input for sending request body?
+        </p>
+        <p className="log">[LOGS]</p>
+        <Abilities />
+      </section>
     </div>
   );
 };

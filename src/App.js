@@ -8,6 +8,7 @@ import "./styles/main.scss";
 
 // components
 import Dashboard from "./components/Dashboard";
+import Map from "./components/Map";
 
 function App() {
   const [{ gameState }, dispatch] = useStateValue();
@@ -19,8 +20,9 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div class="app">
-      <Dashboard />
+    <div className="app">
+      {/* <Dashboard /> */}
+      <Map map={map} />
     </div>
   );
 }

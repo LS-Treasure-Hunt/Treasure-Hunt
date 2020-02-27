@@ -4,9 +4,8 @@ import { useStateValue } from "../hooks/useStateValue";
 export const Abilities = () => {
   const [{ playerState }] = useStateValue();
 
-  console.log(playerState);
   return (
-    <div classList="abilities">
+    <div className="abilities">
       <div>Abilities</div>
       <ul>
         <li>PRAY</li>
@@ -16,9 +15,7 @@ export const Abilities = () => {
         <li>RECALL</li>
         <li>WARP</li>
       </ul>
-
     </div>
-      
   );
 };
 
