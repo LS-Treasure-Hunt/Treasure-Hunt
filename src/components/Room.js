@@ -1,16 +1,15 @@
 import React from "react";
 import { useStateValue } from "../hooks/useStateValue";
 
-const Room = ({ roomId, coordinates }) => {
+const Room = ({ roomId, coordinates, exits }) => {
   const [{ gameState }] = useStateValue();
 
-  let roomWidth = 50;
   const getCoords = coords => {
     let split = coords.split(",");
     let x = parseInt(split[0].slice(1), 10);
     let y = parseInt(split[1].slice(0, -1), 10);
-    let adjustedx = (x - 50) * roomWidth;
-    let adjustedy = (y - 50) * roomWidth;
+    let adjustedx = (x - 50) * 30;
+    let adjustedy = (y - 50) * 30;
     return [adjustedx, adjustedy];
   };
 
@@ -18,14 +17,21 @@ const Room = ({ roomId, coordinates }) => {
 
   if (coordinates) {
     let coords = getCoords(coordinates);
+    let visible = false;
 
     return (
-      <div
-        className={`room ${specialRooms.includes(roomId) &&
-          "special"} ${gameState.room_id === roomId && "currentRoom"}`}
-        style={{ left: coords[0], bottom: coords[1] }}
-      >
-        {roomId}
+      <div>
+        <div
+          className={`room ${specialRooms.includes(roomId) &&
+            "special"} ${gameState.room_id === roomId && "currentRoom"}`}
+          style={{ left: coords[0], bottom: coords[1] }}
+        >
+          {roomId}
+        </div>
+        <div className={`link ${exits.includes("e") && "e"}`}></div>
+        <div className={`link ${exits.includes("n") && "n"}`}></div>
+        <div className={`link  ${exits.includes("s") && "s"} `}></div>
+        <div className={`link  ${exits.includes("w") && "w"} `}></div>
       </div>
     );
   } else {
