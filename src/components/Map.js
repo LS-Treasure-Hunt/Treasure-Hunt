@@ -7,7 +7,7 @@ const Map = ({ map }) => {
   let worldMap = Object.values(map);
 
   return (
-    <div>
+    <div className="map">
       {worldMap.map(room => (
         <Room roomId={room.room_id} coordinates={room.coordinates} />
       ))}

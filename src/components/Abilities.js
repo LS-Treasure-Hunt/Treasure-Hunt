@@ -5,11 +5,16 @@ export const Abilities = () => {
   const [{ playerState }] = useStateValue();
 
   return (
-    <div>
-      <div>Unlocked Abilities</div>
-      {playerState.abilities.map((ability, i) => (
-        <li key={i}>{ability.toUpperCase()}</li>
-      ))}
+    <div className="abilities">
+      <div>Abilities</div>
+      <ul>
+        <li>PRAY</li>
+        <li>FLIGHT</li>
+        <li>DASH</li>
+        <li>CARRY</li>
+        <li>RECALL</li>
+        <li>WARP</li>
+      </ul>
     </div>
   );
 };

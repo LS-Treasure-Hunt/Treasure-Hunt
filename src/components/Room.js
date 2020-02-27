@@ -1,24 +1,21 @@
 import React from "react";
 
 const Room = ({ roomId, coordinates }) => {
+  let roomWidth = 50;
   const getCoords = coords => {
     let split = coords.split(",");
     let x = parseInt(split[0].slice(1), 10);
     let y = parseInt(split[1].slice(0, -1), 10);
-    return [x, y];
+    let adjustedx = (x - 50) * roomWidth;
+    let adjustedy = (y - 50) * roomWidth;
+    return [adjustedx, adjustedy];
   };
 
   if (coordinates) {
     let coords = getCoords(coordinates);
-    console.log(coords);
+
     return (
-      <div
-        style={{
-          border: "1px solid black",
-          width: "30px",
-          height: "30px"
-        }}
-      >
+      <div className="room" style={{ left: coords[0], bottom: coords[1] }}>
         {roomId}
       </div>
     );
