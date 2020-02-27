@@ -21,7 +21,7 @@ export async function dashBack(dispatch, path) {
       let direction = startingRoom[0];
       for (let i = 1; i < startingRoom.length; i++) {
         if (startingRoom[i].terrain !== "CAVE") {
-          await fly(dispatch, direction);
+          await fly(dispatch, direction, `${startingRoom[i].room_id}`);
         } else {
           await move(dispatch, direction, `${startingRoom[i].room_id}`);
         }
@@ -94,7 +94,6 @@ export function withDash(path, map) {
           // change direction and add to sub path
           dashPath = [initialDirection];
           // add the last few rooms and complete the path
-          dashPath.push(nextRoom);
           dashPath.push(path[i + 1]);
           finalPath.push(dashPath);
         } else {
