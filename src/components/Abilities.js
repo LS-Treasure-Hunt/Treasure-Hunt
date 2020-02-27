@@ -24,9 +24,7 @@ export const Abilities = () => {
         {Object.keys(abilities).map((k)=>
         <li className={abilities[k]}>{k}</li>)}
       </ul>
-
     </div>
-      
   );
 };
 

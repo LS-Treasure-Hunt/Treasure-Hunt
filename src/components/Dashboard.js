@@ -11,8 +11,6 @@ import Mode from "./Mode";
 import Messages from "./Messages"
 
 
-
-
 const Dashboard = () => {
   const [{ playerState, gameState }] = useStateValue();
 

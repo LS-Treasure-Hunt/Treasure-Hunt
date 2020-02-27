@@ -1,72 +1,46 @@
-@import url('https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans');
+@import "/reset";
+@import "/global";
+@import "/variables";
+@import "/map";
 
-$fuchsia-dk: #452434;
-$royal-dk: #30346d;
-$almost-black: #140c1c;
-$purple: #597dcf;
-$almost-cyan: #6dc3cb;
-$cool-gray: #4d494d;
-$warm-gray: #757161; 
-$brown: #864d30;
-$latte: #d3aa9a;
-$pumpkin-pie: #d37d2c;
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: $almost-black;
-}
-
-div {
-    margin: 0;
-    padding: 0
-}
-
-h1 {
-    font-family: 'Alegreya', serif;
-    font-size: 20px;
-    margin: 0;
-    color: $almost-cyan;
-}
-
-h2 {
-    font-family: 'Alegreya', serif;
-    font-size: 16px;
-    margin: 0;
-    color: $purple;
-}
-
-.statValue {
-    color: $almost-cyan;
-}
-
-.statDanger {
-    color: red
-}
-
-p, ul, li, label {
-    font-family: 'Alegreya Sans', sans-serif;
-    font-size: 16px;
-    margin: 0px;
-    color: $purple;
-}
 
 .dashboard {
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: space-evenly;
-    justify-content: space-between
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: space-evenly;
+  justify-content: space-between;
+}
+
+
+.stats, .gear, .wallet, .roomInfo, .messages, .abilities {
+    padding: 10px
 }
 
 .top {
-    width: 100vw;
-    min-height: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+  width: 100vw;
+  min-height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
+
+
+.statValue {
+    color: $almost-cyan;
+  }
+  
+  .statDanger {
+    color: red;
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    
+  }
 
 .middle {
     width: 200px;
@@ -91,22 +65,29 @@ p, ul, li, label {
 }
 
 .inventory {
-    display: block;
-    border: 1px solid #333;
-    border-radius: 2px;
-    padding: 5px
-    
+  display: block;
+  border: 1px solid #333;
+  border-radius: 2px;
+  padding: 5px;
 }
 
-.stats, .gear, .wallet, .roomInfo, .messages, .abilities {
-    padding: 10px
-}
 
 .abilities {
+    ul {
+        list-style-type: none
+    }
+    li {
+        border-width: 5px;
+        border-color: $warm-gray $pumpkin-pie;
+        padding: 5px 8px;
+        color: $latte;
+        text-align:center;
+        margin: 1px
+    }
     .locked {
         background-color: $cool-gray;
-        opacity: .6;
-        color: $warm-gray;
+        opacity: .3;
+        color: $almost-cyan;
         border-color: $cool-gray;
         border-style: ridge;
     }
@@ -121,20 +102,7 @@ p, ul, li, label {
         opacity: 1;
         border-style: outset;
     }
-    ul {
-        list-style-type: none
-    }
-    li {
-        border-width: 5px;
-        border-color: $warm-gray $pumpkin-pie;
-        padding: 5px 8px;
-        color: $latte;
-        text-align:center;
-        margin: 1px
-    }
 }
 
-button {
-    height: 30px;
-    width: 100px
-}
+
+
