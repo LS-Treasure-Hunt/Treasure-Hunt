@@ -1,0 +1,18 @@
+
+.roomInfo {
+    ul {
+        display: flex;
+        flex-direction: row;
+    }
+    li {
+        margin: 0 2px;
+        padding: 0 2px;
+        font-variant-caps: all-small-caps;
+    }
+    background-color: $cool-gray-dk;
+    color: $grass-green-lt;
+    border-style: outset;
+    border-width: 3px;
+    border-color: $grass-green-dk
+
+}

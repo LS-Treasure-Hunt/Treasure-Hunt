@@ -50,3 +50,11 @@ ul {
 input, label, li, button {
   font-family: $accent-font;
 }
+
+.statValue {
+  color: $almost-cyan;
+}
+
+.statDanger {
+color: red;
+}

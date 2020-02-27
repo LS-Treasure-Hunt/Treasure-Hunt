@@ -22,8 +22,8 @@ const Dashboard = () => {
         <Wallet />
       </section>
       <section className="middle">
-      <Abilities />
       <RoomInfo />
+      <Abilities />
       </section>
       <section className="bottom">
       <Mode />

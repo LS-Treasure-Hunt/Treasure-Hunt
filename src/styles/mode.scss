@@ -1,0 +1,35 @@
+.dpad {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    place-items: center;
+
+    .north {
+        grid-row-start: 1;
+        grid-column-start: 2
+    }
+
+    .west {
+        grid-row-start: 2;
+        grid-column-start: 1
+    }
+
+    .south {
+        grid-row-start: 3;
+        grid-column-start: 2;
+    }
+
+    .east {
+        grid-row-start: 2;
+        grid-column-start: 3;
+    }
+
+    button {
+        height: 30px;
+        width: 30px;
+        background-color: $cool-gray-lt;
+        border-width: 5px;
+        border-color: $warm-gray $almost-cyan;
+        border-style: outset;
+    }
+}

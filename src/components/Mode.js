@@ -4,7 +4,7 @@ import DirectionalPad from "./manual/DirectionalPad";
 const Mode = () => {
     const [userMode, setUserMode] = useState("manual")
   return (
-    <div>
+    <div className="mode">
       <h1>Select Mode</h1>
       <div>
         <label>

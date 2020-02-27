@@ -3,7 +3,7 @@ import { useStateValue } from "../hooks/useStateValue";
 
 export const Wallet = () => {
   const [{ playerState, gameState }] = useStateValue();
-  const [showInventory, setInventory] = useState(true);
+  const [showInventory, setInventory] = useState(false);
   return (
     <>
       <div className="wallet">
@@ -24,7 +24,7 @@ export const Wallet = () => {
         </div>
       </div>
       {showInventory && (
-        <div classList="inventory">
+        <div className="inventory">
           <h2>Inventory</h2>{" "}
           <ul>
             {playerState.inventory.map((item, i) => (

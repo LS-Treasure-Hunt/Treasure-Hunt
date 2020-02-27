@@ -3,6 +3,10 @@
 @import "/variables";
 @import "/map";
 
+@import "/abilities";
+@import "/roomInfo";
+@import "/mode";
+
 
 .dashboard {
   width: 100vw;
@@ -13,9 +17,15 @@
   justify-content: space-between;
 }
 
-
-.stats, .gear, .wallet, .roomInfo, .messages, .abilities {
-    padding: 10px
+.inventory {
+  display: block;
+  ul {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+  }
+  border: 1px solid $purple;
+  padding: 15px;
 }
 
 .top {
@@ -24,30 +34,20 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  > * {
+      padding: 15px
+  }
 }
 
-
-.statValue {
-    color: $almost-cyan;
-  }
-  
-  .statDanger {
-    color: red;
-  }
-  
-  ul {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    
-  }
-
 .middle {
-    width: 200px;
+    width: 300px;
     min-width: 100px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    > * {
+        padding: 15px
+    }
 }
 
 .bottom {
@@ -56,53 +56,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    overflow:scroll 
-}
-
-.inventory-button {
-    font-family: 'Alegreya Sans', sans-serif;
-    font-size: 16px;
-}
-
-.inventory {
-  display: block;
-  border: 1px solid #333;
-  border-radius: 2px;
-  padding: 5px;
-}
-
-
-.abilities {
-    ul {
-        list-style-type: none
-    }
-    li {
-        border-width: 5px;
-        border-color: $warm-gray $pumpkin-pie;
-        padding: 5px 8px;
-        color: $latte;
-        text-align:center;
-        margin: 1px
-    }
-    .locked {
-        background-color: $cool-gray;
-        opacity: .3;
-        color: $almost-cyan;
-        border-color: $cool-gray;
-        border-style: ridge;
-    }
-    .unavailable {
-        background-color: $brown;
-        opacity: .6;
-        border-style: inset;
-        border-color: $warm-gray
-    }
-    .available {
-        background-color: $brown;
-        opacity: 1;
-        border-style: outset;
+    > * {
+        padding: 15px
     }
 }
-
-
-

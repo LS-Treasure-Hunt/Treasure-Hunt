@@ -6,7 +6,7 @@ const DirectionalPad = () => {
 const [, dispatch] = useStateValue();
 return(
     <>
-    <div className="mode">
+    <div className="dpad">
     <button
     value="n"
     onClick={e => move(dispatch, e.target.value)}

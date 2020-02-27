@@ -1,0 +1,28 @@
+.abilities {
+    li {
+        border-width: 5px;
+        border-color: $warm-gray $pumpkin-pie;
+        padding: 5px 8px;
+        color: $latte;
+        text-align: center;
+        margin: 1px
+    }
+    .locked {
+        background-color: $cool-gray-dk;
+        opacity: .3;
+        color: $almost-cyan;
+        border-color: $cool-gray-dk;
+        border-style: ridge;
+    }
+    .unavailable {
+        background-color: $brown;
+        opacity: .6;
+        border-style: inset;
+        border-color: $warm-gray
+    }
+    .available {
+        background-color: $brown;
+        opacity: 1;
+        border-style: outset;
+    }
+}
