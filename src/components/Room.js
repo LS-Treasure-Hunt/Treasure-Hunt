@@ -9,7 +9,7 @@ const Room = ({ roomId, coordinates, exits }) => {
     let split = coords.split(",");
     let x = parseInt(split[0].slice(1), 10);
     let y = parseInt(split[1].slice(0, -1), 10);
-    let adjustedx = (x - 45) * roomSize;
+    let adjustedx = (x - 47) * roomSize;
     let adjustedy = (y - 35) * roomSize;
     return [adjustedx, adjustedy];
   };

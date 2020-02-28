@@ -3,97 +3,20 @@
 @import "/variables";
 @import "/map";
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: $almost-black;
-}
-
-div {
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2 {
-  margin: 0;
-}
-
-.statValue {
-  color: $almost-cyan;
-}
-
-.statDanger {
-  color: red;
-}
-
-p,
-ul {
-  font-size: 16px;
-  margin: 10px;
-}
-
-ul {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-}
-
-li {
-  font-size: 16px;
-}
+@import "/header";
+@import "/sidebar";
+@import "/manual";
 
 .dashboard {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: space-evenly;
+  align-items: stretch;
   justify-content: space-between;
-}
-
-.top {
-  width: 100vw;
-  min-height: 100px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
 }
 
 .middle {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-
-.bottom {
-  width: 100vw;
-  min-height: 100px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-}
-
-.inventory-button {
-  font-size: 16px;
-  border: 1px solid #333;
-  border-radius: 2px;
-}
-
-.inventory {
-  display: block;
-  border: 1px solid #333;
-  border-radius: 2px;
-  padding: 5px;
-}
-
-.stats,
-.gear,
-.wallet,
-.roomInfo {
-  padding: 10px;
-}
-
-.abilities {
-  border: 1px solid magenta;
+  justify-content: space-between;
 }

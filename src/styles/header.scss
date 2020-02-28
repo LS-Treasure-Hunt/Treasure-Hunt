@@ -1,0 +1,59 @@
+.header {
+  width: 100%;
+  height: 72px;
+  top: 0;
+  left: 0;
+  position: sticky;
+  z-index: 999;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $royal-dk;
+  border-bottom: 3px solid $fuchsia-dk;
+}
+
+.player {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.rightHeader {
+  display: flex;
+}
+
+.stats {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  place-items: center start;
+  grid-auto-flow: column;
+  margin-right: 2rem;
+}
+
+.gearOff {
+  opacity: 0.5;
+}
+
+.inventory {
+  min-width: 200px;
+  display: flex;
+  flex-direction: row;
+}
+
+.inventory-button {
+}
+
+.inventory-display {
+  min-width: 300px;
+  ul {
+    display: flex;
+    flex-flow: row;
+  }
+  li {
+    margin: 0 2px;
+    padding: 0 2px;
+  }
+}

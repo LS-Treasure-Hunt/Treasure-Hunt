@@ -1,0 +1,77 @@
+
+
+.dpad {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  place-items: center;
+
+  .north {
+      grid-row-start: 1;
+      grid-column-start: 2
+  }
+
+  .west {
+      grid-row-start: 2;
+      grid-column-start: 1
+  }
+
+  .south {
+      grid-row-start: 3;
+      grid-column-start: 2;
+  }
+
+  .east {
+      grid-row-start: 2;
+      grid-column-start: 3;
+  }
+
+  button {
+      background-color: $cool-gray-lt;
+      border-width: 5px;
+      border-color: $warm-gray $almost-cyan;
+      border-style: outset;
+  }
+}
+
+.abilities {
+    ul {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      place-items: center stretch;
+    }
+    li {
+      border-width: 5px;
+      border-color: $warm-gray $pumpkin-pie;
+      padding: 5px 8px;
+      color: $latte;
+      text-align: center;
+    }
+    .locked {
+      background-color: $cool-gray-dk;
+      opacity: 0.3;
+      color: $almost-cyan;
+      border-color: $cool-gray-dk;
+      border-style: ridge;
+    }
+    .unavailable {
+      background-color: $brown;
+      opacity: 0.6;
+      border-style: inset;
+      border-color: $warm-gray;
+    }
+    .available {
+      background-color: $brown;
+      opacity: 1;
+      border-style: outset;
+    }
+  }
+  
+
+  .manual {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
+  }

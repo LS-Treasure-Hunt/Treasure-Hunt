@@ -24,8 +24,6 @@ function App() {
   return (
     <div className="app">
       <Dashboard />
-      {/* <button onClick={() => collectTreasure(dispatch, map)}>AutoGold</button>
-      <Map map={map} /> */}
     </div>
   );
 }
