@@ -2,6 +2,7 @@ import React from "react";
 import Stats from "./Stats";
 import Wallet from "./Wallet";
 import Gear from "./Gear";
+import Inventory from "./Inventory";
 
 const Header = () => {
   return (
@@ -10,6 +11,7 @@ const Header = () => {
         <Stats />
         <Wallet />
         <Gear />
+        <Inventory />
       </div>
       <div className="rightHeader">
         <p>Available real estate.</p>

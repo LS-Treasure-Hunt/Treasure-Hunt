@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, from "react";
 import { useStateValue } from "../../hooks/useStateValue";
 
 export const Wallet = () => {
@@ -16,23 +16,7 @@ export const Wallet = () => {
         <p>
           Snitches: <span className="statValue">{playerState.snitches}</span>
         </p>
-        <div
-          className="inventory-button"
-          onClick={() => setInventory(!showInventory)}
-        >
-          <p>Inventory {showInventory ? "▸" : "▾"}</p>
         </div>
-      </div>
-      {showInventory && (
-        <div className="inventory">
-          <h2>Inventory</h2>{" "}
-          <ul>
-            {playerState.inventory.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      )}
     </>
   );
 };
