@@ -22,8 +22,10 @@ export const Abilities = () => {
   return (
     <div className="abilities">
       <ul>
-        {Object.keys(abilities).map(k => (
-          <li className={abilities[k]}>{k}</li>
+        {Object.keys(abilities).map((k, i) => (
+          <li className={abilities[k]} key={i}>
+            {k}
+          </li>
         ))}
       </ul>
     </div>
