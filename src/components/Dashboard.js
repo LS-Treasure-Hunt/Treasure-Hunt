@@ -2,28 +2,19 @@ import React from "react";
 import { useStateValue } from "../hooks/useStateValue";
 
 // components
-import Abilities from "./Abilities";
-import Stats from "./Stats";
 import RoomInfo from "./RoomInfo";
-import Wallet from "./Wallet";
-import Gear from "./Gear";
 import Mode from "./Mode";
 import Messages from "./Messages"
-
+import Header from "./header/Header"
 
 const Dashboard = () => {
   const [{ playerState, gameState }] = useStateValue();
 
   return (
     <div className="dashboard">
-      <section className="top">
-        <Stats />
-        <Gear />
-        <Wallet />
-      </section>
+        <Header />
       <section className="middle">
       <RoomInfo />
-      <Abilities />
       </section>
       <section className="bottom">
       <Mode />

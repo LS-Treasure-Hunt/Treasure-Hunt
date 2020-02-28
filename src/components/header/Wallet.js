@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useStateValue } from "../hooks/useStateValue";
+import { useStateValue } from "../../hooks/useStateValue";
 
 export const Wallet = () => {
   const [{ playerState, gameState }] = useStateValue();

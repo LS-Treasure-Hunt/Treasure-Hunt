@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useStateValue } from "../hooks/useStateValue";
+import { useStateValue } from "../../hooks/useStateValue";
 
 export const Abilities = () => {
   const [{ playerState }] = useStateValue();
@@ -21,7 +21,6 @@ export const Abilities = () => {
 
   return (
     <div className="abilities">
-      <h1>Abilities</h1>
       <ul>
         {Object.keys(abilities).map(k => (
           <li className={abilities[k]}>{k}</li>

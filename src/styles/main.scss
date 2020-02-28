@@ -3,6 +3,8 @@
 @import "/variables";
 @import "/map";
 
+
+@import "/header";
 @import "/abilities";
 @import "/roomInfo";
 @import "/mode";
@@ -28,16 +30,7 @@
   padding: 15px;
 }
 
-.top {
-  width: 100vw;
-  min-height: 100px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  > * {
-      padding: 15px
-  }
-}
+
 
 .middle {
     width: 300px;

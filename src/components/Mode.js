@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import DirectionalPad from "./manual/DirectionalPad";
+import Abilities from "./manual/Abilities";
 
 const Mode = () => {
     const [userMode, setUserMode] = useState("manual")
@@ -21,7 +22,7 @@ const Mode = () => {
         </label>
       </div>
       <DirectionalPad />
-      <p></p>
+      <Abilities />
     </div>
   );
 };

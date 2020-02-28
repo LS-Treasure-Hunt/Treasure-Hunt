@@ -1,5 +1,5 @@
 import React from "react";
-import { useStateValue } from "../hooks/useStateValue";
+import { useStateValue } from "../../hooks/useStateValue";
 
 
 export const Gear = () => {
