@@ -32,6 +32,7 @@ export async function collectTreasure(dispatch, map) {
 
 export async function traverseForGold(dispatch, target, map) {
   let room = await initGame(dispatch);
+  console.log(room);
   let path = getPathToRoom(map[room.room_id], map, target);
   // console.log("room", room, "path", path);
 

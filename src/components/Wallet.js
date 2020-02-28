@@ -24,7 +24,7 @@ export const Wallet = () => {
         </div>
       </div>
       {showInventory && (
-        <div classList="inventory">
+        <div className="inventory">
           <h2>Inventory</h2>{" "}
           <ul>
             {playerState.inventory.map((item, i) => (

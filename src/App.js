@@ -14,14 +14,17 @@ function App() {
   const [{ gameState }, dispatch] = useStateValue();
 
   useEffect(() => {
-    // collectTreasure(dispatch, map);
-    initGame(dispatch);
-    playerStatus(dispatch);
+    async function fetchData() {
+      await initGame(dispatch);
+      await playerStatus(dispatch);
+    }
+    fetchData();
   }, [dispatch]);
 
   return (
     <div className="app">
-      {/* <Dashboard /> */}
+      <Dashboard />
+      <button onClick={() => collectTreasure(dispatch, map)}>AutoGold</button>
       <Map map={map} />
     </div>
   );
