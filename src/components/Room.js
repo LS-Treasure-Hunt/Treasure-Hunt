@@ -3,13 +3,14 @@ import { useStateValue } from "../hooks/useStateValue";
 
 const Room = ({ roomId, coordinates, exits }) => {
   const [{ gameState }] = useStateValue();
+  let roomSize = 35;
 
   const getCoords = coords => {
     let split = coords.split(",");
     let x = parseInt(split[0].slice(1), 10);
     let y = parseInt(split[1].slice(0, -1), 10);
-    let adjustedx = (x - 50) * 30;
-    let adjustedy = (y - 50) * 30;
+    let adjustedx = (x - 40) * roomSize;
+    let adjustedy = (y - 60) * roomSize;
     return [adjustedx, adjustedy];
   };
 
@@ -17,10 +18,9 @@ const Room = ({ roomId, coordinates, exits }) => {
 
   if (coordinates) {
     let coords = getCoords(coordinates);
-    let visible = false;
 
     return (
-      <div>
+      <>
         <div
           className={`room ${specialRooms.includes(roomId) &&
             "special"} ${gameState.room_id === roomId && "currentRoom"}`}
@@ -28,11 +28,35 @@ const Room = ({ roomId, coordinates, exits }) => {
         >
           {roomId}
         </div>
-        <div className={`link ${exits.includes("e") && "e"}`}></div>
-        <div className={`link ${exits.includes("n") && "n"}`}></div>
-        <div className={`link  ${exits.includes("s") && "s"} `}></div>
-        <div className={`link  ${exits.includes("w") && "w"} `}></div>
-      </div>
+        <div
+          className={`link ${exits.includes("e") && "e"}`}
+          style={{
+            left: coords[0] + 25,
+            bottom: coords[1] + 5
+          }}
+        ></div>
+        <div
+          className={`link ${exits.includes("n") && "n"}`}
+          style={{
+            left: coords[0] + 5,
+            bottom: coords[1] + 25
+          }}
+        ></div>
+        <div
+          className={`link  ${exits.includes("s") && "s"} `}
+          style={{
+            left: coords[0] + 5,
+            bottom: coords[1] - 10
+          }}
+        ></div>
+        <div
+          className={`link  ${exits.includes("w") && "w"} `}
+          style={{
+            left: coords[0] - 10,
+            bottom: coords[1] + 5
+          }}
+        ></div>
+      </>
     );
   } else {
     console.log(`${roomId} has no coordinates`);

@@ -1,45 +1,50 @@
 @import "/variables";
 
 .map {
-  display: flex;
-  justify-content: center;
-  border: 1px solid blue;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-}
+  .room {
+    border: 1px solid white;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: $purple;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
 
-.room {
-  border: 1px solid white;
-  width: 2.5rem;
-  height: 2.5rem;
-  color: $purple;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-}
+  .special {
+    background: yellow;
+  }
 
-.special {
-  background: yellow;
-}
+  .currentRoom {
+    background: aqua;
+  }
 
-.currentRoom {
-  background: aqua;
-}
+  .link {
+    width: 0.5rem;
+    height: 0.5rem;
+    display: none;
+    position: absolute;
+  }
 
-.link {
-  width: 0.5rem;
-  height: 0.5rem;
-  display: none;
-}
+  .e,
+  .n,
+  .s,
+  .w {
+    display: block;
+    background: $purple;
+  }
 
-.e,
-.n,
-.s,
-.w {
-  display: block;
-  background: $purple;
-  border: 1px solid white;
+  .n,
+  .s {
+    height: 1em;
+    width: 1.5em;
+  }
+
+  .e,
+  .w {
+    width: 1em;
+    height: 1.5em;
+  }
 }
