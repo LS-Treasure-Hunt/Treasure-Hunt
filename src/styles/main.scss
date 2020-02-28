@@ -6,26 +6,14 @@
 
 @import "/header";
 @import "/sidebar";
-@import "/abilities";
-@import "/mode";
+@import "/manual";
 
 
 .dashboard {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
-}
-
-.bottom {
-    width: 100vw;
-    min-height: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    > * {
-        padding: 15px
-    }
 }

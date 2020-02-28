@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStateValue } from "../../hooks/useStateValue";
 
 const Messages = () => {
+    const [currentMessage, setCurrentMessage] = useState("");
     const [{ gameState, playerState }] = useStateValue();
 
     return (
         <>
         <div className="messages">
-            <h1>Messages: </h1>
-            <p>Not available until we consider state.</p>
+            <p>Current message would go here.{currentMessage}</p>
         </div>
     </>
     )

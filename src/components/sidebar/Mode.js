@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import DirectionalPad from "./DirectionalPad";
-import Abilities from "./Abilities";
 import { useStateValue } from "../../hooks/useStateValue";
 import { collectTreasure } from "../../util/autoGold";
 import { map } from "../../util/map";
-// 
+import Manual from "./Manual"
 
 const Mode = () => {
     const [userMode, setUserMode] = useState("manual")
@@ -25,8 +23,7 @@ const Mode = () => {
   return (
     
     <div className="mode">
-      <h1>Select Mode</h1>
-      <div>
+      <div className="modeContainer">
         <label>
           <input type="radio" name="mode" id="manual" checked={userMode === "manual"} onClick={() => setUserMode("manual")} /> MANUAL
         </label>
@@ -40,8 +37,7 @@ const Mode = () => {
           <input type="radio" name="mode" id="autoSnitch" checked={userMode === "autoSnitch"} onClick={() => setUserMode("autoSnitch")} /> AUTO SNITCH
         </label>
       </div>
-      <DirectionalPad />
-      <Abilities />
+      <Manual />
     </div>
   );
 };
