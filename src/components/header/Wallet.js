@@ -1,9 +1,8 @@
-import React, from "react";
+import React from "react";
 import { useStateValue } from "../../hooks/useStateValue";
 
 export const Wallet = () => {
   const [{ playerState, gameState }] = useStateValue();
-  const [showInventory, setInventory] = useState(false);
   return (
     <>
       <div className="wallet">
