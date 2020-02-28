@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStateValue } from "../hooks/useStateValue";
+import { map } from "../util/map";
+import { collectTreasure } from "../util/autoGold";
 
 // components
 import Abilities from "./Abilities";
@@ -7,9 +9,10 @@ import Stats from "./Stats";
 import RoomInfo from "./RoomInfo";
 import Wallet from "./Wallet";
 import Gear from "./Gear";
+import Map from "./Map";
 
 const Dashboard = () => {
-  const [{ playerState, gameState }] = useStateValue();
+  const [{ playerState, gameState }, dispatch] = useStateValue();
 
   return (
     <div className="dashboard">
@@ -20,6 +23,14 @@ const Dashboard = () => {
       </section>
       <section className="middle">
         <RoomInfo />
+        <button
+          onClick={() => {
+            collectTreasure(dispatch, map);
+          }}
+        >
+          AutoGold
+        </button>
+        <Map map={map} />
       </section>
       <section className="bottom">
         <p className="mode">
