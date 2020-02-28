@@ -16,12 +16,18 @@ body {
   background-color: $almost-black;
 }
 
+div {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   width: 100%;
 }
 
 h1 {
   font-size: 2.7rem;
+  margin: 0;
 }
 
 h2 {
@@ -30,4 +36,25 @@ h2 {
 
 h3 {
   font-size: 1.7rem;
+}
+
+div, p, li {
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input, label, li, button {
+  font-family: $accent-font;
+}
+
+.statValue {
+  color: $almost-cyan;
+}
+
+.statDanger {
+color: red;
 }

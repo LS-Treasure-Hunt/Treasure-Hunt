@@ -21,8 +21,8 @@ function App() {
 
   return (
     <div className="app">
-      {/* <Dashboard /> */}
-      <Map map={map} />
+      <Dashboard />
+      {/* <Map map={map} /> */}
     </div>
   );
 }
