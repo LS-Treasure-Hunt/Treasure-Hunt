@@ -5,8 +5,8 @@
 
 
 @import "/header";
+@import "/sidebar";
 @import "/abilities";
-@import "/roomInfo";
 @import "/mode";
 
 
@@ -15,20 +15,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: space-evenly;
+  align-items: stretch;
   justify-content: space-between;
-}
-
-
-.middle {
-    width: 300px;
-    min-width: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    > * {
-        padding: 15px
-    }
 }
 
 .bottom {
