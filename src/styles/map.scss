@@ -1,6 +1,9 @@
 @import "/variables";
 
 .map {
+  position: relative;
+  height: 150em;
+
   .room {
     border: 1px solid white;
     width: 2.5rem;
