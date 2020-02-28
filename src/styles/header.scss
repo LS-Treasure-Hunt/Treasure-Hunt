@@ -27,6 +27,19 @@
   display: flex;
 }
 
+.stats {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  place-items: center start;
+  grid-auto-flow: column;
+  margin-right: 2rem;
+}
+
+.gearOff {
+  opacity: 0.5;
+}
+
 .inventory {
   min-width: 200px;
   display: flex;

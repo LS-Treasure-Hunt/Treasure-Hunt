@@ -1,7 +1,5 @@
 import React from "react";
 import Stats from "./Stats";
-import Wallet from "./Wallet";
-import Gear from "./Gear";
 import Inventory from "./Inventory";
 
 const Header = () => {
@@ -9,12 +7,10 @@ const Header = () => {
     <div className="header">
       <div className="player">
         <Stats />
-        <Wallet />
-        <Gear />
         <Inventory />
       </div>
       <div className="rightHeader">
-        <p>Available real estate.</p>
+        <h1>Lambda Treasure Hunt!</h1>
       </div>
     </div>
   );

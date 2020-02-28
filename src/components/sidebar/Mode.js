@@ -1,10 +1,29 @@
-import React, {useState} from "react";
-import DirectionalPad from "./manual/DirectionalPad";
-import Abilities from "./manual/Abilities";
+import React, { useState, useEffect } from "react";
+import DirectionalPad from "./DirectionalPad";
+import Abilities from "./Abilities";
+import { useStateValue } from "../../hooks/useStateValue";
+import { collectTreasure } from "../../util/autoGold";
+import { map } from "../../util/map";
+// 
 
 const Mode = () => {
     const [userMode, setUserMode] = useState("manual")
+    const [{ gameState }, dispatch] = useStateValue();
+
+    useEffect(() => {
+      if (userMode === "autoGold") {
+        collectTreasure(dispatch, map)
+      } else if (userMode === "autoMine") {
+        console.log("autoMine")
+      } else if (userMode === "autoSnitch") {
+        console.log("autoSnitch")
+      } else {
+        console.log("ELSE")
+      }
+    }, [userMode]);
+
   return (
+    
     <div className="mode">
       <h1>Select Mode</h1>
       <div>

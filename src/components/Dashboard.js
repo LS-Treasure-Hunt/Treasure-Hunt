@@ -5,9 +5,6 @@ import { useStateValue } from "../hooks/useStateValue";
 import Sidebar from "./sidebar/Sidebar";
 import Header from "./header/Header"
 
-import Mode from "./Mode";
-import Messages from "./Messages"
-
 const Dashboard = () => {
   const [{ playerState, gameState }] = useStateValue();
 
@@ -15,7 +12,6 @@ const Dashboard = () => {
     <div className="dashboard">
       <Header />
       <Sidebar />
-     
     </div>
   );
 };
