@@ -1,9 +1,11 @@
 import React from "react";
 import { useStateValue } from "../hooks/useStateValue";
 import { useWindowDimensions } from "../hooks/useWindowDimensions";
+import { traverse } from "../util/traverse";
+import { map } from "../util/map";
 
 const Room = ({ roomId, coordinates, exits }) => {
-  const [{ gameState }] = useStateValue();
+  const [{ gameState }, dispatch] = useStateValue();
   const { height, width } = useWindowDimensions();
   // console.log(height, width);
   let roomSize;
@@ -52,6 +54,10 @@ const Room = ({ roomId, coordinates, exits }) => {
           className={`room ${specialRooms.includes(roomId) &&
             "special"} ${gameState.room_id === roomId && "currentRoom"}`}
           style={{ left: coords[0], bottom: coords[1] }}
+          onClick={() => {
+            console.log(`Clicked ${roomId}`);
+            traverse(dispatch, roomId, map);
+          }}
         >
           {width > 1000 && roomId}
         </div>
