@@ -32,6 +32,9 @@
       border-color: $warm-gray $almost-cyan;
       border-style: outset;
   }
+  button:hover {
+    cursor: pointer;
+}
 }
 
 .abilities {
@@ -48,6 +51,9 @@
       color: $latte;
       text-align: center;
     }
+    li:hover {
+      cursor: pointer;
+  }
     .locked {
       background-color: $cool-gray-dk;
       opacity: 0.3;
@@ -68,10 +74,3 @@
     }
   }
   
-
-  .manual {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center
-  }

@@ -13,7 +13,7 @@
   border-bottom: 3px solid $fuchsia-dk;
 }
 
-.player {
+.leftHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -26,7 +26,8 @@
 
 .stats {
   display: inline-grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  width: 40vw;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   place-items: center start;
   grid-auto-flow: column;
@@ -43,10 +44,17 @@
   flex-direction: row;
 }
 
-.inventory-button {
+.inventoryButton {
+  p:hover {
+    cursor: pointer;
+  }
 }
 
-.inventory-display {
+.statusButton:hover {
+  cursor: pointer;
+}
+
+.inventoryDisplay {
   min-width: 300px;
   ul {
     display: flex;
@@ -55,5 +63,8 @@
   li {
     margin: 0 2px;
     padding: 0 2px;
+  }
+  li:hover {
+    cursor: pointer;
   }
 }
