@@ -30,8 +30,6 @@ const Room = ({ roomId, coordinates, exits }) => {
     eLeftnBottom = 9;
     sLeftwBottom = 3;
     wLeftsBottom = 9;
-  } else {
-    roomSize = 10;
   }
 
   const getCoords = coords => {
