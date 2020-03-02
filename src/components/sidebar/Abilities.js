@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useStateValue } from "../../hooks/useStateValue";
+import { warp } from "../../actions/movement";
 
 export const Abilities = () => {
-  const [{ playerState }] = useStateValue();
+  const [{ playerState }, dispatch] = useStateValue();
   const [abilities, setAbilities] = useState({
     PRAY: "unavailable",
     MINE: "available",
@@ -23,7 +24,7 @@ export const Abilities = () => {
     <div className="abilities">
       <ul>
         {Object.keys(abilities).map((k, i) => (
-          <li className={abilities[k]} key={i}>
+          <li className={abilities[k]} key={i} onClick={() => warp(dispatch)}>
             {k}
           </li>
         ))}

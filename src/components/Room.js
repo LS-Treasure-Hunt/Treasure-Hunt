@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStateValue } from "../hooks/useStateValue";
 import { useWindowDimensions } from "../hooks/useWindowDimensions";
 import { traverse } from "../util/traverse";
@@ -8,6 +8,12 @@ import { darkmap } from "../util/darkMap";
 const Room = ({ roomId, coordinates, exits }) => {
   const [{ gameState }, dispatch] = useStateValue();
   const { height, width } = useWindowDimensions();
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleHovering = () => {
+    setIsHovering(!isHovering);
+  };
+
   // console.log(height, width);
   let roomSize;
   let xOffset;
@@ -59,9 +65,17 @@ const Room = ({ roomId, coordinates, exits }) => {
             console.log(`Clicked ${roomId}`);
             traverse(dispatch, roomId, map);
           }}
+          onMouseEnter={handleHovering}
+          onMouseLeave={handleHovering}
         >
           {width > 1000 && roomId}
         </div>
+        {isHovering && gameState.room_id > 499 && (
+          <div className="hoverRoom">{darkmap[roomId].description}</div>
+        )}
+        {isHovering && gameState.room_id < 500 && (
+          <div className="hoverRoom">{map[roomId].description}</div>
+        )}
         <div
           className={`link ${exits.includes("e") && "e"}`}
           style={{

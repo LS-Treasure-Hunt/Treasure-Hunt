@@ -83,4 +83,15 @@
       border-radius: 1px;
     }
   }
+
+  .hoverRoom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $grass-green-lt;
+    background-color: $warm-gray;
+    color: $almost-black;
+    height: 12em;
+    width: 12em;
+  }
 }
