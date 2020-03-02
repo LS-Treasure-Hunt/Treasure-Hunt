@@ -3,7 +3,7 @@
 .map {
   position: relative;
   height: 95em;
-  width: 50%;
+  width: 100%;
   margin-left: 12%;
 
   @media screen and (max-width: $breakpoint-desktop) {
@@ -29,6 +29,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+    cursor: pointer;
 
     @media screen and (max-width: $breakpoint-tablet) {
       height: 1rem;
@@ -88,10 +89,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid $grass-green-lt;
+    border: 1px solid $grass-green-dk;
     background-color: $warm-gray;
     color: $almost-black;
-    height: 12em;
-    width: 12em;
+    border-width: 3px;
+    padding: 10px;
+    height: 3em;
+    width: 10em;
+    z-index: 9;
+    position: absolute;
   }
 }

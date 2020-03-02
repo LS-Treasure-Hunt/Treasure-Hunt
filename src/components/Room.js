@@ -65,16 +65,21 @@ const Room = ({ roomId, coordinates, exits }) => {
             console.log(`Clicked ${roomId}`);
             traverse(dispatch, roomId, map);
           }}
-          onMouseEnter={handleHovering}
-          onMouseLeave={handleHovering}
+          onMouseOver={handleHovering}
+          onMouseOut={handleHovering}
         >
           {width > 1000 && roomId}
         </div>
         {isHovering && gameState.room_id > 499 && (
-          <div className="hoverRoom">{darkmap[roomId].description}</div>
+          <div className="hoverRoom">{darkmap[roomId].title}</div>
         )}
         {isHovering && gameState.room_id < 500 && (
-          <div className="hoverRoom">{map[roomId].description}</div>
+          <div
+            className="hoverRoom"
+            style={{ left: coords[0], bottom: coords[1] - 40 }}
+          >
+            {map[roomId].title}
+          </div>
         )}
         <div
           className={`link ${exits.includes("e") && "e"}`}
