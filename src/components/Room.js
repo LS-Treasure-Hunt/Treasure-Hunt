@@ -3,6 +3,7 @@ import { useStateValue } from "../hooks/useStateValue";
 import { useWindowDimensions } from "../hooks/useWindowDimensions";
 import { traverse } from "../util/traverse";
 import { map } from "../util/map";
+import { darkmap } from "../util/darkMap";
 
 const Room = ({ roomId, coordinates, exits }) => {
   const [{ gameState }, dispatch] = useStateValue();
@@ -43,7 +44,7 @@ const Room = ({ roomId, coordinates, exits }) => {
     return [adjustedx, adjustedy];
   };
 
-  const specialRooms = [1, 22, 55, 374, 461, 467, 486, 492, 495, 499];
+  const specialRooms = [1, 22, 55, 374, 461, 467, 486, 492, 495, 499, 555];
 
   if (coordinates) {
     let coords = getCoords(coordinates);

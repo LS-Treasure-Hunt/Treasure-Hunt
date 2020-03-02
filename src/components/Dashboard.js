@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useStateValue } from "../hooks/useStateValue";
 import { map } from "../util/map";
+import { darkmap } from "../util/darkMap";
 import { collectTreasure } from "../util/autoGold";
 
 // components
@@ -15,7 +16,7 @@ const Dashboard = () => {
     <div className="dashboard">
       <Header />
       <section className="middle">
-        <Map map={map} />
+        <Map map={gameState.room_id < 500 ? map : darkmap} />
         <Sidebar />
       </section>
     </div>
