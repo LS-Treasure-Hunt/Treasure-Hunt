@@ -45,7 +45,6 @@ export const Stats = () => {
         )}
       </p>
       <p>
-        
         {playerState.footwear ? (
           <span role="img" aria-label="emoji" className="statValue">👢{playerState.footwear}</span>
         ) : (

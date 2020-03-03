@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useStateValue } from "../../hooks/useStateValue";
+import { warp } from "../../actions/movement";
 
 export const Abilities = () => {
   const [{ playerState }] = useStateValue();
