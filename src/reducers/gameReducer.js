@@ -31,7 +31,10 @@ import {
   RECALL_ERROR,
   START_WARP,
   WARP_SUCCESS,
-  WARP_ERROR
+  WARP_ERROR,
+  START_GET_BALANCE,
+  GET_BALANCE_SUCCESS,
+  GET_BALANCE_ERROR
 } from "../actions";
 
 export const gameReducer = (state, { type, payload }) => {
@@ -47,6 +50,7 @@ export const gameReducer = (state, { type, payload }) => {
     case START_DASH:
     case START_RECALL:
     case START_WARP:
+    case START_GET_BALANCE:
       return {
         ...state,
         isLoading: true
@@ -67,6 +71,12 @@ export const gameReducer = (state, { type, payload }) => {
         isLoading: false,
         ...payload
       };
+    case GET_BALANCE_SUCCESS:
+      return {
+        ...state,
+        coins: +payload.messages[0].split(" ")[5],
+        isLoading: false
+      };
     case INIT_ERROR:
     case MOVE_ERROR:
     case FLY_ERROR:
@@ -78,6 +88,7 @@ export const gameReducer = (state, { type, payload }) => {
     case DASH_ERROR:
     case RECALL_ERROR:
     case WARP_ERROR:
+    case GET_BALANCE_ERROR:
       return {
         ...state,
         isLoading: false,

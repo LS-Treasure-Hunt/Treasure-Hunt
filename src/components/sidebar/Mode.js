@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useStateValue } from "../../hooks/useStateValue";
 import { collectTreasure } from "../../util/autoGold";
 import { autoSnitchMiner } from "../../util/autoSnitching";
+import { autoCoinMiner } from "../../util/autoMining";
 import { map } from "../../util/map";
 import Manual from "./Manual";
 
@@ -14,6 +15,7 @@ const Mode = () => {
       collectTreasure(dispatch, map);
     } else if (userMode === "autoMine") {
       console.log("autoMine");
+      autoCoinMiner(dispatch);
     } else if (userMode === "autoSnitch") {
       console.log("autoSnitch");
       autoSnitchMiner(dispatch);

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 // import { makeGraph } from "./util/makeGraph";
-import { initGame, playerStatus } from "./actions/general";
+import { initGame, playerStatus, getBalance } from "./actions/general";
 import { useStateValue } from "./hooks/useStateValue";
 import "./styles/main.scss";
 
@@ -14,6 +14,7 @@ function App() {
     async function fetchData() {
       await initGame(dispatch);
       await playerStatus(dispatch);
+      await getBalance(dispatch);
     }
     fetchData();
   }, [dispatch]);

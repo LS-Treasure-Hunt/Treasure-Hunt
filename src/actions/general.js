@@ -24,7 +24,7 @@ export const EXAMINE_SUCCESS = "EXAMINE_SUCCESS";
 export const EXAMINE_ERROR = "EXAMINE_ERROR";
 
 export const examine = async (dispatch, target) => {
-  console.log("examining!")
+  console.log("examining!");
   dispatch({ type: START_EXAMINE });
   try {
     const res = await axiosWithAuth().post("adv/examine/", { name: target });
@@ -162,5 +162,22 @@ export const transmogrify = async dispatch => {
   } catch (err) {
     console.log("error", err.response);
     dispatch({ type: TRANSMOG_ERROR, payload: err.response });
+  }
+};
+
+export const START_GET_BALANCE = "START_GET_BALANCE";
+export const GET_BALANCE_SUCCESS = "GET_BALANCE_SUCCESS";
+export const GET_BALANCE_ERROR = "GET_BALANCE_ERROR";
+
+export const getBalance = async dispatch => {
+  dispatch({ type: START_GET_BALANCE });
+  try {
+    const res = await axiosWithAuth().get("bc/get_balance/");
+    dispatch({ type: GET_BALANCE_SUCCESS, payload: res.data });
+    wait(res.data.cooldown);
+    return res.data;
+  } catch (err) {
+    console.log("Error occurred! ", err.response);
+    dispatch({ type: GET_BALANCE_ERROR, payload: err.response });
   }
 };
