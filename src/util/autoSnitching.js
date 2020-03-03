@@ -5,7 +5,8 @@ import {
   examine,
   take,
   initGame,
-  playerStatus
+  playerStatus,
+  CLEAR_PATH
 } from "../actions";
 import { traverse } from "./traverse";
 import { darkmap } from "../util/darkMap";
@@ -28,6 +29,7 @@ export const autoSnitchMiner = async dispatch => {
       await recall(dispatch);
       await warp(dispatch);
       await traverse(dispatch, 555, darkmap);
+      dispatch({ type: CLEAR_PATH });
     }
     // Examine (res.data.description === string to decode)
     let message = await examine(dispatch, "Wishing Well");
@@ -49,6 +51,7 @@ export const autoSnitchMiner = async dispatch => {
       console.log("Just missed it...");
     }
     await playerStatus(dispatch);
+    dispatch({ type: CLEAR_PATH });
     init = { room_id: +room_number };
   }
 };

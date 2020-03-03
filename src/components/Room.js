@@ -4,8 +4,9 @@ import { useWindowDimensions } from "../hooks/useWindowDimensions";
 import { traverse } from "../util/traverse";
 import { map } from "../util/map";
 import { darkmap } from "../util/darkMap";
+import { CLEAR_PATH } from "../actions";
 
-const Room = ({ roomId, coordinates, exits }) => {
+const Room = ({ roomId, coordinates, exits, room }) => {
   const [{ gameState }, dispatch] = useStateValue();
   const { height, width } = useWindowDimensions();
   const [isHovering, setIsHovering] = useState(false);
@@ -19,6 +20,7 @@ const Room = ({ roomId, coordinates, exits }) => {
     setTargetRoom(true);
     await traverse(dispatch, roomId, map);
     setTargetRoom(false);
+    dispatch({ type: CLEAR_PATH });
   };
 
   // console.log(height, width);
@@ -67,7 +69,8 @@ const Room = ({ roomId, coordinates, exits }) => {
         <div
           className={`room ${specialRooms.includes(roomId) &&
             "special"} ${gameState.room_id === roomId &&
-            "currentRoom"} ${targetRoom && "targetRoom"}`}
+            "currentRoom"} ${targetRoom &&
+            "targetRoom"} ${gameState.path.includes(room) && "path"}`}
           style={{ left: coords[0], bottom: coords[1] }}
           onClick={e => {
             console.log(`Clicked ${roomId}`);

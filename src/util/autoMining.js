@@ -7,7 +7,8 @@ import {
   getLastProof,
   findProofOfWork,
   mine,
-  getBalance
+  getBalance,
+  CLEAR_PATH
 } from "../actions";
 import { traverse } from "./traverse";
 import { map } from "../util/map";
@@ -40,6 +41,7 @@ export const autoCoinMiner = async dispatch => {
     if (init.room_id !== 55) {
       await recall(dispatch);
       await traverse(dispatch, 55, map);
+      dispatch({ type: CLEAR_PATH });
     }
     // Examine (res.data.description === string to decode)
     let message = await examine(dispatch, "Wishing Well");
@@ -52,6 +54,7 @@ export const autoCoinMiner = async dispatch => {
     // mine coin
     await mineCoin(dispatch);
     await getBalance(dispatch);
+    dispatch({ type: CLEAR_PATH });
     init = { room_id: +room_number };
   }
 };
