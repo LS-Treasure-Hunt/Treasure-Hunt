@@ -8,14 +8,21 @@ $purple: #597dcf;
 $almost-cyan: #6dc3cb;
 $cool-gray-dk: #4d494d;
 $cool-gray-lt: #8696a2;
-$warm-gray: #757161; 
+$warm-gray: #757161;
 $brown: #864d30;
 $latte: #d3aa9a;
 $pumpkin-pie: #d37d2c;
 $grass-green-lt: #6daa2c;
 $grass-green-dk: #346524;
 
-
 // fonts
 $main-font: "Alegreya", serif;
 $accent-font: "Alegreya Sans", sans-serif;
+
+// media queries
+
+$breakpoint-desktop-large: 2200px;
+$breakpoint-desktop: 1600px;
+$breakpoint-tablet-large: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 500px;
