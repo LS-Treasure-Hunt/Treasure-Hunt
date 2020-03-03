@@ -34,7 +34,8 @@ export const initialState = {
     items: [],
     isLoading: false,
     coins: 0,
-    serverError: null
+    serverError: null,
+    path: []
   },
   miningState: {
     index: 0,
