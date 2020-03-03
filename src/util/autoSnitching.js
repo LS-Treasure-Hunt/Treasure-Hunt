@@ -1,5 +1,12 @@
 // be in darkworld, go to well, examine, decode, go to room, grab snitch
-import { warp, recall, examine, take, initGame } from "../actions";
+import {
+  warp,
+  recall,
+  examine,
+  take,
+  initGame,
+  playerStatus
+} from "../actions";
 import { traverse } from "./traverse";
 import { darkmap } from "../util/darkMap";
 import { compiledCPU } from "./cpu";
@@ -41,6 +48,7 @@ export const autoSnitchMiner = async dispatch => {
     } else {
       console.log("Just missed it...");
     }
+    await playerStatus(dispatch);
     init = { room_id: +room_number };
   }
 };

@@ -6,7 +6,8 @@ import {
   initGame,
   getLastProof,
   findProofOfWork,
-  mine
+  mine,
+  getBalance
 } from "../actions";
 import { traverse } from "./traverse";
 import { map } from "../util/map";
@@ -50,6 +51,7 @@ export const autoCoinMiner = async dispatch => {
     await traverse(dispatch, +room_number, map);
     // mine coin
     await mineCoin(dispatch);
+    await getBalance(dispatch);
     init = { room_id: +room_number };
   }
 };
