@@ -23,21 +23,26 @@
         flex-wrap: wrap
     }
     li {
-        margin: 0 2px;
-        padding: 0 2px;
+        margin: 0 .2rem;
+        padding: 0 .3rem;
     }
     .liDirection {
         font-variant-caps: all-small-caps;
     }
     .liPlayer {
-        border: 1px solid $cool-gray-dk;
+        border: 2px dotted $cool-gray-dk;
     }
     .liTreasure {
         background-color: $grass-green-lt;
-        border: 1px outset $grass-green-lt
+        border: 2px outset $grass-green-lt
     }
     .liTreasure:hover {
         cursor: pointer;
+    }
+    .liTreasure:active {
+        cursor: pointer;
+        background-color: $grass-green-dk;
+        border: 2px inset $grass-green-lt
     }
     background-color: $warm-gray;
     color: $almost-black;

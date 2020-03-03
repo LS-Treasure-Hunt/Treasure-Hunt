@@ -52,7 +52,7 @@ export const Stats = () => {
           <><span role="img" aria-label="emoji" className="gearOff">👢</span>No footwear.</>
         )}
       </p>
-      <p className="statusButton" onClick={() => playerStatus(dispatch)} >Get Status</p>
+      <div className="statusButton" onClick={() => playerStatus(dispatch)} >Get Status</div>
     </div>
   );
 };
