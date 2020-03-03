@@ -1,5 +1,5 @@
 import React from "react";
-import { examine, take } from "../../actions/";
+import { take } from "../../actions/";
 import { useStateValue } from "../../hooks/useStateValue";
 
 export const RoomInfo = () => {

@@ -24,11 +24,10 @@ export const EXAMINE_SUCCESS = "EXAMINE_SUCCESS";
 export const EXAMINE_ERROR = "EXAMINE_ERROR";
 
 export const examine = async (dispatch, target) => {
-  console.log("examining!");
   dispatch({ type: START_EXAMINE });
   try {
     const res = await axiosWithAuth().post("adv/examine/", { name: target });
-    // console.log("res.data ", res.data);
+    console.log("res.data ", res.data);
     dispatch({ type: EXAMINE_SUCCESS, payload: res.data });
     wait(res.data.cooldown);
     return res.data;
