@@ -8,7 +8,7 @@ import Manual from "./Manual";
 
 const Mode = () => {
   const [userMode, setUserMode] = useState("manual");
-  const [{ gameState }, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   useEffect(() => {
     if (userMode === "autoGold") {

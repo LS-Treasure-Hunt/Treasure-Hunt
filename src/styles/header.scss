@@ -70,7 +70,7 @@
   padding: 0.3rem;
 }
 
-.inventoryPressed {
+.inventoryButton:active, .inventoryPressed {
   border: 2px inset $fuchsia-dk;
   background-color: $fuchsia-dk;
 }
@@ -78,7 +78,8 @@
 .inventoryMenu {
   position: absolute;
   display: flex;
-  width: 40vw;
+  align-items: space-between;
+  width: 25vw;
   padding: 1rem;
   background-color: $royal-dk;
   border-bottom: 1px solid $fuchsia-dk;
@@ -86,25 +87,43 @@
 
 .inventoryGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 1rem;
   grid-auto-flow: column;
   list-style-type: none;
 
   li {
     display: flex;
-    margin: 0.5rem 0.5rem;
     padding: 0.3rem;
+    text-align: center;
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 100%;
     border: 1px outset $purple;
+    
+  }
+  
+  li:active {
+    background-color: $fuchsia-dk;
+    border: 1px inset $fuchsia-dk;
   }
   li:hover {
     cursor: pointer;
   }
-  li:active, .pressed {
-    background-color: $fuchsia-dk;
-    border: 1px inset $fuchsia-dk;
+}
+
+.inventoryActions {
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  .inventoryButton {
+    font-variant-caps: all-small-caps;
+    margin-top: 1rem;
   }
 }
