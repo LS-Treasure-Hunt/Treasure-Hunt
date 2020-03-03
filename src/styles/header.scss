@@ -14,7 +14,8 @@
   border-bottom: 3px solid $fuchsia-dk;
   h1::selection,
   p::selection,
-  div::selection {
+  div::selection,
+  li::selection {
     color: $almost-black;
     background-color: $latte;
   }
@@ -89,28 +90,21 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-auto-flow: column;
   list-style-type: none;
-  place-items: center;
-  place-content: center;
 
   li {
     display: flex;
-    margin: 0.5rem;
+    margin: 0.5rem 0.5rem;
     padding: 0.3rem;
     align-items: center;
     justify-content: center;
+    width: 100%;
     border: 1px outset $purple;
-  }
-  li:before {
-    content: "";
-    padding-bottom: 100%;
-    display: inline-block;
-    vertical-align: top;
   }
   li:hover {
     cursor: pointer;
   }
-  li:active {
+  li:active, .pressed {
     background-color: $fuchsia-dk;
-    border: 2px inset $fuchsia-dk;
+    border: 1px inset $fuchsia-dk;
   }
 }

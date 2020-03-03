@@ -7,12 +7,11 @@ export const Inventory = () => {
   const [{ playerState }, dispatch] = useStateValue();
   const [showInventory, setShowInventory] = useState(false); // inventoryMenu visibility
   const node = useRef(); // for hiding inventoryMenu with outside click
-  const [userSelect, setUserSelect] = useState(""); // selected user action
-  
+  const [userSelect, setUserSelect] = useState(""); // string of item name
+
 
 
 //----- hides inventoryMenu when user clicks outside menu
-
   useEffect(() => {
     if (showInventory) document.addEventListener("mousedown", handleClickOutside);
     else document.removeEventListener("mousedown", handleClickOutside);
@@ -33,14 +32,12 @@ export const Inventory = () => {
 
   const selectItem = (e, item) => {
     setUserSelect(item)
-    console.log(playerState.inventory[0])
-    // sets item and displays action options
+    e.currentTarget.classList.toggle("pressed") // WIP: need to find a way to clear previous pressed buttons?
   };
 
   return (
     <div ref={node}>
       <div
-         
         className={showInventory ? "inventoryButton inventoryPressed" : "inventoryButton"}
         onClick={() => setShowInventory(!showInventory)}
       >
