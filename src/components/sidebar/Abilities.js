@@ -3,19 +3,22 @@ import { useStateValue } from "../../hooks/useStateValue";
 import { warp } from "../../actions/movement";
 
 export const Abilities = () => {
-  const [{ playerState }, dispatch] = useStateValue();
-  const [abilities, setAbilities] = useState({
-    PRAY: "unavailable",
-    MINE: "available",
-    FLIGHT: "locked",
-    DASH: "locked",
-    CARRY: "locked",
-    RECALL: "locked",
-    WARP: "locked"
+  const [{ playerState }] = useStateValue();
+/*   const [abilities, setAbilities] = useState({
+    "PRAY": "unavailable",
+    "MINE": "available",
+    "FLIGHT": "locked",
+    "DASH": "locked",
+    "CARRY": "locked",
+    "RECALL": "locked",
+    "WARP": "locked"
   });
 
-  // Add this in a use
-  /* playerState.abilities.map((s) => {
+  {Object.keys(abilities).map(k => (
+    <li className={abilities[k]}>{k}</li>
+  ))}
+
+  playerState.abilities.map((s) => {
     let match = s.toUpperCase()
     setAbilities({...abilities, match: "available"})
   }) */
@@ -23,11 +26,9 @@ export const Abilities = () => {
   return (
     <div className="abilities">
       <ul>
-        {Object.keys(abilities).map((k, i) => (
-          <li className={abilities[k]} key={i} onClick={() => warp(dispatch)}>
-            {k}
-          </li>
-        ))}
+      {playerState.abilities.map((s) => {
+        return (<li key={s} className="available">{s.toUpperCase()}</li>)
+  })}
       </ul>
     </div>
   );

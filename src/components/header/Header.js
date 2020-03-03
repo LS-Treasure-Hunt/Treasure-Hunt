@@ -5,7 +5,7 @@ import Inventory from "./Inventory";
 const Header = () => {
   return (
     <div className="header">
-      <div className="player">
+      <div className="leftHeader">
         <Stats />
         <Inventory />
       </div>

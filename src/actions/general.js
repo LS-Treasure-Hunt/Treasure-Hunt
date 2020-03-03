@@ -24,6 +24,7 @@ export const EXAMINE_SUCCESS = "EXAMINE_SUCCESS";
 export const EXAMINE_ERROR = "EXAMINE_ERROR";
 
 export const examine = async (dispatch, target) => {
+  console.log("examining!")
   dispatch({ type: START_EXAMINE });
   try {
     const res = await axiosWithAuth().post("adv/examine/", { name: target });

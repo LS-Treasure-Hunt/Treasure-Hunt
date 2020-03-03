@@ -1,8 +1,9 @@
 import React from "react";
+import { playerStatus } from "../../actions/";
 import { useStateValue } from "../../hooks/useStateValue";
 
 export const Stats = () => {
-  const [{ playerState, gameState }] = useStateValue();
+  const [{ playerState, gameState }, dispatch] = useStateValue();
 
   return (
     <div className="stats">
@@ -38,32 +39,19 @@ export const Stats = () => {
       </p>
       <p>
         {playerState.bodywear ? (
-          <span className="statValue" role="img" aria-label="bodywear">
-            👕 {playerState.bodywear}
-          </span>
+          <span role="img" aria-label="emoji" className="statValue">👕 {playerState.bodywear}</span>
         ) : (
-          <>
-            <span className="gearOff" role="img" aria-label="bodywear">
-              👕
-            </span>{" "}
-            No bodywear.{" "}
-          </>
+          <><span role="img" aria-label="emoji" className="gearOff">👕</span> No bodywear. </>
         )}
       </p>
       <p>
         {playerState.footwear ? (
-          <span className="statValue" role="img" aria-label="footwear">
-            👢{playerState.footwear}
-          </span>
+          <span role="img" aria-label="emoji" className="statValue">👢{playerState.footwear}</span>
         ) : (
-          <>
-            <span className="gearOff" role="img" aria-label="footwear">
-              👢
-            </span>
-            No footwear.
-          </>
+          <><span role="img" aria-label="emoji" className="gearOff">👢</span>No footwear.</>
         )}
       </p>
+      <div className="statusButton" onClick={() => playerStatus(dispatch)} >Get Status</div>
     </div>
   );
 };

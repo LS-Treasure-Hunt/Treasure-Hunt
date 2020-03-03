@@ -38,16 +38,22 @@ h3 {
   font-size: 1.7rem;
 }
 
-div, p, li {
+div,
+p,
+li {
   font-size: 1.5rem;
   line-height: 1.8rem;
+  cursor: default;
 }
 
 ul {
   list-style-type: none;
 }
 
-input, label, li, button {
+input,
+label,
+li,
+button {
   font-family: $accent-font;
 }
 
@@ -56,5 +62,5 @@ input, label, li, button {
 }
 
 .statDanger {
-color: red;
+  color: red;
 }

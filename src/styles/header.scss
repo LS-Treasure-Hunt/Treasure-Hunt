@@ -1,6 +1,7 @@
 .header {
   width: 100%;
-  height: 72px;
+  min-height: 72px;
+  height: 100px;
   top: 0;
   left: 0;
   position: sticky;
@@ -11,49 +12,99 @@
   justify-content: space-between;
   background-color: $royal-dk;
   border-bottom: 3px solid $fuchsia-dk;
+  h1::selection,
+  p::selection,
+  div::selection,
+  li::selection {
+    color: $almost-black;
+    background-color: $latte;
+  }
 }
 
-.player {
+.leftHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
 }
 
 .rightHeader {
   display: flex;
+  flex-direction: column;
 }
 
 .stats {
   display: inline-grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  width: 40vw;
+  border: 1px solid red;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; // all auto-placed except Status button
   grid-template-rows: 1fr 1fr 1fr;
   place-items: center start;
   grid-auto-flow: column;
-  margin-right: 2rem;
+  margin-right: 0; // Adjust as needed
 }
 
 .gearOff {
   opacity: 0.5;
 }
 
-.inventory {
-  min-width: 200px;
-  display: flex;
-  flex-direction: row;
+.statusButton {
+  grid-column-start: 4;
+  grid-row-start: 3;
+  border: 2px outset $purple;
+  padding: 0.3rem;
+}
+.statusButton:hover {
+  cursor: pointer;
+}
+.statusButton:active {
+  background-color: $fuchsia-dk;
+  border: 2px inset $fuchsia-dk;
 }
 
-.inventory-button {
-}
-
-.inventory-display {
-  min-width: 300px;
-  ul {
-    display: flex;
-    flex-flow: row;
+.inventoryButton {
+  p:hover {
+    cursor: pointer;
   }
+  border: 2px outset $purple;
+  padding: 0.3rem;
+}
+
+.inventoryPressed {
+  border: 2px inset $fuchsia-dk;
+  background-color: $fuchsia-dk;
+}
+
+.inventoryMenu {
+  position: absolute;
+  display: flex;
+  width: 40vw;
+  padding: 1rem;
+  background-color: $royal-dk;
+  border-bottom: 1px solid $fuchsia-dk;
+}
+
+.inventoryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-auto-flow: column;
+  list-style-type: none;
+
   li {
-    margin: 0 2px;
-    padding: 0 2px;
+    display: flex;
+    margin: 0.5rem 0.5rem;
+    padding: 0.3rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 1px outset $purple;
+  }
+  li:hover {
+    cursor: pointer;
+  }
+  li:active, .pressed {
+    background-color: $fuchsia-dk;
+    border: 1px inset $fuchsia-dk;
   }
 }
