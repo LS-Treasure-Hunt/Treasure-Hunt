@@ -14,6 +14,14 @@ const Room = ({ roomId, coordinates, exits }) => {
     setIsHovering(!isHovering);
   };
 
+  const highlightRoom = e => {
+    console.log(e.target);
+    let room = e.target;
+
+    room.style.color = "red";
+    room.style.border = "1px solid red";
+  };
+
   // console.log(height, width);
   let roomSize;
   let xOffset;
@@ -61,9 +69,10 @@ const Room = ({ roomId, coordinates, exits }) => {
           className={`room ${specialRooms.includes(roomId) &&
             "special"} ${gameState.room_id === roomId && "currentRoom"}`}
           style={{ left: coords[0], bottom: coords[1] }}
-          onClick={() => {
+          onClick={e => {
             console.log(`Clicked ${roomId}`);
             traverse(dispatch, roomId, map);
+            highlightRoom(e);
           }}
           onMouseOver={handleHovering}
           onMouseOut={handleHovering}
