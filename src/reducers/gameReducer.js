@@ -8,9 +8,6 @@ import {
   START_INIT,
   INIT_SUCCESS,
   INIT_ERROR,
-  START_EXAMINE,
-  EXAMINE_SUCCESS,
-  EXAMINE_ERROR,
   START_TAKE,
   TAKE_SUCCESS,
   TAKE_ERROR,
@@ -42,7 +39,6 @@ export const gameReducer = (state, { type, payload }) => {
     case START_INIT:
     case START_MOVE:
     case START_FLY:
-    case START_EXAMINE:
     case START_TAKE:
     case START_DROP:
     case START_CARRY:
@@ -58,7 +54,6 @@ export const gameReducer = (state, { type, payload }) => {
     case INIT_SUCCESS:
     case MOVE_SUCCESS:
     case FLY_SUCCESS:
-    case EXAMINE_SUCCESS:
     case TAKE_SUCCESS:
     case DROP_SUCCESS:
     case CARRY_SUCCESS:
@@ -80,7 +75,6 @@ export const gameReducer = (state, { type, payload }) => {
     case INIT_ERROR:
     case MOVE_ERROR:
     case FLY_ERROR:
-    case EXAMINE_ERROR:
     case TAKE_ERROR:
     case DROP_ERROR:
     case CARRY_ERROR:

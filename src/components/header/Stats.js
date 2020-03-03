@@ -39,12 +39,6 @@ export const Stats = () => {
       </p>
       <p>
         {playerState.bodywear ? (
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <span role="img" aria-label="emoji" className="statValue">👕 {playerState.bodywear}</span>
-        ) : (
-          <><span role="img" aria-label="emoji" className="gearOff">👕</span> No bodywear. </>
-=======
           <span className="statValue" role="img" aria-label="bodywear">
             👕 {playerState.bodywear}
           </span>
@@ -55,22 +49,10 @@ export const Stats = () => {
             </span>{" "}
             No bodywear.{" "}
           </>
->>>>>>> 947ecca76c633bf06083551dbb6ccb1ff31939a2
-=======
-          <span role="img" aria-label="emoji" className="statValue">👕 {playerState.bodywear}</span>
-        ) : (
-          <><span role="img" aria-label="emoji" className="gearOff">👕</span> No bodywear. </>
->>>>>>> d4925abd2cd077383138c6956d5d5c64830318a9
         )}
       </p>
       <p>
         {playerState.footwear ? (
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <span role="img" aria-label="emoji" className="statValue">👢{playerState.footwear}</span>
-        ) : (
-          <><span role="img" aria-label="emoji" className="gearOff">👢</span>No footwear.</>
-=======
           <span className="statValue" role="img" aria-label="footwear">
             👢{playerState.footwear}
           </span>
@@ -81,12 +63,6 @@ export const Stats = () => {
             </span>
             No footwear.
           </>
->>>>>>> 947ecca76c633bf06083551dbb6ccb1ff31939a2
-=======
-          <span role="img" aria-label="emoji" className="statValue">👢{playerState.footwear}</span>
-        ) : (
-          <><span role="img" aria-label="emoji" className="gearOff">👢</span>No footwear.</>
->>>>>>> d4925abd2cd077383138c6956d5d5c64830318a9
         )}
       </p>
       <div className="statusButton" onClick={() => playerStatus(dispatch)} >Get Status</div>
