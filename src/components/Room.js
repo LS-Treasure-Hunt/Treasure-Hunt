@@ -9,17 +9,16 @@ const Room = ({ roomId, coordinates, exits }) => {
   const [{ gameState }, dispatch] = useStateValue();
   const { height, width } = useWindowDimensions();
   const [isHovering, setIsHovering] = useState(false);
+  const [targetRoom, setTargetRoom] = useState(false);
 
   const handleHovering = () => {
     setIsHovering(!isHovering);
   };
 
-  const highlightRoom = e => {
-    console.log(e.target);
-    let room = e.target;
-
-    room.style.color = "red";
-    room.style.border = "1px solid red";
+  const goToRoom = async () => {
+    setTargetRoom(true);
+    await traverse(dispatch, roomId, map);
+    setTargetRoom(false);
   };
 
   // console.log(height, width);
@@ -67,12 +66,12 @@ const Room = ({ roomId, coordinates, exits }) => {
       <>
         <div
           className={`room ${specialRooms.includes(roomId) &&
-            "special"} ${gameState.room_id === roomId && "currentRoom"}`}
+            "special"} ${gameState.room_id === roomId &&
+            "currentRoom"} ${targetRoom && "targetRoom"}`}
           style={{ left: coords[0], bottom: coords[1] }}
           onClick={e => {
             console.log(`Clicked ${roomId}`);
-            traverse(dispatch, roomId, map);
-            highlightRoom(e);
+            goToRoom();
           }}
           onMouseOver={handleHovering}
           onMouseOut={handleHovering}
