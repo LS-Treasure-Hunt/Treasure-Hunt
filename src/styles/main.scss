@@ -3,11 +3,9 @@
 @import "/variables";
 @import "/map";
 
-
 @import "/header";
 @import "/sidebar";
 @import "/manual";
-
 
 .dashboard {
   width: 100%;
@@ -15,5 +13,10 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  justify-content: space-between;
+}
+
+.middle {
+  display: flex;
   justify-content: space-between;
 }

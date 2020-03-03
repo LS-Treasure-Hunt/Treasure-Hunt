@@ -39,17 +39,42 @@ export const Stats = () => {
       </p>
       <p>
         {playerState.bodywear ? (
+<<<<<<< HEAD
           <span role="img" aria-label="emoji" className="statValue">👕 {playerState.bodywear}</span>
         ) : (
           <><span role="img" aria-label="emoji" className="gearOff">👕</span> No bodywear. </>
+=======
+          <span className="statValue" role="img" aria-label="bodywear">
+            👕 {playerState.bodywear}
+          </span>
+        ) : (
+          <>
+            <span className="gearOff" role="img" aria-label="bodywear">
+              👕
+            </span>{" "}
+            No bodywear.{" "}
+          </>
+>>>>>>> 947ecca76c633bf06083551dbb6ccb1ff31939a2
         )}
       </p>
       <p>
-        
         {playerState.footwear ? (
+<<<<<<< HEAD
           <span role="img" aria-label="emoji" className="statValue">👢{playerState.footwear}</span>
         ) : (
           <><span role="img" aria-label="emoji" className="gearOff">👢</span>No footwear.</>
+=======
+          <span className="statValue" role="img" aria-label="footwear">
+            👢{playerState.footwear}
+          </span>
+        ) : (
+          <>
+            <span className="gearOff" role="img" aria-label="footwear">
+              👢
+            </span>
+            No footwear.
+          </>
+>>>>>>> 947ecca76c633bf06083551dbb6ccb1ff31939a2
         )}
       </p>
       <div className="statusButton" onClick={() => playerStatus(dispatch)} >Get Status</div>
