@@ -1,5 +1,5 @@
 import React from "react";
-import { move } from "../../actions/";
+import { move, SET_LOCK } from "../../actions/";
 import { useStateValue } from "../../hooks/useStateValue";
 import { map } from "../../util/map";
 import { darkmap } from "../../util/darkMap";
@@ -15,8 +15,13 @@ const DirectionalPad = () => {
         ? darkmap[gameState.room_id].neighbors[direction]
         : map[gameState.room_id].neighbors[direction];
 
-    if (gameState.exits.includes(direction) && room !== undefined) {
+    if (
+      gameState.exits.includes(direction) &&
+      room !== undefined &&
+      gameState.lock < Date.now()
+    ) {
       move(dispatch, direction, room);
+      dispatch({ type: SET_LOCK });
     }
   };
 

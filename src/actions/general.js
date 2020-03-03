@@ -6,6 +6,9 @@ export const START_INIT = "START_INIT";
 export const INIT_SUCCESS = "INIT_SUCCESS";
 export const INIT_ERROR = "INIT_ERROR";
 
+export const SET_LOCK = "SET_LOCK";
+export const RESET_TIMER = "RESET_TIMER";
+
 export const initGame = async dispatch => {
   dispatch({ type: START_INIT });
   try {

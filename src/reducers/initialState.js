@@ -14,7 +14,7 @@ export const initialState = {
     has_mined: false,
     messages: [],
     errors: [],
-    cooldown: null,
+    cooldown: 0,
     snitches: 0,
     isLoading: false,
     serverError: null
@@ -25,7 +25,7 @@ export const initialState = {
     description: "",
     coordinates: "",
     exits: [],
-    cooldown: 1.0,
+    cooldown: 0,
     errors: [],
     messages: [],
     elevation: 0,
@@ -34,7 +34,8 @@ export const initialState = {
     items: [],
     isLoading: false,
     coins: 0,
-    serverError: null
+    serverError: null,
+    lock: Date.now()
   },
   miningState: {
     index: 0,

@@ -17,7 +17,7 @@ export const move = async (dispatch, dir, nextRoom = null) => {
     const res = await axiosWithAuth().post("adv/move/", command);
     // console.log(res.data);
     dispatch({ type: MOVE_SUCCESS, payload: res.data });
-    wait(res.data.cooldown);
+    // wait(res.data.cooldown);
     return res.data;
   } catch (err) {
     console.log("error", err.response);

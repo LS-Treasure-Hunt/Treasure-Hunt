@@ -31,7 +31,9 @@ import {
   RECALL_ERROR,
   START_WARP,
   WARP_SUCCESS,
-  WARP_ERROR
+  WARP_ERROR,
+  SET_LOCK,
+  RESET_TIMER
 } from "../actions";
 
 export const gameReducer = (state, { type, payload }) => {
@@ -82,6 +84,16 @@ export const gameReducer = (state, { type, payload }) => {
         ...state,
         isLoading: false,
         serverError: payload
+      };
+    case SET_LOCK:
+      return {
+        ...state,
+        lock: Date.now() + state.cooldown * 1000
+      };
+    case RESET_TIMER:
+      return {
+        ...state,
+        cooldown: 0
       };
     default:
       return state;
