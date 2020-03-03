@@ -303,21 +303,21 @@ export const map = {
       neighbors: { s: 34, e: 37, w: 12 }
     },
     "15": {
-      room_id: 15,
-      title: "A misty room",
-      description:
-        "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
-      coordinates: "(63,60)",
-      elevation: 0,
-      terrain: "NORMAL",
-      players: ["[George H]"],
-      items: [],
-      exits: ["w"],
-      cooldown: 15,
-      errors: [],
-      messages: ["You have walked east."],
-      neighbors: { w: 13 }
-    },
+      "room_id": 15,
+      "title": "JKMT Donuts",
+      "description": "A glass display case separates you from fried, yummy goodness. Behind the stacks of pink boxes, you hear a worker yelling. A sign reads, 'Donuts for sale!'",
+      "coordinates": "(63,60)",
+      "elevation": 0,
+      "terrain": "NORMAL",
+      "players": [],
+      "items": [],
+      "exits": [
+          "w"
+      ],
+      "cooldown": 1.0,
+      "errors": [],
+      "messages": []
+  },
     "16": {
       room_id: 16,
       title: "A misty room",

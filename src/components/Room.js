@@ -57,7 +57,7 @@ const Room = ({ roomId, coordinates, exits }) => {
     return [adjustedx, adjustedy];
   };
 
-  const specialRooms = [1, 22, 55, 374, 461, 467, 486, 492, 495, 499, 555];
+  const specialRooms = [1, 15, 22, 55, 374, 461, 467, 486, 492, 495, 499, 555];
 
   if (coordinates) {
     let coords = getCoords(coordinates);
