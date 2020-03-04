@@ -67,13 +67,10 @@ const Room = ({ roomId, coordinates, exits, room }) => {
     return (
       <>
         <div
-          className={`
-            room 
-            ${specialRooms.includes(roomId) && "special"} 
-            ${gameState.room_id === roomId && "currentRoom"} 
-            ${targetRoom && "targetRoom"}
-            ${gameState.path.includes(room) && "path"}
-            `}
+          className={`room ${specialRooms.includes(roomId) &&
+            "special"} ${gameState.room_id === roomId &&
+            "currentRoom"} ${targetRoom &&
+            "targetRoom"} ${gameState.path.includes(room) && "path"}`}
           style={{ left: coords[0], bottom: coords[1] }}
           onClick={e => {
             console.log(`Clicked ${roomId}`);
