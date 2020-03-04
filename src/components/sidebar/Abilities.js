@@ -4,7 +4,7 @@ import { warp } from "../../actions/movement";
 
 export const Abilities = () => {
   const [{ playerState }] = useStateValue();
-/*   const [abilities, setAbilities] = useState({
+ const [abilities, setAbilities] = useState({
     "PRAY": "unavailable",
     "MINE": "available",
     "FLIGHT": "locked",
@@ -13,11 +13,11 @@ export const Abilities = () => {
     "RECALL": "locked",
     "WARP": "locked"
   });
-
+/* 
   {Object.keys(abilities).map(k => (
     <li className={abilities[k]}>{k}</li>
-  ))}
-
+  ))} */
+/* 
   playerState.abilities.map((s) => {
     let match = s.toUpperCase()
     setAbilities({...abilities, match: "available"})
@@ -26,9 +26,10 @@ export const Abilities = () => {
   return (
     <div className="abilities">
       <ul>
-      {playerState.abilities.map((s) => {
-        return (<li key={s} className="available">{s.toUpperCase()}</li>)
-  })}
+      {Object.keys(abilities).map(k => (
+    <li className={abilities[k]}>{k}</li>
+      ))}
+  
       </ul>
     </div>
   );

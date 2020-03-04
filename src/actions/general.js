@@ -116,10 +116,10 @@ export const START_RECEIVE = "START_RECEIVE";
 export const RECEIVE_SUCCESS = "RECEIVE_SUCCESS";
 export const RECEIVE_ERROR = "RECEIVE_ERROR";
 
-export const receive = async (dispatch, item) => {
+export const receive = async dispatch => {
   dispatch({ type: START_RECEIVE });
   try {
-    const res = await axiosWithAuth().post("adv/receive/", { name: item });
+    const res = await axiosWithAuth().post("adv/receive/");
     // console.log("res.data ", res.data);
     dispatch({ type: RECEIVE_SUCCESS, payload: res.data });
     wait(res.data.cooldown);

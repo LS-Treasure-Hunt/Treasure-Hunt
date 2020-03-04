@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { drop, examine, sell, transmogrify } from "../../actions/";
+import { drop, examine, sell, transmogrify, carry, receive } from "../../actions/";
 import { useStateValue } from "../../hooks/useStateValue";
 import InventoryActions from './InventoryActions'
 
@@ -41,6 +41,12 @@ const submitAction = (action) => {
       case "drop":
         drop(dispatch, selectedItem)
         break
+      case "carry":
+          carry(dispatch, selectedItem)
+          break
+      case "receive":
+          receive(dispatch)
+          break
     } 
     setShowInventory(false); // close menu
     setSelectedItem(""); // reset item
