@@ -15,11 +15,11 @@ export const Abilities = () => {
     "RECALL": "locked",
     "WARP": "locked"
   });
-
+/* 
   {Object.keys(abilities).map(k => (
     <li className={abilities[k]}>{k}</li>
-  ))}
-
+  ))} */
+  /* 
   playerState.abilities.map((s) => {
     let match = s.toUpperCase()
     setAbilities({...abilities, match: "available"})
