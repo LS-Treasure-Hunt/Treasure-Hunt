@@ -61,13 +61,11 @@ const Room = ({ roomId, coordinates, exits, room }) => {
 
   const specialRooms = [1, 22, 55, 374, 461, 467, 486, 492, 495, 499, 555];
 
-  
   if (coordinates) {
     let coords = getCoords(coordinates);
 
     return (
       <>
-        
         <div
           className={`
             room 
@@ -86,9 +84,14 @@ const Room = ({ roomId, coordinates, exits, room }) => {
         >
           {width > 1000 && roomId}
         </div>
-        
+
         {isHovering && gameState.room_id > 499 && (
-          <div className="hoverRoom">{darkmap[roomId].title}</div>
+          <div
+            className="hoverRoom"
+            style={{ left: coords[0], bottom: coords[1] - 40 }}
+          >
+            {darkmap[roomId].title}
+          </div>
         )}
         {isHovering && gameState.room_id < 500 && (
           <div

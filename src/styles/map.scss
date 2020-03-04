@@ -112,13 +112,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid $grass-green-dk;
-    background-color: $warm-gray;
-    color: $almost-black;
-    border-width: 3px;
-    padding: 10px;
-    height: 3em;
-    width: 10em;
+    border: 1px solid $purple;
+    background-color: $royal-dk;
+    color: $purple;
+    padding: 1rem;
     z-index: 99;
     position: absolute;
   }
