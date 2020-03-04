@@ -22,7 +22,7 @@ const Mode = () => {
     } else {
       console.log("ELSE");
     }
-  }, [userMode]);
+  }, [userMode, dispatch]);
 
   return (
     <div className="mode">

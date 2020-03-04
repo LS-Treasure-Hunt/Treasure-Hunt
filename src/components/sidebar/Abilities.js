@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useStateValue } from "../../hooks/useStateValue";
-import { warp } from "../../actions/movement";
+import { warp, recall } from "../../actions/movement";
+import { pray } from "../../actions/general";
 
 export const Abilities = () => {
-  const [{ playerState }] = useStateValue();
-/*   const [abilities, setAbilities] = useState({
+  const [{ playerState }, dispatch] = useStateValue();
+  /*   const [abilities, setAbilities] = useState({
     "PRAY": "unavailable",
     "MINE": "available",
     "FLIGHT": "locked",
@@ -23,12 +24,59 @@ export const Abilities = () => {
     setAbilities({...abilities, match: "available"})
   }) */
 
+  const allAbilities = [
+    "pray",
+    "mine",
+    "warp",
+    "recall",
+    "fly",
+    "dash",
+    "carry"
+  ];
+
   return (
     <div className="abilities">
       <ul>
-      {playerState.abilities.map((s) => {
-        return (<li key={s} className="available">{s.toUpperCase()}</li>)
-  })}
+        <button
+          key={"pray"}
+          className={`ability ${playerState.abilities.includes("pray") &&
+            "available"}`}
+          onClick={() => {
+            console.log("praying");
+            pray(dispatch);
+          }}
+        >
+          PRAY
+        </button>
+        <button
+          key={"warp"}
+          className={`ability ${playerState.abilities.includes("warp") &&
+            "available"}`}
+          onClick={() => {
+            console.log("warping");
+            warp(dispatch);
+          }}
+        >
+          WARP
+        </button>
+        <button
+          key={"recall"}
+          className={`ability ${playerState.abilities.includes("recall") &&
+            "available"}`}
+          onClick={() => {
+            console.log("recalling");
+            recall(dispatch);
+          }}
+        >
+          RECALL
+        </button>
+        {playerState.abilities.map(s => {
+          return (
+            <li key={s} className="available">
+              {s.toUpperCase()}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

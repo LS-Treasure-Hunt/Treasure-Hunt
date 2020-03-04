@@ -46,6 +46,8 @@
 
   .path {
     background-color: #ececec;
+    border: 1px solid $stop-red;
+    color: $stop-red;
   }
 
   .currentRoom {
@@ -53,7 +55,7 @@
   }
 
   .targetRoom {
-    background-color: red;
+    background-color: $stop-red;
     color: white;
   }
 
