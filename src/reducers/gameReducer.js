@@ -66,13 +66,15 @@ export const gameReducer = (state, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        ...payload
+        ...payload,
+        actionLog: [...state.actionLog, { messages: payload.messages }]
       };
     case GET_BALANCE_SUCCESS:
       return {
         ...state,
         coins: +payload.messages[0].split(" ")[5],
-        isLoading: false
+        isLoading: false,
+        actionLog: [...state.actionLog, { messages: payload.messages }]
       };
     case INIT_ERROR:
     case MOVE_ERROR:

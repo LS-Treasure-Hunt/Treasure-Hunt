@@ -15,38 +15,38 @@
 }
 
 .roomInfo {
-    ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap
-    }
-    li {
-        margin: 0 .2rem;
-        padding: 0 .3rem;
-    }
-    .liDirection {
-        font-variant-caps: all-small-caps;
-    }
-    .liPlayer {
-        border: 2px dotted $cool-gray-dk;
-    }
-    .liTreasure {
-        background-color: $grass-green-lt;
-        border: 2px outset $grass-green-lt
-    }
-    .liTreasure:hover {
-        cursor: pointer;
-    }
-    .liTreasure:active {
-        cursor: pointer;
-        background-color: $grass-green-dk;
-        border: 2px inset $grass-green-lt
-    }
-    background-color: $warm-gray;
-    color: $almost-black;
-    border-style: outset;
-    border-width: 3px;
-    border-color: $grass-green-dk;
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  li {
+    margin: 0 0.2rem;
+    padding: 0 0.3rem;
+  }
+  .liDirection {
+    font-variant-caps: all-small-caps;
+  }
+  .liPlayer {
+    border: 2px dotted $cool-gray-dk;
+  }
+  .liTreasure {
+    background-color: $grass-green-lt;
+    border: 2px outset $grass-green-lt;
+  }
+  .liTreasure:hover {
+    cursor: pointer;
+  }
+  .liTreasure:active {
+    cursor: pointer;
+    background-color: $grass-green-dk;
+    border: 2px inset $grass-green-lt;
+  }
+  background-color: $warm-gray;
+  color: $almost-black;
+  border-style: outset;
+  border-width: 3px;
+  border-color: $grass-green-dk;
 
   color: $almost-black;
   border-style: outset;
@@ -62,28 +62,43 @@
 }
 
 .modeContainer {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    input {
-        position: absolute !important;
-        clip: rect(0, 0, 0, 0);
-        height: 1px;
-        width: 1px;
-        border: 0;
-        overflow: hidden;
-    }
-    label {
-        line-height: 1;
-        text-align: center;
-        padding: 1rem;
-        margin-right: -1px;
-        box-shadow: inset 0 1px 3px $almost-black;
-        transition: all 0.1s ease-in-out;
-        
-    }
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+  }
+  label {
+    line-height: 1;
+    text-align: center;
+    padding: 1rem;
+    margin-right: -1px;
+    box-shadow: inset 0 1px 3px $almost-black;
+    transition: all 0.1s ease-in-out;
+  }
 
-    label:hover {
-        cursor: pointer;
-    }
+  label:hover {
+    cursor: pointer;
+  }
+}
+
+.messages {
+  overflow: auto;
+  height: 100%;
+  margin-top: 1rem;
+
+  .oldAction {
+    opacity: 0.5;
+    color: $purple;
+  }
+
+  .currentAction {
+    opacity: 1;
+    color: $almost-cyan;
+  }
 }
