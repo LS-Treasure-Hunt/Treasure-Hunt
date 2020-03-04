@@ -36,6 +36,7 @@
 }
 
 .abilities {
+  color: $almost-black;
   .ability {
     text-transform: uppercase;
   }
@@ -57,6 +58,7 @@
     color: $latte;
     text-align: center;
     margin: 0.25rem;
+    outline: none;
   }
   button:hover {
     cursor: pointer;
@@ -71,7 +73,7 @@
   .unavailable {
     background-color: $brown;
     opacity: 0.6;
-    border-style: inset;
+    border-style: none;
     border-color: $warm-gray;
   }
   .clickable {
@@ -83,6 +85,7 @@
     border-width: 0;
     background-color: $brown;
     border-style: 1px solid $warm-gray;
+    opacity: 0.6;
   }
 }
 
