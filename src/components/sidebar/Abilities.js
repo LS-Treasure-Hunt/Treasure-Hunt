@@ -46,7 +46,7 @@ export const Abilities = () => {
       return "clickable";
     }
   };
-  console.log("mode", gameState.mode);
+
   return (
     <section
       className={`abilities ${gameState.mode !== "manual" && "nonManual"}`}
