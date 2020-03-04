@@ -1,6 +1,5 @@
 .header {
   width: 100%;
-  min-height: 72px;
   height: 100px;
   top: 0;
   left: 0;
@@ -35,7 +34,7 @@
 
 .stats {
   display: inline-grid;
-  width: 40vw;
+  width: 45vw;
   border: 1px solid red;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr; // all auto-placed except Status button
   grid-template-rows: 1fr 1fr 1fr;
