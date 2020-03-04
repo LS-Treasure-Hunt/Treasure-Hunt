@@ -81,8 +81,14 @@ const Room = ({ roomId, coordinates, exits, room }) => {
         >
           {width > 1000 && roomId}
         </div>
+
         {isHovering && gameState.room_id > 499 && (
-          <div className="hoverRoom">{darkmap[roomId].title}</div>
+          <div
+            className="hoverRoom"
+            style={{ left: coords[0], bottom: coords[1] - 40 }}
+          >
+            {darkmap[roomId].title}
+          </div>
         )}
         {isHovering && gameState.room_id < 500 && (
           <div
