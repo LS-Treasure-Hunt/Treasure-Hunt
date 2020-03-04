@@ -31,7 +31,9 @@ import {
   WARP_ERROR,
   START_GET_BALANCE,
   GET_BALANCE_SUCCESS,
-  GET_BALANCE_ERROR
+  GET_BALANCE_ERROR,
+  SET_PATH,
+  CLEAR_PATH
 } from "../actions";
 
 export const gameReducer = (state, { type, payload }) => {
@@ -87,6 +89,16 @@ export const gameReducer = (state, { type, payload }) => {
         ...state,
         isLoading: false,
         serverError: payload
+      };
+    case SET_PATH:
+      return {
+        ...state,
+        path: payload
+      };
+    case CLEAR_PATH:
+      return {
+        ...state,
+        path: []
       };
     default:
       return state;
