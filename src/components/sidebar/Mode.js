@@ -1,72 +1,55 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useStateValue } from "../../hooks/useStateValue";
 import { collectTreasure } from "../../util/autoGold";
 import { autoSnitchMiner } from "../../util/autoSnitching";
 import { autoCoinMiner } from "../../util/autoMining";
 import { map } from "../../util/map";
 import Manual from "./Manual";
+import { SET_MODE } from "../../actions";
 
 const Mode = () => {
-  const [userMode, setUserMode] = useState("manual");
-  const [, dispatch] = useStateValue();
-
-  useEffect(() => {
-    if (userMode === "autoGold") {
-      collectTreasure(dispatch, map);
-    } else if (userMode === "autoMine") {
-      console.log("autoMine");
-      autoCoinMiner(dispatch);
-    } else if (userMode === "autoSnitch") {
-      console.log("autoSnitch");
-      autoSnitchMiner(dispatch);
-    } else {
-      console.log("ELSE");
-    }
-  }, [userMode]);
+  const [{ gameState }, dispatch] = useStateValue();
 
   return (
     <div className="mode">
       <div className="modeContainer">
-        <label>
-          <input
-            type="radio"
-            name="mode"
-            id="manual"
-            checked={userMode === "manual"}
-            onClick={() => setUserMode("manual")}
-          />{" "}
+        <button
+          className={`${gameState.mode === "manual" && "activeMode"}`}
+          onClick={() => dispatch({ type: SET_MODE, payload: "manual" })}
+        >
           MANUAL
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="mode"
-            id="autoGold"
-            checked={userMode === "autoGold"}
-            onClick={() => setUserMode("autoGold")}
-          />{" "}
+        </button>
+
+        <button
+          className={`${gameState.mode === "autoGold" && "activeMode"}`}
+          onClick={() => {
+            dispatch({ type: SET_MODE, payload: "autoGold" });
+            collectTreasure(dispatch, map);
+            console.log("autoGold");
+          }}
+        >
           AUTO GOLD
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="mode"
-            id="autoMine"
-            checked={userMode === "autoMine"}
-            onClick={() => setUserMode("autoMine")}
-          />{" "}
+        </button>
+        <button
+          className={`${gameState.mode === "autoMine" && "activeMode"}`}
+          onClick={() => {
+            dispatch({ type: SET_MODE, payload: "autoMine" });
+            autoCoinMiner(dispatch);
+            console.log("autoMine");
+          }}
+        >
           AUTO MINE
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="mode"
-            id="autoSnitch"
-            checked={userMode === "autoSnitch"}
-            onClick={() => setUserMode("autoSnitch")}
-          />{" "}
+        </button>
+        <button
+          className={`${gameState.mode === "autoSnitch" && "activeMode"}`}
+          onClick={() => {
+            dispatch({ type: SET_MODE, payload: "autoSnitch" });
+            autoSnitchMiner(dispatch);
+            console.log("autoSnitch");
+          }}
+        >
           AUTO SNITCH
-        </label>
+        </button>
       </div>
       <Manual />
     </div>

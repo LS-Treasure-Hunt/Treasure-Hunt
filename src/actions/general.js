@@ -183,3 +183,23 @@ export const getBalance = async dispatch => {
 
 export const SET_PATH = "SET_PATH";
 export const CLEAR_PATH = "CLEAR_PATH";
+
+export const START_PRAY = "START_PRAY";
+export const PRAY_SUCCESS = "PRAY_SUCCESS";
+export const PRAY_ERROR = "PRAY_ERROR";
+
+export const pray = async dispatch => {
+  dispatch({ type: START_PRAY });
+  try {
+    const res = await axiosWithAuth().post("adv/pray/");
+    dispatch({ type: PRAY_SUCCESS, payload: res.data });
+    wait(res.data.cooldown);
+    console.log(res.data);
+    return res.data;
+  } catch (err) {
+    console.log("error", err.response);
+    dispatch({ type: PRAY_ERROR, payload: err.response });
+  }
+};
+
+export const SET_MODE = "SET_MODE";
