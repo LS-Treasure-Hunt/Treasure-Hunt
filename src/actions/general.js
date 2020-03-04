@@ -201,3 +201,5 @@ export const pray = async dispatch => {
     dispatch({ type: PRAY_ERROR, payload: err.response });
   }
 };
+
+export const SET_MODE = "SET_MODE";

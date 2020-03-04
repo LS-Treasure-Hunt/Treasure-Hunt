@@ -5,10 +5,11 @@ import { autoSnitchMiner } from "../../util/autoSnitching";
 import { autoCoinMiner } from "../../util/autoMining";
 import { map } from "../../util/map";
 import Manual from "./Manual";
+import { SET_MODE } from "../../actions";
 
 const Mode = () => {
   const [userMode, setUserMode] = useState("manual");
-  const [, dispatch] = useStateValue();
+  const [{ gameState }, dispatch] = useStateValue();
 
   useEffect(() => {
     if (userMode === "autoGold") {
@@ -33,7 +34,7 @@ const Mode = () => {
             name="mode"
             id="manual"
             checked={userMode === "manual"}
-            onClick={() => setUserMode("manual")}
+            onClick={() => dispatch({ type: SET_MODE, payload: "manual" })}
           />{" "}
           MANUAL
         </label>
@@ -43,7 +44,7 @@ const Mode = () => {
             name="mode"
             id="autoGold"
             checked={userMode === "autoGold"}
-            onClick={() => setUserMode("autoGold")}
+            onClick={() => dispatch({ type: SET_MODE, payload: "autoGold" })}
           />{" "}
           AUTO GOLD
         </label>
@@ -53,7 +54,7 @@ const Mode = () => {
             name="mode"
             id="autoMine"
             checked={userMode === "autoMine"}
-            onClick={() => setUserMode("autoMine")}
+            onClick={() => dispatch({ type: SET_MODE, payload: "autoMine" })}
           />{" "}
           AUTO MINE
         </label>
@@ -63,7 +64,7 @@ const Mode = () => {
             name="mode"
             id="autoSnitch"
             checked={userMode === "autoSnitch"}
-            onClick={() => setUserMode("autoSnitch")}
+            onClick={() => dispatch({ type: SET_MODE, payload: "autoSnitch" })}
           />{" "}
           AUTO SNITCH
         </label>

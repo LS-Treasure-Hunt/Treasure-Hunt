@@ -24,7 +24,7 @@ export const playerReducer = (state, { type, payload }) => {
         ...payload
       };
     case STATUS_ERROR:
-    case PRAY_SUCCESS:
+    case PRAY_ERROR:
       return {
         ...state,
         isLoading: false,
