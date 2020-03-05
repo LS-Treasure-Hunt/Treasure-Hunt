@@ -7,14 +7,9 @@ import { darkmap } from "../util/darkMap";
 import { CLEAR_PATH } from "../actions";
 
 const Room = ({ roomId, coordinates, exits, room }) => {
-<<<<<<< HEAD
   const [{ playerState, gameState }, dispatch] = useStateValue();
-  const { height, width } = useWindowDimensions();
-=======
-  const [{ gameState }, dispatch] = useStateValue();
   // const { height, width } = useWindowDimensions();
   const { width } = useWindowDimensions();
->>>>>>> bb139cc915d5bf57d626dd8518e8aa05258cba12
   const [isHovering, setIsHovering] = useState(false);
   const [targetRoom, setTargetRoom] = useState(false);
 
