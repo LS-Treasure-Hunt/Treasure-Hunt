@@ -56,15 +56,17 @@ function bfs(startingRoom, graph) {
 
 // traverse back to valid room
 export async function walkBack(dispatch, path) {
-  let startingRoom = path.shift();
+  let startingRoom;
   let nextRoom = null;
 
   while (path.length > 0) {
+    startingRoom = path.shift();
     nextRoom = path.shift();
     let directions = ["n", "s", "e", "w"];
 
     for (let dir of directions) {
       if (startingRoom.neighbors[dir] === nextRoom.room_id) {
+        
         console.log("NEXT ROOM ID", nextRoom.room_id);
         await move(dispatch, dir, nextRoom.room_id);
         startingRoom = nextRoom;

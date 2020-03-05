@@ -1,5 +1,5 @@
 import { dashBack, withDash } from "./powers";
-import { initGame, move, SET_PATH } from "../actions";
+import { initGame, SET_PATH } from "../actions";
 import { walkBack } from "./makeGraph"
 
 export function getPathToRoom(startingRoom, graph, roomId) {
