@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useStateValue } from "../../hooks/useStateValue";
 
 const Messages = () => {
-  const [currentMessage, setCurrentMessage] = useState("");
-  const [{ gameState, playerState }] = useStateValue();
+  const [{ gameState }] = useStateValue();
 
   console.log("gameState log: ", gameState.actionLog);
 

@@ -2,7 +2,6 @@ import React from "react";
 import { useStateValue } from "../hooks/useStateValue";
 import { map } from "../util/map";
 import { darkmap } from "../util/darkMap";
-import { collectTreasure } from "../util/autoGold";
 
 // components
 import Sidebar from "./sidebar/Sidebar";
@@ -10,7 +9,7 @@ import Header from "./header/Header";
 import Map from "./Map";
 
 const Dashboard = () => {
-  const [{ playerState, gameState }, dispatch] = useStateValue();
+  const [{ gameState }] = useStateValue();
 
   return (
     <div className="dashboard">
