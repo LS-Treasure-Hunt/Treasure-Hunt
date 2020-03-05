@@ -34,15 +34,17 @@ export const RoomInfo = () => {
       <p>Description: {gameState.description}</p>
       <div>
         Other Players:{" "}
-        <ul>
-          {gameState.players.length > 0
-            ? gameState.players.map((val, i) => (
-                <li className="liPlayer" key={i}>
-                  {val}
-                </li>
-              ))
-            : "None"}
-        </ul>
+        <div className="otherPlayers">
+          <ul>
+            {gameState.players.length > 0
+              ? gameState.players.map((val, i) => (
+                  <li className="liPlayer" key={i}>
+                    {val}
+                  </li>
+                ))
+              : "None"}
+          </ul>
+        </div>
       </div>
       <div>
         Items:{" "}
@@ -54,7 +56,7 @@ export const RoomInfo = () => {
                   key={i}
                   onClick={async () => {
                     await take(dispatch, val);
-                    playerStatus(dispatch);
+                    await playerStatus(dispatch);
                   }}
                 >
                   {val}

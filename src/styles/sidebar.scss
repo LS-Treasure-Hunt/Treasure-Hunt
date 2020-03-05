@@ -52,6 +52,11 @@
   border-style: outset;
   border-width: 3px;
   border-color: $grass-green-dk;
+
+  .otherPlayers {
+    height: 5em;
+    overflow-y: auto;
+  }
 }
 
 .manual {
@@ -90,5 +95,21 @@
     box-shadow: inset 0 1px 3px $almost-black;
     background-color: #7890a3b6;
     color: $almost-black;
+  }
+}
+
+.messages {
+  overflow: auto;
+  height: 100%;
+  margin-top: 1rem;
+
+  .oldAction {
+    opacity: 0.5;
+    color: $purple;
+  }
+
+  .currentAction {
+    opacity: 1;
+    color: $almost-cyan;
   }
 }

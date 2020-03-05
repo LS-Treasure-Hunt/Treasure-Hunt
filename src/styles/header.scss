@@ -35,7 +35,6 @@
 .stats {
   display: inline-grid;
   width: 45vw;
-  border: 1px solid red;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr; // all auto-placed except Status button
   grid-template-rows: 1fr 1fr 1fr;
   place-items: center start;
@@ -69,7 +68,8 @@
   padding: 0.3rem;
 }
 
-.inventoryButton:active, .inventoryPressed {
+.inventoryButton:active,
+.inventoryPressed {
   border: 2px inset $fuchsia-dk;
   background-color: $fuchsia-dk;
 }
@@ -101,9 +101,8 @@
     width: 100%;
     height: 100%;
     border: 1px outset $purple;
-    
   }
-  
+
   li:active {
     background-color: $fuchsia-dk;
     border: 1px inset $fuchsia-dk;

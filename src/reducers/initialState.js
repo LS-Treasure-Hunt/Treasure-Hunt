@@ -36,6 +36,7 @@ export const initialState = {
     coins: 0,
     serverError: null,
     path: [],
+    actionLog: [],
     mode: "manual"
   },
   miningState: {
