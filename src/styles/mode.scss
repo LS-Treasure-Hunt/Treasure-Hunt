@@ -1,0 +1,45 @@
+.modeBox {
+  height: 16rem;
+  color: $almost-cyan;
+  margin-top: 1rem;
+
+  .modeReq {
+    margin: 1rem 0;
+  }
+
+  .reqLabel {
+    color: $tomato;
+  }
+
+  input {
+    width: 5rem;
+  }
+
+  .autoLimit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem 0;
+
+    .autoInput {
+      button,
+      input {
+        height: 2.5rem;
+        margin: 0.25rem;
+      }
+
+      button {
+        border-width: 3px;
+        border-color: $warm-gray $latte;
+      }
+    }
+
+    .autoAction {
+      outline: none;
+      background-color: $brown;
+      opacity: 1;
+      border-style: outset;
+      color: $latte;
+    }
+  }
+}

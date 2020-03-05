@@ -5,7 +5,9 @@ import {
   sell,
   transmogrify,
   carry,
-  receive
+  receive,
+  playerStatus
+
 } from "../../actions/";
 import { useStateValue } from "../../hooks/useStateValue";
 import InventoryActions from "./InventoryActions";
@@ -35,19 +37,22 @@ export const Inventory = () => {
     // e.currentTarget.classList.toggle("pressed") - save it for a future sprint - complicates the user expectations
   };
 
-  const submitAction = action => {
+  const submitAction = async action => {
     switch (action) {
       case "sell":
-        sell(dispatch, selectedItem);
+        await sell(dispatch, selectedItem);
+        playerStatus(dispatch);
         break;
       case "transmogrify":
-        transmogrify(dispatch, selectedItem);
+        await transmogrify(dispatch, selectedItem);
+        playerStatus(dispatch);
         break;
       case "examine":
         examine(dispatch, selectedItem);
         break;
       case "drop":
-        drop(dispatch, selectedItem);
+        await drop(dispatch, selectedItem);
+        playerStatus(dispatch);
         break;
       case "carry":
         carry(dispatch, selectedItem);

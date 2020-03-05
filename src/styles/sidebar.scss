@@ -52,6 +52,11 @@
   border-style: outset;
   border-width: 3px;
   border-color: $grass-green-dk;
+
+  .otherPlayers {
+    height: 5em;
+    overflow-y: auto;
+  }
 }
 
 .manual {
@@ -65,7 +70,6 @@
   cursor: pointer;
   display: flex;
   flex-direction: row;
-
 
   button {
     line-height: 1;
@@ -82,16 +86,16 @@
     outline: none;
   }
 
-  label:hover {
+  button:hover {
     cursor: pointer;
   }
-  
-    .activeMode {
+
+  .activeMode {
     border-style: inset;
     box-shadow: inset 0 1px 3px $almost-black;
     background-color: #7890a3b6;
     color: $almost-black;
-}
+  }
 }
 
 .messages {
@@ -109,4 +113,3 @@
     color: $almost-cyan;
   }
 }
-

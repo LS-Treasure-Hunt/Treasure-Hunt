@@ -152,10 +152,10 @@ export const START_TRANSMOG = "START_TRANSMOG";
 export const TRANSMOG_SUCCESS = "TRANSMOG_SUCCESS";
 export const TRANSMOG_ERROR = "TRANSMOG_ERROR";
 
-export const transmogrify = async dispatch => {
+export const transmogrify = async (dispatch, item) => {
   dispatch({ type: START_TRANSMOG });
   try {
-    const res = await axiosWithAuth().post("adv/transmogrify/");
+    const res = await axiosWithAuth().post("adv/transmogrify/", { name: item });
     dispatch({ type: TRANSMOG_SUCCESS, payload: res.data });
     wait(res.data.cooldown);
     return res.data;
