@@ -22,7 +22,7 @@ const DirectionalPad = () => {
 
   return (
     <>
-      <div className={`dpad ${gameState.mode !== "manual" && "nonManual"}`}>
+      <div className="dpad">
         <button
           value="n"
           onClick={e => moveBoosted(e)}
