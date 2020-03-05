@@ -60,7 +60,7 @@ export async function walkBack(dispatch, path) {
   let nextRoom = null;
 
   while (path.length > 0) {
-    nextRoom = path.shift();
+    nextRoom = path[0];
     let directions = ["n", "s", "e", "w"];
 
     for (let dir of directions) {
@@ -68,6 +68,7 @@ export async function walkBack(dispatch, path) {
         console.log("NEXT ROOM ID", nextRoom.room_id);
         await move(dispatch, dir, nextRoom.room_id);
         startingRoom = nextRoom;
+        path.shift()
         break;
       }
     }

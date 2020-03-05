@@ -76,8 +76,11 @@ export const gameReducer = (state, { type, payload }) => {
         ...state,
         coins: +payload.messages[0].split(" ")[5],
         isLoading: false,
-        actionLog: [...state.actionLog, { messages: payload.messages }]
-      };
+        actionLog:
+        state.actionLog.length > 1
+            ? [...state.actionLog, { messages: payload.messages }]
+            : []
+      };      
     case INIT_ERROR:
     case MOVE_ERROR:
     case FLY_ERROR:
