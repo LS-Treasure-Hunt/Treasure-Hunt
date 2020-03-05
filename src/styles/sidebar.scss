@@ -65,26 +65,33 @@
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  input {
-    position: absolute !important;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    width: 1px;
-    border: 0;
-    overflow: hidden;
-  }
-  label {
+
+
+  button {
     line-height: 1;
     text-align: center;
     padding: 1rem;
     margin-right: -1px;
     box-shadow: inset 0 1px 3px $almost-black;
+    border-width: 3px;
+    border-color: $warm-gray $almost-cyan;
+    border-style: outset;
     transition: all 0.1s ease-in-out;
+    background-color: $cool-gray-lt;
+    color: $almost-black;
+    outline: none;
   }
 
   label:hover {
     cursor: pointer;
   }
+  
+    .activeMode {
+    border-style: inset;
+    box-shadow: inset 0 1px 3px $almost-black;
+    background-color: #7890a3b6;
+    color: $almost-black;
+}
 }
 
 .messages {
@@ -102,3 +109,4 @@
     color: $almost-cyan;
   }
 }
+

@@ -2,7 +2,8 @@ import React from "react";
 import { useStateValue } from "../../hooks/useStateValue";
 
 const InventoryActions = ({ selectedItem, submitAction }) => {
-  const [{ gameState }] = useStateValue();
+  const [{ playerState,gameState }] = useStateValue();
+
   return (
     <div className="inventoryActions">
       {selectedItem !== "" ? (
@@ -13,14 +14,12 @@ const InventoryActions = ({ selectedItem, submitAction }) => {
           <p className="inventoryButton" onClick={e => submitAction("drop")}>
             Drop
           </p>
-          {selectedItem.includes("treasure") && gameState.room_id === 1 && (
+          {gameState.room_id === 1 && (
             <p className="inventoryButton" onClick={e => submitAction("sell")}>
               Sell
             </p>
           )}
-          {(selectedItem.includes("boots") ||
-            selectedItem.includes("jacket")) &&
-            gameState.room_id === 455 && (
+          {gameState.room_id === 495 && (
               <p
                 className="inventoryButton"
                 onClick={e => submitAction("transmogrify")}
@@ -28,10 +27,19 @@ const InventoryActions = ({ selectedItem, submitAction }) => {
                 Transmogrify
               </p>
             )}
+          {playerState.abilities.includes("carry") && (
+              <p
+                className="inventoryButton"
+                onClick={e => submitAction("carry")}
+              >
+                Carry
+              </p>
+            )}
         </>
       ) : (
-        "Select Item"
+        <p>Select item.</p>
       )}
+      {playerState.status.length > 0 && (<><p>{playerState.status}<span onClick={e => submitAction("receive")} className="statValue">Return item.</span></p></>)}
     </div>
   );
 };

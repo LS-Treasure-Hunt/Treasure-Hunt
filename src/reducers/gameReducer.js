@@ -33,7 +33,8 @@ import {
   GET_BALANCE_SUCCESS,
   GET_BALANCE_ERROR,
   SET_PATH,
-  CLEAR_PATH
+  CLEAR_PATH,
+  SET_MODE
 } from "../actions";
 
 export const gameReducer = (state, { type, payload }) => {
@@ -101,6 +102,11 @@ export const gameReducer = (state, { type, payload }) => {
       return {
         ...state,
         path: []
+      };
+    case SET_MODE:
+      return {
+        ...state,
+        mode: payload
       };
     default:
       return state;
