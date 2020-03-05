@@ -3,6 +3,7 @@ import { dash, fly, move } from "../actions";
 
 export async function dashBack(dispatch, path) {
   let startingRoom;
+  console.log(path)
   while (path.length > 0) {
     startingRoom = path.shift();
     if (startingRoom.length > 3) {

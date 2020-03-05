@@ -1,5 +1,5 @@
 import { dashBack, withDash } from "./powers";
-import { initGame, SET_PATH } from "../actions";
+import { initGame, move, SET_PATH } from "../actions";
 
 export function getPathToRoom(startingRoom, graph, roomId) {
   console.log("STARTING ROOM BFS", startingRoom);
@@ -24,16 +24,30 @@ export function getPathToRoom(startingRoom, graph, roomId) {
   }
 }
 
-export async function traverse(dispatch, target, map) {
+export async function traverse(dispatch, target, map, dash = false, fly = false) {
   let room = await initGame(dispatch);
 
   let path = getPathToRoom(map[room.room_id], map, target);
   console.log("room", room, "path", path);
   dispatch({ type: SET_PATH, payload: path });
 
-  // convert path to include possible dashes
-  path = withDash(path, map);
-  console.log("Dashed path", path);
+  if (dash === true) {
+    path = withDash(path, map);
+    console.log("Dashed path", path);
+    return await dashBack(dispatch, path);
+  } else { 
+    console.log("Normal path", path);
+    return await moveBack(dispatch, path);}
+}
 
-  return await dashBack(dispatch, path);
+export async function moveBack(dispatch, path) {
+  let startingRoom;
+  while (path.length > 0) {
+    startingRoom = path.shift();
+    let direction = startingRoom[0];
+    for (let i = 1; i < startingRoom.length; i++) {
+      console.log(startingRoom)
+      await move(dispatch, direction, `${startingRoom[i].room_id}`);
+    }
+  }
 }
