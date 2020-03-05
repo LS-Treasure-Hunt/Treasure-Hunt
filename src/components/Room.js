@@ -8,7 +8,8 @@ import { CLEAR_PATH } from "../actions";
 
 const Room = ({ roomId, coordinates, exits, room }) => {
   const [{ gameState }, dispatch] = useStateValue();
-  const { height, width } = useWindowDimensions();
+  // const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const [isHovering, setIsHovering] = useState(false);
   const [targetRoom, setTargetRoom] = useState(false);
 
