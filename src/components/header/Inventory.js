@@ -7,6 +7,7 @@ import {
   carry,
   receive,
   playerStatus
+
 } from "../../actions/";
 import { useStateValue } from "../../hooks/useStateValue";
 import InventoryActions from "./InventoryActions";
@@ -58,6 +59,8 @@ export const Inventory = () => {
         break;
       case "receive":
         receive(dispatch);
+        break;
+      default:
         break;
     }
     setShowInventory(false); // close menu
