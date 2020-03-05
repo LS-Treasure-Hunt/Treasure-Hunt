@@ -34,7 +34,8 @@ import {
   GET_BALANCE_ERROR,
   SET_PATH,
   CLEAR_PATH,
-  SET_MODE
+  SET_MODE,
+  SET_ITEM_LOGS
 } from "../actions";
 
 export const gameReducer = (state, { type, payload }) => {
@@ -107,6 +108,11 @@ export const gameReducer = (state, { type, payload }) => {
       return {
         ...state,
         mode: payload
+      };
+    case SET_ITEM_LOGS:
+      return {
+        ...state,
+        actionLog: [...state.actionLog, { messages: [payload.description] }]
       };
     default:
       return state;

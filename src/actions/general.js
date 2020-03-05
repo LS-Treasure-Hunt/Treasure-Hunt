@@ -27,8 +27,9 @@ export const examine = async (dispatch, target) => {
   dispatch({ type: START_EXAMINE });
   try {
     const res = await axiosWithAuth().post("adv/examine/", { name: target });
-    console.log("res.data ", res.data);
+    // console.log("res.data ", res.data);
     dispatch({ type: EXAMINE_SUCCESS, payload: res.data });
+    dispatch({ type: SET_ITEM_LOGS, payload: res.data });
     wait(res.data.cooldown);
     return res.data;
   } catch (err) {
@@ -203,3 +204,4 @@ export const pray = async dispatch => {
 };
 
 export const SET_MODE = "SET_MODE";
+export const SET_ITEM_LOGS = "SET_ITEM_LOGS";

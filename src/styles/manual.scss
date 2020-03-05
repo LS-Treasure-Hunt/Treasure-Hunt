@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   place-items: center;
+  margin-bottom: 2rem;
 
   .north {
     grid-row-start: 1;
@@ -91,4 +92,29 @@
 
 .nonManual {
   visibility: hidden;
+}
+
+// Maybe change this to make it a bit more DRY?
+.dpad-container {
+  display: flex;
+  flex-direction: column;
+
+  .special {
+    border-width: 3px;
+    border-color: $grass-green-dk;
+    padding: 5px 8px;
+    color: $almost-black;
+    text-align: center;
+    margin: 0.25rem;
+    outline: none;
+    cursor: pointer;
+  }
+  .ability {
+    text-transform: uppercase;
+  }
+  .clickable {
+    background-color: $warm-gray;
+    opacity: 1;
+    border-style: outset;
+  }
 }
