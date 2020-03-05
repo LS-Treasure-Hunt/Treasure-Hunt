@@ -59,7 +59,20 @@ const Room = ({ roomId, coordinates, exits, room }) => {
     return [adjustedx, adjustedy];
   };
 
-  const specialRooms = [1, 15, 22, 55, 374, 461, 467, 486, 492, 495, 499, 555];
+  const specialRooms = {
+    1: "special",
+    15: "special",
+    22: "special",
+    55: "special",
+    374: "special",
+    461: "special",
+    467: "special",
+    486: "special",
+    492: "special",
+    495: "special",
+    499: "special",
+    555: "special"
+  };
 
   if (coordinates) {
     let coords = getCoords(coordinates);
@@ -67,9 +80,8 @@ const Room = ({ roomId, coordinates, exits, room }) => {
     return (
       <>
         <div
-          className={`room ${specialRooms.includes(roomId) &&
-            "special"} ${gameState.room_id === roomId &&
-            "currentRoom"} ${targetRoom &&
+          className={`room ${specialRooms[roomId]} ${gameState.room_id ===
+            roomId && "currentRoom"} ${targetRoom &&
             "targetRoom"} ${gameState.path.includes(room) && "path"}`}
           style={{ left: coords[0], bottom: coords[1] }}
           onClick={e => {

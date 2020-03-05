@@ -6,6 +6,7 @@
 @import "/header";
 @import "/sidebar";
 @import "/manual";
+@import "/mode";
 
 .dashboard {
   width: 100%;
@@ -19,4 +20,12 @@
 .middle {
   display: flex;
   justify-content: space-between;
+}
+
+.hidden {
+  display: none;
+}
+
+button:hover {
+  cursor: pointer;
 }

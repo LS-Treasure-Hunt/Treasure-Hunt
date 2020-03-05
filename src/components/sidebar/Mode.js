@@ -1,10 +1,9 @@
 import React from "react";
 import { useStateValue } from "../../hooks/useStateValue";
-import { collectTreasure } from "../../util/autoGold";
-import { autoSnitchMiner } from "../../util/autoSnitching";
-import { autoCoinMiner } from "../../util/autoMining";
-import { map } from "../../util/map";
 import Manual from "./Manual";
+import AutoMine from "./AutoMine";
+import AutoGold from "./AutoGold";
+import AutoSnitch from "./AutoSnitch";
 import { SET_MODE } from "../../actions";
 
 const Mode = () => {
@@ -24,8 +23,6 @@ const Mode = () => {
           className={`${gameState.mode === "autoGold" && "activeMode"}`}
           onClick={() => {
             dispatch({ type: SET_MODE, payload: "autoGold" });
-            collectTreasure(dispatch, map);
-            console.log("autoGold");
           }}
         >
           AUTO GOLD
@@ -34,8 +31,6 @@ const Mode = () => {
           className={`${gameState.mode === "autoMine" && "activeMode"}`}
           onClick={() => {
             dispatch({ type: SET_MODE, payload: "autoMine" });
-            autoCoinMiner(dispatch);
-            console.log("autoMine");
           }}
         >
           AUTO MINE
@@ -44,14 +39,15 @@ const Mode = () => {
           className={`${gameState.mode === "autoSnitch" && "activeMode"}`}
           onClick={() => {
             dispatch({ type: SET_MODE, payload: "autoSnitch" });
-            autoSnitchMiner(dispatch);
-            console.log("autoSnitch");
           }}
         >
           AUTO SNITCH
         </button>
       </div>
       <Manual />
+      <AutoGold />
+      <AutoMine />
+      <AutoSnitch />
     </div>
   );
 };

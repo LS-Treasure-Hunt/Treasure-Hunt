@@ -7,12 +7,18 @@ import { mine } from "../../actions/mining";
 export const Abilities = () => {
   const [{ playerState, gameState }, dispatch] = useStateValue();
 
-  const shrines = [22, 374, 461, 486, 492, 499];
+  const shrines = {
+    22: "fly",
+    374: "warp",
+    461: "dash",
+    492: "recall",
+    499: "carry"
+  };
 
   const abilityStatus = ability => {
     if (!playerState.abilities.includes(ability)) {
       return "locked";
-    } else if (ability === "pray" && !shrines.includes(gameState.room_id)) {
+    } else if (ability === "pray" && !shrines[gameState.room_id]) {
       return "unavailable";
     } else {
       return "clickable";
@@ -20,9 +26,7 @@ export const Abilities = () => {
   };
 
   return (
-    <section
-      className={`abilities ${gameState.mode !== "manual" && "nonManual"}`}
-    >
+    <section className="abilities">
       <section className="abilityGroup">
         <div className="abilityHeading">One-Click Abilities</div>
         <button
@@ -34,7 +38,9 @@ export const Abilities = () => {
           title="For use at shrines"
         >
           {!playerState.abilities.includes("pray") && (
-            <span aria-label="emoji">🔒</span>
+            <span aria-label="emoji" role="img">
+              🔒
+            </span>
           )}
           Pray
         </button>
@@ -47,7 +53,9 @@ export const Abilities = () => {
           title="Mine for coins"
         >
           {!playerState.abilities.includes("mine") && (
-            <span aria-label="emoji">🔒</span>
+            <span aria-label="emoji" role="img">
+              🔒
+            </span>
           )}
           Mine
         </button>
@@ -60,7 +68,9 @@ export const Abilities = () => {
           title="Warp between dimensions"
         >
           {!playerState.abilities.includes("warp") && (
-            <span aria-label="emoji">🔒</span>
+            <span aria-label="emoji" role="img">
+              🔒
+            </span>
           )}
           Warp
         </button>
@@ -73,7 +83,9 @@ export const Abilities = () => {
           title="Recall back to room 0"
         >
           {!playerState.abilities.includes("recall") && (
-            <span aria-label="emoji">🔒</span>
+            <span aria-label="emoji" role="img">
+              🔒
+            </span>
           )}
           Recall
         </button>
@@ -88,7 +100,9 @@ export const Abilities = () => {
           title="Dash in a straight line"
         >
           {!playerState.abilities.includes("dash") && (
-            <span aria-label="emoji">🔒</span>
+            <span aria-label="emoji" role="img">
+              🔒
+            </span>
           )}
           Dash
         </button>
@@ -99,7 +113,9 @@ export const Abilities = () => {
           title="Fly over terrain (does not work in caves)"
         >
           {!playerState.abilities.includes("fly") && (
-            <span aria-label="emoji">🔒</span>
+            <span aria-label="emoji" role="img">
+              🔒
+            </span>
           )}
           Fly
         </button>
@@ -110,7 +126,9 @@ export const Abilities = () => {
           title="Have Glasowyn carry an item"
         >
           {!playerState.abilities.includes("carry") && (
-            <span aria-label="emoji">🔒</span>
+            <span aria-label="emoji" role="img">
+              🔒
+            </span>
           )}
           Carry
         </button>
