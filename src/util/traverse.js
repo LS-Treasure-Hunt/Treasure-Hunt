@@ -24,7 +24,13 @@ export function getPathToRoom(startingRoom, graph, roomId) {
   }
 }
 
-export async function traverse(dispatch, target, map, dash = false, fly = false) {
+export async function traverse(
+  dispatch,
+  target,
+  map,
+  dash = false,
+  fly = false
+) {
   let room = await initGame(dispatch);
 
   let path = getPathToRoom(map[room.room_id], map, target);
@@ -35,9 +41,10 @@ export async function traverse(dispatch, target, map, dash = false, fly = false)
     path = withDash(path, map);
     console.log("Dashed path", path);
     return await dashBack(dispatch, path);
-  } else { 
+  } else {
     console.log("Normal path", path);
-    return await moveBack(dispatch, path);}
+    return await moveBack(dispatch, path);
+  }
 }
 
 export async function moveBack(dispatch, path) {
@@ -46,7 +53,7 @@ export async function moveBack(dispatch, path) {
     startingRoom = path.shift();
     let direction = startingRoom[0];
     for (let i = 1; i < startingRoom.length; i++) {
-      console.log(startingRoom)
+      console.log(startingRoom);
       await move(dispatch, direction, `${startingRoom[i].room_id}`);
     }
   }
