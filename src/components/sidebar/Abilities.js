@@ -6,34 +6,6 @@ import { mine } from "../../actions/mining";
 
 export const Abilities = () => {
   const [{ playerState, gameState }, dispatch] = useStateValue();
-  /*   const [abilities, setAbilities] = useState({
-    "PRAY": "unavailable",
-    "MINE": "available",
-    "FLIGHT": "locked",
-    "DASH": "locked",
-    "CARRY": "locked",
-    "RECALL": "locked",
-    "WARP": "locked"
-  });
-/* 
-  {Object.keys(abilities).map(k => (
-    <li className={abilities[k]}>{k}</li>
-  ))} */
-  /* 
-  playerState.abilities.map((s) => {
-    let match = s.toUpperCase()
-    setAbilities({...abilities, match: "available"})
-  }) */
-
-  const allAbilities = [
-    "pray",
-    "mine",
-    "warp",
-    "recall",
-    "fly",
-    "dash",
-    "carry"
-  ];
 
   const shrines = [22, 374, 461, 486, 492, 499];
 
