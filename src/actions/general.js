@@ -205,3 +205,24 @@ export const pray = async dispatch => {
 
 export const SET_MODE = "SET_MODE";
 export const SET_ITEM_LOGS = "SET_ITEM_LOGS";
+
+export const BUY_DONUT = "BUY_DONUT";
+export const BUY_SUCCESS = "BUY_SUCCESS";
+export const BUY_ERROR = "BUY_ERROR";
+
+export const buy = async dispatch => {
+  dispatch({ type: BUY_DONUT });
+  try {
+    const res = await axiosWithAuth().post("adv/buy/", {
+      name: "donut",
+      confirm: "yes"
+    });
+    dispatch({ type: BUY_SUCCESS, payload: res.data });
+    wait(res.data.cooldown);
+    // console.log(res.data);
+    return res.data;
+  } catch (err) {
+    console.log("error", err.response);
+    dispatch({ type: BUY_ERROR, payload: err.response });
+  }
+};

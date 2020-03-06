@@ -1,5 +1,5 @@
 import React from "react";
-import { move, examine, SET_ITEM_LOGS } from "../../actions/";
+import { move, examine, buy, playerStatus } from "../../actions/";
 import { useStateValue } from "../../hooks/useStateValue";
 import { map } from "../../util/map";
 import { darkmap } from "../../util/darkMap";
@@ -48,12 +48,21 @@ const DirectionalPad = () => {
         <button
           className={`ability clickable special ${gameState.mode !== "manual" &&
             "nonManual"}`}
-          onClick={() => {
-            if (playerState.abilities[0] === "pray") {
-              // buy(dispatch);
+          onClick={async () => {
+            if (
+              playerState.abilities[0] === "pray" &&
+              playerState.gold > 2000
+            ) {
+              await buy(dispatch);
+              await playerStatus(dispatch);
             }
           }}
         >
+          {playerState.abilities[0] !== "pray" && playerState.gold < 2000 && (
+            <span aria-label="emoji" role="img">
+              🔒
+            </span>
+          )}
           Buy Donut
         </button>
       )}
