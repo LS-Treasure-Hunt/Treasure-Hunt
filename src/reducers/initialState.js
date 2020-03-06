@@ -16,6 +16,7 @@ export const initialState = {
     errors: [],
     cooldown: null,
     snitches: 0,
+    sugar_rush: 0,
     isLoading: false,
     serverError: null
   },

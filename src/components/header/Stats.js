@@ -65,7 +65,13 @@ export const Stats = () => {
           </>
         )}
       </p>
-      <div className="statusButton" onClick={() => playerStatus(dispatch)} >Get Status</div>
+      <p>
+        Sugar Rush (secs):{" "}
+        <span className="statValue">{playerState.sugar_rush}</span>
+      </p>
+      <div className="statusButton" onClick={() => playerStatus(dispatch)}>
+        Get Status
+      </div>
     </div>
   );
 };
