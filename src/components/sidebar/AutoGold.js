@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStateValue } from "../../hooks/useStateValue";
 import { collectTreasure } from "../../util/autoGold";
+import { map } from "../../util/map";
 
 const AutoGold = () => {
   const [{ gameState }, dispatch] = useStateValue();
+  const [attempts, setAttempts] = useState(0);
+
+  const updateAttempts = e => {
+    setAttempts(+e.target.value);
+  };
 
   return (
     <div
@@ -20,11 +26,11 @@ const AutoGold = () => {
       <div className="autoLimit">
         Enter desired number of minutes to collect gold:
         <div className="autoInput">
-          <input type="number" placeholder="#" />
+          <input type="number" placeholder="#" onChange={updateAttempts} />
           <button
             className="autoAction"
             onClick={() => {
-              collectTreasure(dispatch);
+              collectTreasure(dispatch, map, attempts);
               console.log("autoGold");
             }}
           >

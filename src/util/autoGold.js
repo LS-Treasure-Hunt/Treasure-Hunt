@@ -21,12 +21,14 @@ export async function sellTreasure(dispatch, room, inventory) {
   }
 }
 
-export async function collectTreasure(dispatch, map) {
+export async function collectTreasure(dispatch, map, attempts) {
+  let count = 0;
   //Initialize current player location
   await initGame(dispatch);
 
-  while (true) {
+  while (count < attempts) {
     await traverseForGold(dispatch, Math.floor(Math.random() * 499), map);
+    count++;
   }
 }
 
