@@ -9,8 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: $royal-dk;
-  border-bottom: 3px solid $fuchsia-dk;
+  background-color: $secondary-gray;
+  border-bottom: 2px solid $secondary-teal;
 
   h1::selection,
   p::selection,
@@ -41,6 +41,14 @@
   place-items: center start;
   grid-auto-flow: column;
   margin-right: 0; // Adjust as needed
+
+  .playerName {
+    font-size: 2rem;
+    color: $gray-lt;
+  }
+  .statValue {
+    font-family: $accent-font;
+  }
 }
 
 .gearOff {
@@ -50,29 +58,27 @@
 .statusButton {
   grid-column-start: 4;
   grid-row-start: 3;
-  border: 2px outset $purple;
+  border: 2px outset $secondary-teal;
   padding: 0.3rem;
 }
 .statusButton:hover {
   cursor: pointer;
-}
-.statusButton:active {
-  background-color: $fuchsia-dk;
-  border: 2px inset $fuchsia-dk;
 }
 
 .inventoryButton {
   p:hover {
     cursor: pointer;
   }
-  border: 2px outset $purple;
+  border: 2px outset $secondary-teal;
   padding: 0.3rem;
 }
 
+.statusButton:active,
 .inventoryButton:active,
 .inventoryPressed {
-  border: 2px inset $fuchsia-dk;
-  background-color: $fuchsia-dk;
+  border: 2px inset $gray-lt;
+  background-color: $secondary-teal;
+  color: $primary-black;
 }
 
 .inventoryMenu {
@@ -81,8 +87,8 @@
   align-items: space-between;
   width: 25vw;
   padding: 1rem;
-  background-color: $royal-dk;
-  border-bottom: 1px solid $fuchsia-dk;
+  background-color: $secondary-gray;
+  border-bottom: 1px solid $secondary-teal;
 }
 
 .inventoryGrid {
@@ -101,12 +107,14 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    border: 1px outset $purple;
+    color: $primary-black;
+    border: 1px outset $gray-lt;
+    background-color: $primary-aqua;
   }
 
   li:active {
-    background-color: $fuchsia-dk;
-    border: 1px inset $fuchsia-dk;
+    background-color: $secondary-teal;
+    border: 1px inset $secondary-teal;
   }
   li:hover {
     cursor: pointer;

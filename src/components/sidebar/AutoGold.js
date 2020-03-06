@@ -1,5 +1,6 @@
 import React from "react";
 import { useStateValue } from "../../hooks/useStateValue";
+import { map } from "../../util/map";
 import { collectTreasure } from "../../util/autoGold";
 
 const AutoGold = () => {
@@ -24,7 +25,7 @@ const AutoGold = () => {
           <button
             className="autoAction"
             onClick={() => {
-              collectTreasure(dispatch);
+              collectTreasure(dispatch, map);
               console.log("autoGold");
             }}
           >

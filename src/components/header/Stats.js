@@ -8,7 +8,7 @@ export const Stats = () => {
   return (
     <div className="stats">
       <p>
-        <span className="statValue">
+        <span className="playerName">
           {playerState.name ? playerState.name : "Unnamed soul"}
         </span>
       </p>
@@ -65,7 +65,9 @@ export const Stats = () => {
           </>
         )}
       </p>
-      <div className="statusButton" onClick={() => playerStatus(dispatch)} >Get Status</div>
+      <div className="statusButton" onClick={() => playerStatus(dispatch)}>
+        Get Status
+      </div>
     </div>
   );
 };

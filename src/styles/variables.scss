@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans");
-
+@import url("https://fonts.googleapis.com/css?family=Audiowide|Jura&display=swap");
 // colors
 $fuchsia-dk: #452434;
 $royal-dk: #30346d;
@@ -18,9 +18,16 @@ $tomato: #d34549;
 $mellow-yellow: #dbd75d;
 $brightest: #dfefd7;
 
+// experimental colors
+$primary-aqua: #66fcf1;
+$secondary-teal: #45a29e;
+$gray-lt: #c5c6c7;
+$primary-black: #0b0c10;
+$secondary-gray: #1f2833;
+
 // fonts
-$main-font: "Alegreya", serif;
-$accent-font: "Alegreya Sans", sans-serif;
+$main-font: "Audiowide", cursive;
+$accent-font: "Jura", sans-serif;
 
 // media queries
 

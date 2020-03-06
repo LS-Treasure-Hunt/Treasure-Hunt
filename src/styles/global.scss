@@ -10,7 +10,7 @@ html {
 
 body {
   font-family: $main-font;
-  color: $purple;
+  color: $primary-aqua;
   margin: 0;
   padding: 0;
   background-color: $almost-black;
@@ -58,7 +58,7 @@ button {
 }
 
 .statValue {
-  color: $almost-cyan;
+  color: $gray-lt;
 }
 
 .statDanger {

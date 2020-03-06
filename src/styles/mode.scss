@@ -1,6 +1,19 @@
+.mode {
+  background-color: $secondary-gray;
+  border-style: outset;
+  border-width: 2px;
+  border-color: $secondary-teal;
+  font-family: $accent-font;
+}
+
+.modeContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
 .modeBox {
-  height: 16rem;
-  color: $almost-cyan;
+  height: 18rem;
+  color: $gray-lt;
   margin-top: 1rem;
 
   .modeReq {
@@ -8,7 +21,7 @@
   }
 
   .reqLabel {
-    color: $tomato;
+    color: rgb(209, 26, 26);
   }
 
   input {
@@ -19,27 +32,33 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 1rem 0;
+    align-items: center;
+    margin: 2rem 0;
 
     .autoInput {
+      display: flex;
+      align-items: center;
+
       button,
       input {
-        height: 2.5rem;
+        height: 3rem;
         margin: 0.25rem;
       }
 
       button {
-        border-width: 3px;
-        border-color: $warm-gray $latte;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        border-width: 2px;
       }
     }
 
     .autoAction {
       outline: none;
-      background-color: $brown;
+      background-color: $primary-aqua;
       opacity: 1;
-      border-style: outset;
-      color: $latte;
+      border-color: $gray-lt $secondary-teal $secondary-teal;
+      // border-style: outset;
+      color: $primary-black;
     }
   }
 }

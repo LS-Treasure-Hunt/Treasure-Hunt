@@ -37,7 +37,8 @@
 }
 
 .abilities {
-  color: $almost-black;
+  color: $gray-lt;
+
   .ability {
     text-transform: uppercase;
   }
@@ -54,9 +55,9 @@
   }
   button {
     border-width: 3px;
-    border-color: $warm-gray $pumpkin-pie;
+    border-color: $gray-lt $secondary-teal $secondary-teal;
     padding: 5px 8px;
-    color: $latte;
+    color: $primary-black;
     text-align: center;
     margin: 0.25rem;
     outline: none;
@@ -72,25 +73,19 @@
     border-style: ridge;
   }
   .unavailable {
-    background-color: $brown;
+    background-color: $secondary-teal;
     opacity: 0.6;
     border-style: none;
-    border-color: $warm-gray;
   }
   .clickable {
-    background-color: $brown;
+    background-color: $primary-aqua;
     opacity: 1;
     border-style: outset;
   }
   .available {
     border-width: 0;
-    background-color: $brown;
-    border-style: 1px solid $warm-gray;
-    opacity: 0.6;
+    background-color: $secondary-teal;
   }
-}
-.nonManual {
-  visibility: hidden;
 }
 
 // Maybe change this to make it a bit more DRY?
