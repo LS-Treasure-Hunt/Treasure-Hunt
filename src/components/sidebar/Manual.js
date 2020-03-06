@@ -1,7 +1,9 @@
 import React from "react";
 import DirectionalPad from "./DirectionalPad";
 import { useStateValue } from "../../hooks/useStateValue";
-import Abilities from "./Abilities";
+import ManualActions from "./ManualActions";
+import ManualUniqueActions from "./ManualUniqueActions";
+
 
 const Manual = () => {
   const [{ gameState }] = useStateValue();
@@ -10,8 +12,10 @@ const Manual = () => {
       <div
         className={`manual modeBox ${gameState.mode !== "manual" && "hidden"}`}
       >
-        <DirectionalPad />
-        <Abilities />
+        <section className="manualLeft"><DirectionalPad />
+        <ManualUniqueActions /></section>
+        <section className="manualRight"><ManualActions /></section>
+      
       </div>
     </>
   );

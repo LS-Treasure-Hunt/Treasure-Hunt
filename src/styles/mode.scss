@@ -1,33 +1,39 @@
+// the entire panel
 .mode {
-  background-color: $secondary-gray;
-  border-style: outset;
-  border-width: 2px;
-  border-color: $secondary-teal;
   font-family: $accent-font;
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  
 }
 
-.modeContainer {
+// holds the mode buttons
+.modeButtonContainer {
   display: flex;
   justify-content: space-around;
+  flex-direction: row;
+  margin-bottom: 1.5rem;
+  
 }
 
-.modeBox {
-  height: 18rem;
-  color: $gray-lt;
-  margin-top: 1rem;
+.modeButton {
+  padding: 1.3rem;
+}
 
-  .modeReq {
+// 4 containers, 1 for each mode
+.modeBox {
+  display: flex;
+  flex-direction: column; // the 3 auto modes flex column but manual flexes row
+
+  
+  .modeReq { // section appears in 3 auto modes - displays required powers
     margin: 1rem 0;
   }
-
   .reqLabel {
-    color: rgb(209, 26, 26);
+    color: $alert-red;
   }
 
-  input {
-    width: 5rem;
-  }
-
+  // section appears in 3 auto modes - where user selects how long script will run
   .autoLimit {
     display: flex;
     flex-direction: column;
@@ -38,27 +44,19 @@
     .autoInput {
       display: flex;
       align-items: center;
-
-      button,
-      input {
-        height: 3rem;
-        margin: 0.25rem;
-      }
-
-      button {
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        border-width: 2px;
-      }
-    }
-
-    .autoAction {
-      outline: none;
-      background-color: $primary-aqua;
-      opacity: 1;
-      border-color: $gray-lt $secondary-teal $secondary-teal;
-      // border-style: outset;
-      color: $primary-black;
-    }
   }
+}
+}
+
+.manual {
+  flex-direction: row;
+  border: 1px solid cyan;
+}
+
+.manualLeft { // so that special powers that pop up can be displayed under DPAD
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
 }
