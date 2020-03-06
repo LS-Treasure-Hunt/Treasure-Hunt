@@ -1,8 +1,8 @@
 .sidebar {
+  color: $gray-lt;
   width: 30vw;
   max-width: 500px;
   height: calc(100vh - 72px);
-  background-color: $cool-gray-dk;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +15,21 @@
 }
 
 .roomInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $secondary-gray;
+  border-style: outset;
+  border-width: 2px;
+  border-color: $secondary-teal;
+  height: 35rem;
+
+  h1 {
+    color: $primary-aqua;
+  }
+  .roomDetails {
+    font-family: $accent-font;
+  }
   ul {
     display: flex;
     flex-direction: row;
@@ -28,30 +43,22 @@
     font-variant-caps: all-small-caps;
   }
   .liPlayer {
-    border: 2px dotted $cool-gray-dk;
+    border-left: 2px dotted $cool-gray-dk;
+    border-right: 2px dotted $cool-gray-dk;
   }
   .liTreasure {
-    background-color: $grass-green-lt;
-    border: 2px outset $grass-green-lt;
+    color: $primary-black;
+    background-color: $primary-aqua;
+    border: 2px outset $secondary-teal;
   }
   .liTreasure:hover {
     cursor: pointer;
   }
   .liTreasure:active {
     cursor: pointer;
-    background-color: $grass-green-dk;
-    border: 2px inset $grass-green-lt;
+    background-color: $secondary-teal;
+    border: 2px inset $primary-aqua;
   }
-  background-color: $warm-gray;
-  color: $almost-black;
-  border-style: outset;
-  border-width: 3px;
-  border-color: $grass-green-dk;
-
-  color: $almost-black;
-  border-style: outset;
-  border-width: 3px;
-  border-color: $grass-green-dk;
 
   .otherPlayers {
     height: 5em;
@@ -70,6 +77,7 @@
   cursor: pointer;
   display: flex;
   flex-direction: row;
+  font-family: $accent-font;
 
   button {
     line-height: 1;
@@ -102,14 +110,16 @@
   overflow: auto;
   height: 100%;
   margin-top: 1rem;
+  background-color: $secondary-gray;
+  border-style: outset;
+  border-width: 2px;
+  border-color: $secondary-teal;
+  height: 20rem;
+  margin: 2rem 0;
+  font-family: $accent-font;
 
   .oldAction {
-    opacity: 0.5;
-    color: $purple;
-  }
-
-  .currentAction {
-    opacity: 1;
-    color: $almost-cyan;
+    opacity: 0.3;
+    color: $gray-lt;
   }
 }

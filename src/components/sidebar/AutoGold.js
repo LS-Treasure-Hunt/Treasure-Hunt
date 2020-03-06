@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useStateValue } from "../../hooks/useStateValue";
+import { map } from "../../util/map";
 import { collectTreasure } from "../../util/autoGold";
 import { map } from "../../util/map";
 
