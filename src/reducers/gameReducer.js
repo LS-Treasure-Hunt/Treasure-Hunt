@@ -35,7 +35,10 @@ import {
   SET_PATH,
   CLEAR_PATH,
   SET_MODE,
-  SET_ITEM_LOGS
+  SET_ITEM_LOGS,
+  BUY_DONUT,
+  BUY_SUCCESS,
+  BUY_ERROR
 } from "../actions";
 
 export const gameReducer = (state, { type, payload }) => {
@@ -51,6 +54,7 @@ export const gameReducer = (state, { type, payload }) => {
     case START_RECALL:
     case START_WARP:
     case START_GET_BALANCE:
+    case BUY_DONUT:
       return {
         ...state,
         isLoading: true
@@ -65,6 +69,7 @@ export const gameReducer = (state, { type, payload }) => {
     case DASH_SUCCESS:
     case RECALL_SUCCESS:
     case WARP_SUCCESS:
+    case BUY_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -77,10 +82,10 @@ export const gameReducer = (state, { type, payload }) => {
         coins: +payload.messages[0].split(" ")[5],
         isLoading: false,
         actionLog:
-        state.actionLog.length > 1
+          state.actionLog.length > 1
             ? [...state.actionLog, { messages: payload.messages }]
             : []
-      };      
+      };
     case INIT_ERROR:
     case MOVE_ERROR:
     case FLY_ERROR:
@@ -92,6 +97,7 @@ export const gameReducer = (state, { type, payload }) => {
     case RECALL_ERROR:
     case WARP_ERROR:
     case GET_BALANCE_ERROR:
+    case BUY_ERROR:
       return {
         ...state,
         isLoading: false,
