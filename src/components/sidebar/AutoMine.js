@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStateValue } from "../../hooks/useStateValue";
 import { autoCoinMiner } from "../../util/autoMining";
 
 const AutoMine = () => {
   const [{ gameState }, dispatch] = useStateValue();
+  const [attempts, setAttempts] = useState(0);
+
+  const updateAttempts = e => {
+    setAttempts(+e.target.value);
+  };
 
   return (
     <div
@@ -21,11 +26,11 @@ const AutoMine = () => {
       <div className="autoLimit">
         Enter desired number of mining attempts:
         <div className="autoInput">
-          <input type="number" placeholder="#" />
+          <input type="number" placeholder="#" onChange={updateAttempts} />
           <button
             className="autoAction"
             onClick={() => {
-              autoCoinMiner(dispatch);
+              autoCoinMiner(dispatch, attempts);
               console.log("autoMine");
             }}
           >

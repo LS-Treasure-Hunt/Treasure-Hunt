@@ -25,7 +25,8 @@ export const mineCoin = async dispatch => {
   return await mine(dispatch, newProof);
 };
 
-export const autoCoinMiner = async dispatch => {
+export const autoCoinMiner = async (dispatch, attempts) => {
+  let count = 0;
   // First init to get starting room
   let init = await initGame(dispatch);
 
@@ -35,7 +36,7 @@ export const autoCoinMiner = async dispatch => {
     init = warpToLight;
   }
 
-  while (true) {
+  while (count < attempts) {
     let cpu = new compiledCPU();
     // Go to well (room 55)
     if (init.room_id !== 55) {
@@ -56,5 +57,6 @@ export const autoCoinMiner = async dispatch => {
     await getBalance(dispatch);
     dispatch({ type: CLEAR_PATH });
     init = { room_id: +room_number };
+    count++;
   }
 };

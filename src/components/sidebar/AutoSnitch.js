@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStateValue } from "../../hooks/useStateValue";
 import { autoSnitchMiner } from "../../util/autoSnitching";
 
 const AutoSnitch = () => {
   const [{ gameState }, dispatch] = useStateValue();
+  const [attempts, setAttempts] = useState(0);
+
+  const updateAttempts = e => {
+    setAttempts(+e.target.value);
+  };
 
   return (
     <div
@@ -26,11 +31,11 @@ const AutoSnitch = () => {
       <div className="autoLimit">
         Enter desired number of snitching attempts:
         <div className="autoInput">
-          <input type="number" placeholder="#" />
+          <input type="number" placeholder="#" onChange={updateAttempts} />
           <button
             className="autoAction"
             onClick={() => {
-              autoSnitchMiner(dispatch);
+              autoSnitchMiner(dispatch, attempts);
               console.log("autoSnitch");
             }}
           >

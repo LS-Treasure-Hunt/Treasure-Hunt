@@ -12,7 +12,8 @@ import { traverse } from "./traverse";
 import { darkmap } from "../util/darkMap";
 import { compiledCPU } from "./cpu";
 
-export const autoSnitchMiner = async dispatch => {
+export const autoSnitchMiner = async (dispatch, attempts) => {
+  let count = 0;
   // First init to get starting room
   let init = await initGame(dispatch);
 
@@ -22,7 +23,7 @@ export const autoSnitchMiner = async dispatch => {
     init = warpToDark;
   }
 
-  while (true) {
+  while (count < attempts) {
     let cpu = new compiledCPU();
     // Go to well (room 555)
     if (init.room_id !== 555) {
@@ -53,5 +54,6 @@ export const autoSnitchMiner = async dispatch => {
     await playerStatus(dispatch);
     dispatch({ type: CLEAR_PATH });
     init = { room_id: +room_number };
+    count++;
   }
 };

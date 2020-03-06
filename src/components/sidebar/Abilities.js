@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useStateValue } from "../../hooks/useStateValue";
 import { warp, recall } from "../../actions/movement";
 import { pray } from "../../actions/general";
