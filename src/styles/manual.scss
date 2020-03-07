@@ -33,22 +33,43 @@
 }
 
 .abilities { // aka ManualActions
+  
+  button {
+    background-image: none;
+    background-color: $primary-aqua;
+    height: 3rem;
+    margin: .25rem;
+  }
+
+  .other:hover {
+    cursor: default;
+  }
+
   .ability {
     text-transform: uppercase;
   }
-  .abilityGroup { // 2 sections
-    padding: 0;
-  }
+  
+
   .locked {
     opacity: 0.3;
+    color: $primary-aqua;
+    background-color: $secondary-gray;
+    border: 1px solid $primary-aqua;
+  }
+  .locked:hover, .unavailable:hover {
+    cursor: not-allowed;
   }
   .unavailable {
+    background-color: $secondary-teal;
     opacity: 0.6;
   }
   .clickable {
     opacity: 1;
   }
   .available {
+    background-color: $primary-aqua;
+    box-shadow: none;
+    border: none;
     opacity: 1;
   }
 }

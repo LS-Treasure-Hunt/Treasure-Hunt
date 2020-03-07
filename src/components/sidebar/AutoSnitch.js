@@ -18,12 +18,11 @@ const AutoSnitch = () => {
       <div className="modeDescription">
         AutoSnitch automatically moves player to traverse the map and collect
         Golden Snitches.
-        <div classNamse="modeReq">
+        <div className="modeReq">
           <span className="reqLabel">Abilities Required:</span> Dash, Fly,
           Recall, Warp
         </div>
         <div className="modeReq">
-          {" "}
           <span className="reqLabel">Other Requirements:</span> Bodywear,
           Footwear
         </div>
