@@ -4,7 +4,6 @@
   min-height: 18rem;
   display: flex;
   flex-direction: column;
-  
 }
 
 // holds the mode buttons
@@ -13,7 +12,6 @@
   justify-content: space-around;
   flex-direction: row;
   margin-bottom: 1.5rem;
-  
 }
 
 .modeButton {
@@ -25,8 +23,8 @@
   display: flex;
   flex-direction: column; // the 3 auto modes flex column but manual flexes row
 
-  
-  .modeReq { // section appears in 3 auto modes - displays required powers
+  .modeReq {
+    // section appears in 3 auto modes - displays required powers
     margin-top: 1rem;
   }
   .reqLabel {
@@ -45,8 +43,8 @@
     .autoInput {
       display: flex;
       align-items: center;
+    }
   }
-}
 }
 
 .manual {
@@ -54,13 +52,12 @@
   align-items: flex-start;
   justify-content: space-evenly;
   border: 1px solid cyan;
-
 }
 
-.manualLeft { // so that special powers that pop up can be displayed under DPAD
+.manualLeft {
+  // so that special powers that pop up can be displayed under DPAD
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
 }
