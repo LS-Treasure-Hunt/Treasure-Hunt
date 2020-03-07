@@ -4,8 +4,9 @@ import { map } from "../../util/map";
 import { collectTreasure } from "../../util/autoGold";
 
 const AutoGold = () => {
-  const [{ gameState }, dispatch] = useStateValue();
+  const [{ gameState, playerState }, dispatch] = useStateValue();
   const [attempts, setAttempts] = useState(0);
+  const [hasAbilities, setHasAbilities] = useState(false);
 
   const updateAttempts = e => {
     setAttempts(+e.target.value);
@@ -23,21 +24,28 @@ const AutoGold = () => {
           <span className="reqLabel">Abilities Required:</span> Fly, Recall
         </div>
       </div>
-      <div className="autoLimit">
-        Enter desired number of minutes to collect gold:
-        <div className="autoInput">
-          <input type="number" placeholder="#" onChange={updateAttempts} />
-          <button
-            className="autoAction"
-            onClick={() => {
-              collectTreasure(dispatch, map, attempts);
-              console.log("autoGold");
-            }}
-          >
-            Make Gold
-          </button>
+      {playerState.abilities.includes("fly") &&
+      playerState.abilities.includes("recall") ? (
+        <div className="autoLimit">
+          Enter desired number of minutes to collect gold:
+          <div className="autoInput">
+            <input type="number" placeholder="#" onChange={updateAttempts} />
+            <button
+              className="autoAction"
+              onClick={() => {
+                collectTreasure(dispatch, map, attempts);
+                console.log("autoGold");
+              }}
+            >
+              Make Gold
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="unqualified">
+          Player does not have required abilities
+        </div>
+      )}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useStateValue } from "../../hooks/useStateValue";
 import { autoSnitchMiner } from "../../util/autoSnitching";
 
 const AutoSnitch = () => {
-  const [{ gameState }, dispatch] = useStateValue();
+  const [{ gameState, playerState }, dispatch] = useStateValue();
   const [attempts, setAttempts] = useState(0);
 
   const updateAttempts = e => {
@@ -28,21 +28,32 @@ const AutoSnitch = () => {
           Footwear
         </div>
       </div>
-      <div className="autoLimit">
-        Enter desired number of snitching attempts:
-        <div className="autoInput">
-          <input type="number" placeholder="#" onChange={updateAttempts} />
-          <button
-            className="autoAction"
-            onClick={() => {
-              autoSnitchMiner(dispatch, attempts);
-              console.log("autoSnitch");
-            }}
-          >
-            Collect Snitches
-          </button>
+      {playerState.abilities.includes("dash") &&
+      playerState.abilities.includes("fly") &&
+      playerState.abilities.includes("recall") &&
+      playerState.abilities.includes("warp") &&
+      playerState.bodywear !== null &&
+      playerState.footwear !== null ? (
+        <div className="autoLimit">
+          Enter desired number of snitching attempts:
+          <div className="autoInput">
+            <input type="number" placeholder="#" onChange={updateAttempts} />
+            <button
+              className="autoAction"
+              onClick={() => {
+                autoSnitchMiner(dispatch, attempts);
+                console.log("autoSnitch");
+              }}
+            >
+              Collect Snitches
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="unqualified">
+          Player does not have all required abilities, bodywear, or footwear.
+        </div>
+      )}
     </div>
   );
 };

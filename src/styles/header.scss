@@ -35,7 +35,7 @@
 
 .stats {
   display: inline-grid;
-  width: 45vw;
+  width: 55vw;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr; // all auto-placed except Status button
   grid-template-rows: 1fr 1fr 1fr;
   place-items: center start;
