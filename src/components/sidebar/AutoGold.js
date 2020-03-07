@@ -6,7 +6,6 @@ import { collectTreasure } from "../../util/autoGold";
 const AutoGold = () => {
   const [{ gameState, playerState }, dispatch] = useStateValue();
   const [attempts, setAttempts] = useState(0);
-  const [hasAbilities, setHasAbilities] = useState(false);
 
   const updateAttempts = e => {
     setAttempts(+e.target.value);
