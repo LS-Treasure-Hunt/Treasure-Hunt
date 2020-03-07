@@ -11,16 +11,16 @@ const Mode = () => {
 
   return (
     <div className="mode">
-      <div className="modeContainer">
+      <div className="modeButtonContainer">
         <button
-          className={`${gameState.mode === "manual" && "activeMode"}`}
+          className={`modeButton ${gameState.mode === "manual" && "activeMode"}`}
           onClick={() => dispatch({ type: SET_MODE, payload: "manual" })}
         >
           MANUAL
         </button>
 
         <button
-          className={`${gameState.mode === "autoGold" && "activeMode"}`}
+          className={`modeButton ${gameState.mode === "autoGold" && "activeMode"}`}
           onClick={() => {
             dispatch({ type: SET_MODE, payload: "autoGold" });
           }}
@@ -28,7 +28,7 @@ const Mode = () => {
           AUTO GOLD
         </button>
         <button
-          className={`${gameState.mode === "autoMine" && "activeMode"}`}
+          className={`modeButton ${gameState.mode === "autoMine" && "activeMode"}`}
           onClick={() => {
             dispatch({ type: SET_MODE, payload: "autoMine" });
           }}
@@ -36,7 +36,7 @@ const Mode = () => {
           AUTO MINE
         </button>
         <button
-          className={`${gameState.mode === "autoSnitch" && "activeMode"}`}
+          className={`modeButton ${gameState.mode === "autoSnitch" && "activeMode"}`}
           onClick={() => {
             dispatch({ type: SET_MODE, payload: "autoSnitch" });
           }}

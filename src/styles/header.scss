@@ -1,24 +1,17 @@
 .header {
   width: 100%;
-  height: 100px;
+  min-height: 100px;
   top: 0;
   left: 0;
   position: sticky;
   z-index: 999;
-  padding: 0 2rem;
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: $secondary-gray;
-  border-bottom: 2px solid $secondary-teal;
-
-  h1::selection,
-  p::selection,
-  div::selection,
-  li::selection {
-    color: $almost-black;
-    background-color: $latte;
-  }
+  background-image: radial-gradient(at top, $primary-black, $secondary-gray);
+  border-bottom: 1px solid $tertiary-teal;
 }
 
 .leftHeader {
@@ -35,9 +28,10 @@
 
 .stats {
   display: inline-grid;
-  width: 45vw;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; // all auto-placed except Status button
+  grid-template-columns: auto auto auto auto auto; // all auto-placed except Status button
   grid-template-rows: 1fr 1fr 1fr;
+  grid-row-gap: .5rem;
+  grid-column-gap: 2rem;
   place-items: center start;
   grid-auto-flow: column;
   margin-right: 0; // Adjust as needed
@@ -55,30 +49,22 @@
   opacity: 0.5;
 }
 
-.statusButton {
-  grid-column-start: 4;
-  grid-row-start: 3;
-  border: 2px outset $secondary-teal;
-  padding: 0.3rem;
-}
-.statusButton:hover {
-  cursor: pointer;
-}
-
 .inventoryButton {
+  border: 1px solid $secondary-teal;
+  border-radius: .5rem;
+  background-color: $secondary-gray;
   p:hover {
     cursor: pointer;
   }
-  border: 2px outset $secondary-teal;
-  padding: 0.3rem;
+  padding: .8rem;
 }
 
-.statusButton:active,
+
 .inventoryButton:active,
 .inventoryPressed {
-  border: 2px inset $gray-lt;
-  background-color: $secondary-teal;
-  color: $primary-black;
+  background-color: $primary-black;
+  color: $gray-lt;
+  border: 1px inset $secondary-teal;
 }
 
 .inventoryMenu {
@@ -107,13 +93,12 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    color: $primary-black;
-    border: 1px outset $gray-lt;
-    background-color: $primary-aqua;
+    color: $primary-aqua;
+    border: 1px outset $primary-aqua;
   }
 
   li:active {
-    background-color: $secondary-teal;
+    background-color: $primary-black;
     border: 1px inset $secondary-teal;
   }
   li:hover {

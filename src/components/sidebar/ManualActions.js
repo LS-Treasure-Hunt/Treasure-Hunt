@@ -4,7 +4,7 @@ import { warp, recall } from "../../actions/movement";
 import { pray } from "../../actions/general";
 import { mine } from "../../actions/mining";
 
-export const Abilities = () => {
+export const ManualActions = () => {
   const [{ playerState, gameState }, dispatch] = useStateValue();
 
   const shrines = {
@@ -137,4 +137,4 @@ export const Abilities = () => {
   );
 };
 
-export default Abilities;
+export default ManualActions;

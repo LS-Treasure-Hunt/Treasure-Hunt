@@ -7,7 +7,7 @@ export const RoomInfo = () => {
 
   return (
     <div className="roomInfo">
-      <h1>Room {gameState.room_id}</h1>
+      <h2>Room {gameState.room_id}</h2>
       <p>{gameState.coordinates}</p>
       <ul>
         Exits:{" "}
@@ -47,7 +47,8 @@ export const RoomInfo = () => {
                     {val}
                   </li>
                 ))
-              : "None"}
+              : <li>None
+            </li>}
           </ul>
         </div>
       </div>
