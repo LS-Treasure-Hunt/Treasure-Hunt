@@ -69,9 +69,6 @@ export const Stats = () => {
         Sugar Rush (secs):{" "}
         <span className="statValue">{playerState.sugar_rush}</span>
       </p>
-      <div className="statusButton" onClick={() => playerStatus(dispatch)}>
-        Get Status
-      </div>
     </div>
   );
 };

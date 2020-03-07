@@ -23,7 +23,6 @@ const AutoSnitch = () => {
           Recall, Warp
         </div>
         <div className="modeReq">
-          {" "}
           <span className="reqLabel">Other Requirements:</span> Bodywear,
           Footwear
         </div>

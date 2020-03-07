@@ -1,11 +1,11 @@
 import React from "react";
-import { move, examine, buy, playerStatus } from "../../actions/";
+import { move } from "../../actions/";
 import { useStateValue } from "../../hooks/useStateValue";
 import { map } from "../../util/map";
 import { darkmap } from "../../util/darkMap";
 
 const DirectionalPad = () => {
-  const [{ gameState, playerState }, dispatch] = useStateValue();
+  const [{ gameState }, dispatch] = useStateValue();
 
   const moveBoosted = e => {
     const direction = e.target.value;
@@ -21,8 +21,7 @@ const DirectionalPad = () => {
   };
 
   return (
-    <div className="dpad-container">
-      <div className={`dpad ${gameState.mode !== "manual" && "nonManual"}`}>
+      <div className="dpad">
         <button
           value="n"
           onClick={e => moveBoosted(e)}
@@ -43,42 +42,6 @@ const DirectionalPad = () => {
         <button value="e" onClick={e => moveBoosted(e)} className="east locked">
           E
         </button>
-      </div>
-      {gameState.room_id === 15 && (
-        <button
-          className={`ability clickable special ${gameState.mode !== "manual" &&
-            "nonManual"}`}
-          onClick={async () => {
-            if (
-              playerState.abilities[0] === "pray" &&
-              playerState.gold > 2000
-            ) {
-              await buy(dispatch);
-              await playerStatus(dispatch);
-            }
-          }}
-        >
-          {playerState.abilities[0] !== "pray" && playerState.gold < 2000 && (
-            <span aria-label="emoji" role="img">
-              🔒
-            </span>
-          )}
-          Buy Donut
-        </button>
-      )}
-      {gameState.room_id === 486 && (
-        <button
-          className={`ability clickable special ${gameState.mode !== "manual" &&
-            "nonManual"}`}
-          onClick={() => {
-            if (playerState.abilities[0] === "pray") {
-              examine(dispatch, "book");
-            }
-          }}
-        >
-          Examine Book
-        </button>
-      )}
     </div>
   );
 };

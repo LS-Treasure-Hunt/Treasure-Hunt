@@ -1,9 +1,15 @@
+
 .dpad {
+  border: 1px solid yellow;
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   place-items: center;
-  margin-bottom: 2rem;
+
+  button {
+    height: 3rem;
+    width: 3rem;
+  }
 
   .north {
     grid-row-start: 1;
@@ -24,91 +30,46 @@
     grid-row-start: 2;
     grid-column-start: 3;
   }
-
-  button {
-    background-color: $cool-gray-lt;
-    border-width: 5px;
-    border-color: $warm-gray $almost-cyan;
-    border-style: outset;
-  }
-  button:hover {
-    cursor: pointer;
-  }
 }
 
-.abilities {
-  color: $gray-lt;
+.abilities { // aka ManualActions
+  
+  button {
+    background-image: none;
+    background-color: $primary-aqua;
+    height: 3rem;
+    margin: .25rem;
+  }
+
+  .other:hover {
+    cursor: default;
+  }
 
   .ability {
     text-transform: uppercase;
   }
+  
 
-  .abilityGroup {
-    padding: 1rem;
-  }
-
-  ul {
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    place-items: center stretch;
-  }
-  button {
-    border-width: 3px;
-    border-color: $gray-lt $secondary-teal $secondary-teal;
-    padding: 5px 8px;
-    color: $primary-black;
-    text-align: center;
-    margin: 0.25rem;
-    outline: none;
-  }
-  button:hover {
-    cursor: pointer;
-  }
   .locked {
-    background-color: $cool-gray-dk;
     opacity: 0.3;
-    color: $almost-cyan;
-    border-color: $cool-gray-dk;
-    border-style: ridge;
+    color: $primary-aqua;
+    background-color: $secondary-gray;
+    border: 1px solid $primary-aqua;
+  }
+  .locked:hover, .unavailable:hover {
+    cursor: not-allowed;
   }
   .unavailable {
     background-color: $secondary-teal;
     opacity: 0.6;
-    border-style: none;
   }
   .clickable {
-    background-color: $primary-aqua;
     opacity: 1;
-    border-style: outset;
   }
   .available {
-    border-width: 0;
-    background-color: $secondary-teal;
-  }
-}
-
-// Maybe change this to make it a bit more DRY?
-.dpad-container {
-  display: flex;
-  flex-direction: column;
-
-  .special {
-    border-width: 3px;
-    border-color: $grass-green-dk;
-    padding: 5px 8px;
-    color: $almost-black;
-    text-align: center;
-    margin: 0.25rem;
-    outline: none;
-    cursor: pointer;
-  }
-  .ability {
-    text-transform: uppercase;
-  }
-  .clickable {
-    background-color: $warm-gray;
+    background-color: $primary-aqua;
+    box-shadow: none;
+    border: none;
     opacity: 1;
-    border-style: outset;
   }
 }
