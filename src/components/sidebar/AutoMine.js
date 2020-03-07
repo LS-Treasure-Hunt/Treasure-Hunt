@@ -3,7 +3,7 @@ import { useStateValue } from "../../hooks/useStateValue";
 import { autoCoinMiner } from "../../util/autoMining";
 
 const AutoMine = () => {
-  const [{ gameState }, dispatch] = useStateValue();
+  const [{ gameState, playerState }, dispatch] = useStateValue();
   const [attempts, setAttempts] = useState(0);
 
   const updateAttempts = e => {
@@ -23,21 +23,30 @@ const AutoMine = () => {
           Recall
         </div>
       </div>
-      <div className="autoLimit">
-        Enter desired number of mining attempts:
-        <div className="autoInput">
-          <input type="number" placeholder="#" onChange={updateAttempts} />
-          <button
-            className="autoAction"
-            onClick={() => {
-              autoCoinMiner(dispatch, attempts);
-              console.log("autoMine");
-            }}
-          >
-            Mine Coins
-          </button>
+      {playerState.abilities.includes("dash") &&
+      playerState.abilities.includes("fly") &&
+      playerState.abilities.includes("recall") &&
+      playerState.abilities.includes("mine") ? (
+        <div className="autoLimit">
+          Enter desired number of mining attempts:
+          <div className="autoInput">
+            <input type="number" placeholder="#" onChange={updateAttempts} />
+            <button
+              className="autoAction"
+              onClick={() => {
+                autoCoinMiner(dispatch, attempts);
+                console.log("autoMine");
+              }}
+            >
+              Mine Coins
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="unqualified">
+          Player does not have required abilities
+        </div>
+      )}
     </div>
   );
 };

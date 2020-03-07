@@ -26,6 +26,10 @@
   display: none;
 }
 
+button {
+  outline: none;
+}
+
 button:hover {
   cursor: pointer;
 }
