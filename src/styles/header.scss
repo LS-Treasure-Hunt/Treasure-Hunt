@@ -12,6 +12,11 @@
   background-color: $secondary-gray;
   background-image: radial-gradient(at top, $primary-black, $secondary-gray);
   border-bottom: 1px solid $tertiary-teal;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    flex-direction: column-reverse;
+  }
+
 }
 
 .leftHeader {
@@ -19,11 +24,21 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+ 
+  @media screen and (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+    width: 80%;
+    margin-top: 1rem;
+    > * {
+      font-family: $accent-font;
+    }
+  }
 }
 
 .rightHeader {
   display: flex;
   flex-direction: column;
+  text-align: right;
 }
 
 .stats {
@@ -35,6 +50,20 @@
   place-items: center start;
   grid-auto-flow: column;
   margin-right: 0; // Adjust as needed
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    grid-row-gap: 0;
+    grid-column-gap: .5rem;
+    > * {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    grid-row-gap: 0;
+    grid-column-gap: .5rem;
+  }
 
   .playerName {
     font-size: 2rem;
@@ -56,24 +85,35 @@
   p:hover {
     cursor: pointer;
   }
-  padding: 0.8rem;
+  padding: 0.5rem;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    padding: .2rem .5rem;
+  }
+
 }
 
-.inventoryButton:active,
-.inventoryPressed {
+.inventoryButton:active {
   background-color: $primary-black;
   color: $gray-lt;
   border: 1px inset $secondary-teal;
 }
-
+.invValue {
+  color: $mellow-yellow;
+}
 .inventoryMenu {
   position: absolute;
   display: flex;
   align-items: space-between;
-  width: 25vw;
+  width: 30vw;
   padding: 1rem;
   background-color: $secondary-gray;
   border-bottom: 1px solid $secondary-teal;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    width: 70vw;
+    right: 0
+  }
 }
 
 .inventoryGrid {
@@ -86,19 +126,20 @@
 
   li {
     display: flex;
-    padding: 0.3rem;
+    padding: 0.2rem;
     text-align: center;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
-    color: $primary-aqua;
-    border: 1px outset $primary-aqua;
+    color: $mellow-yellow;
+    border: 1px outset $mellow-yellow;
   }
 
   li:active {
     background-color: $primary-black;
-    border: 1px inset $secondary-teal;
+    border: 1px inset $pumpkin-pie;
+    color: $pumpkin-pie
   }
   li:hover {
     cursor: pointer;
@@ -106,7 +147,7 @@
 }
 
 .inventoryActions {
-  width: 10vw;
+  width: 15vw;
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -115,6 +156,6 @@
 
   .inventoryButton {
     font-variant-caps: all-small-caps;
-    margin-top: 1rem;
+    margin-top: .5rem;
   }
 }

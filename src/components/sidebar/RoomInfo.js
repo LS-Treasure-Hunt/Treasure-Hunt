@@ -54,7 +54,7 @@ export const RoomInfo = () => {
       </div>
       <div>
         Items:{" "}
-        <ul>
+        <ul className="roomItems">
           {gameState.items.length > 0 ? (
             gameState.items.map((val, i) => (
               <li

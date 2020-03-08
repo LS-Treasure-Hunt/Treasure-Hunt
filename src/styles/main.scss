@@ -20,6 +20,18 @@
 .middle {
   display: flex;
   justify-content: space-between;
+
+  
+  
+  @media screen and (max-width: $breakpoint-mobile) {
+    flex-direction: column-reverse;
+  }
+}
+
+.placementTest {
+  border: 1px solid yellow;
+  min-width: 70vw;
+  box-sizing: content-box; 
 }
 
 .hidden {

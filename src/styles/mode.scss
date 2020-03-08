@@ -26,6 +26,7 @@
   .modeReq {
     // section appears in 3 auto modes - displays required powers
     margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   .reqLabel {
     color: $alert-red;
@@ -34,29 +35,34 @@
   // section appears in 3 auto modes - where user selects how long script will run
   .autoLimit {
     display: flex;
-    border: 1px solid red;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0;
+    margin: 1rem 0;
 
     .autoInput {
       display: flex;
       align-items: center;
     }
+    input{
+
+    }
   }
 }
+
 
 .manual {
   flex-direction: row;
   align-items: flex-start;
-  justify-content: space-evenly;
-  border: 1px solid cyan;
+  height:100%;
+  justify-content: space-around;
 }
 
 .manualLeft {
   // so that special powers that pop up can be displayed under DPAD
   display: flex;
+  height: 100%;
+  border-radius: 5px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;

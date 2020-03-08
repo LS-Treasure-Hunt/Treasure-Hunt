@@ -42,9 +42,9 @@ const Room = ({ roomId, coordinates, exits, room }) => {
     sLeftwBottom = 5;
     wLeftsBottom = 10;
   } else if (width > 700) {
-    roomSize = 18;
-    xOffset = 50;
-    yOffset = 5;
+    roomSize = 15;
+    xOffset = 45;
+    yOffset = 0;
     nLefteBottom = 3;
     eLeftnBottom = 9;
     sLeftwBottom = 3;

@@ -5,6 +5,7 @@ const Map = ({ map }) => {
   let worldMap = Object.values(map);
 
   return (
+    <div className="placementTest">
     <div className="map">
       {worldMap.map((room, i) => (
         <Room
@@ -15,6 +16,7 @@ const Map = ({ map }) => {
           key={i}
         />
       ))}
+    </div>
     </div>
   );
 };

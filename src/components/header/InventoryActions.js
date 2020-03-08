@@ -7,7 +7,7 @@ const InventoryActions = ({ selectedItem, submitAction }) => {
   return (
     <div className="inventoryActions">
       {selectedItem !== "" ? (
-        <><p>Do what with <span className="statValue">{selectedItem}</span>?</p>
+        <><p>Do what with <span className="invValue">{selectedItem}</span>?</p>
           <p className="inventoryButton" onClick={e => submitAction("examine")}>
             Examine
           </p>
