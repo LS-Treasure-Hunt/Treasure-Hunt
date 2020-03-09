@@ -16,7 +16,6 @@
   @media screen and (max-width: $breakpoint-tablet) {
     flex-direction: column-reverse;
   }
-
 }
 
 .leftHeader {
@@ -24,7 +23,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
- 
+
   @media screen and (max-width: $breakpoint-tablet) {
     flex-direction: column;
     width: 80%;
@@ -53,7 +52,7 @@
 
   @media screen and (max-width: $breakpoint-tablet) {
     grid-row-gap: 0;
-    grid-column-gap: .5rem;
+    grid-column-gap: 0.5rem;
     > * {
       margin: 0;
       padding: 0;
@@ -62,7 +61,7 @@
 
   @media screen and (max-width: $breakpoint-mobile) {
     grid-row-gap: 0;
-    grid-column-gap: .5rem;
+    grid-column-gap: 0.5rem;
   }
 
   .playerName {
@@ -71,6 +70,16 @@
   }
   .statValue {
     font-family: $accent-font;
+  }
+
+  .jacket {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+  }
+
+  .boots {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
   }
 }
 
@@ -88,9 +97,8 @@
   padding: 0.5rem;
 
   @media screen and (max-width: $breakpoint-tablet) {
-    padding: .2rem .5rem;
+    padding: 0.2rem 0.5rem;
   }
-
 }
 
 .inventoryButton:active {
@@ -112,7 +120,7 @@
 
   @media screen and (max-width: $breakpoint-tablet) {
     width: 70vw;
-    right: 0
+    right: 0;
   }
 }
 
@@ -139,7 +147,7 @@
   li:active {
     background-color: $primary-black;
     border: 1px inset $pumpkin-pie;
-    color: $pumpkin-pie
+    color: $pumpkin-pie;
   }
   li:hover {
     cursor: pointer;
@@ -156,6 +164,6 @@
 
   .inventoryButton {
     font-variant-caps: all-small-caps;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 }

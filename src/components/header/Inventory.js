@@ -6,8 +6,8 @@ import {
   transmogrify,
   carry,
   receive,
-  playerStatus
-
+  playerStatus,
+  wear
 } from "../../actions/";
 import { useStateValue } from "../../hooks/useStateValue";
 import InventoryActions from "./InventoryActions";
@@ -56,6 +56,10 @@ export const Inventory = () => {
         break;
       case "carry":
         carry(dispatch, selectedItem);
+        break;
+      case "wear":
+        wear(dispatch, selectedItem);
+        playerStatus(dispatch);
         break;
       case "receive":
         receive(dispatch);
