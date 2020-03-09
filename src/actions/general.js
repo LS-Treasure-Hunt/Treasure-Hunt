@@ -226,3 +226,39 @@ export const buy = async dispatch => {
     dispatch({ type: BUY_ERROR, payload: err.response });
   }
 };
+
+export const START_WEAR = "START_WEAR";
+export const WEAR_SUCCESS = "WEAR_SUCCESS";
+export const WEAR_ERROR = "WEAR_ERROR";
+
+export const wear = async (dispatch, item) => {
+  dispatch({ type: START_WEAR });
+  try {
+    const res = await axiosWithAuth().post("adv/wear/", { name: item });
+    // console.log("res.data ", res.data);
+    dispatch({ type: WEAR_SUCCESS, payload: res.data });
+    wait(res.data.cooldown);
+    return res.data;
+  } catch (err) {
+    console.log("Error occurred! ", err.response);
+    dispatch({ type: WEAR_ERROR, payload: err.response });
+  }
+};
+
+export const START_UNDRESS = "START_UNDRESS";
+export const UNDRESS_SUCCESS = "UNDRESS_SUCCESS";
+export const UNDRESS_ERROR = "UNDRESS_ERROR";
+
+export const undress = async (dispatch, item) => {
+  dispatch({ type: START_UNDRESS });
+  try {
+    const res = await axiosWithAuth().post("adv/undress/", { name: item });
+    // console.log("res.data ", res.data);
+    dispatch({ type: UNDRESS_SUCCESS, payload: res.data });
+    wait(res.data.cooldown);
+    return res.data;
+  } catch (err) {
+    console.log("Error occurred! ", err.response);
+    dispatch({ type: UNDRESS_ERROR, payload: err.response });
+  }
+};

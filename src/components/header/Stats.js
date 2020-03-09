@@ -1,5 +1,5 @@
 import React from "react";
-import { playerStatus } from "../../actions/";
+import { playerStatus, undress } from "../../actions/";
 import { useStateValue } from "../../hooks/useStateValue";
 
 export const Stats = () => {
@@ -69,6 +69,28 @@ export const Stats = () => {
         Sugar Rush (secs):{" "}
         <span className="statValue">{playerState.sugar_rush}</span>
       </p>
+      {playerState.bodywear && (
+        <button
+          className="undress jacket"
+          onClick={() => {
+            undress(dispatch, playerState.bodywear);
+            playerStatus(dispatch);
+          }}
+        >
+          Remove
+        </button>
+      )}
+      {playerState.footwear && (
+        <button
+          className="undress boots"
+          onClick={() => {
+            undress(dispatch, playerState.footwear);
+            playerStatus(dispatch);
+          }}
+        >
+          Remove
+        </button>
+      )}
     </div>
   );
 };
