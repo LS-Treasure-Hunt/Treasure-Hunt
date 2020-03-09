@@ -8,7 +8,6 @@ import { CLEAR_PATH } from "../actions";
 
 const Room = ({ roomId, coordinates, exits, room }) => {
   const [{ playerState, gameState }, dispatch] = useStateValue();
-  // const { height, width } = useWindowDimensions();
   const { width } = useWindowDimensions();
   const [isHovering, setIsHovering] = useState(false);
   const [targetRoom, setTargetRoom] = useState(false);
@@ -19,7 +18,13 @@ const Room = ({ roomId, coordinates, exits, room }) => {
 
   const goToRoom = async () => {
     setTargetRoom(true);
-    await traverse(dispatch, roomId, map, playerState.abilities.includes("dash"))
+    await traverse(
+      dispatch,
+      roomId,
+      gameState.room_id < 500 ? map : darkmap,
+      playerState.abilities.includes("dash"),
+      playerState.abilities.includes("fly")
+    );
     setTargetRoom(false);
     dispatch({ type: CLEAR_PATH });
   };

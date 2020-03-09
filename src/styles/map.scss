@@ -5,6 +5,7 @@
   width: 100%;
   position: relative;
   min-height: 95em;
+  margin-top: 3%;
   margin-left: 12%;
 
   @media screen and (max-width: $breakpoint-desktop) {
@@ -23,7 +24,7 @@
   .room {
     width: 2.5rem;
     height: 2.5rem;
-    color: $gray-lt;;
+    color: $gray-lt;
     background-color: $primary-black;
     border: 1px outset $secondary-teal;
     position: absolute;
@@ -59,7 +60,7 @@
 
   .currentRoom {
     background: $primary-aqua;
-    color: $primary-black
+    color: $primary-black;
   }
 
   .targetRoom {
@@ -101,7 +102,7 @@
   .w {
     width: 0.65em;
     height: 1em;
-    border-bottom: 1px solid  $secondary-teal;
+    border-bottom: 1px solid $secondary-teal;
 
     @media screen and (max-width: $breakpoint-tablet) {
       height: 0.3em;
@@ -116,10 +117,38 @@
     align-items: center;
     color: $primary-aqua;
     border: 1px solid $secondary-teal;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     background-color: $secondary-gray;
     padding: 1rem;
     z-index: 99;
     position: absolute;
+  }
+}
+
+.darkWorld {
+  margin-top: 5%;
+
+  @media screen and (max-width: $breakpoint-desktop) {
+    margin-top: 7%;
+    margin-left: 6%;
+  }
+
+  .room {
+    border: 1px outset $pumpkin-pie;
+  }
+
+  .hoverRoom {
+    border: 1px solid $pumpkin-pie;
+    color: $pumpkin-lt;
+  }
+
+  .n,
+  .s {
+    border-right: 1px solid $pumpkin-lt;
+  }
+
+  .e,
+  .w {
+    border-bottom: 1px solid $pumpkin-lt;
   }
 }
