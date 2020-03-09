@@ -1,7 +1,6 @@
 .sidebar {
   color: $gray-lt; // all text in sidebar defaults to gray
-  min-width: 30vw;
-  max-width: 500px;
+  width: 30vw;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -13,6 +12,15 @@
     width: 100%;
     padding: 1.5rem; // padding applied to all children. note that margins between 3 panels is set as 2nd child (Messages)
   }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    width: 100%;
+    padding: 2rem;
+    > * { 
+      margin: 0;
+    }
+  }
+
 }
 
 // border styles for the children (the 3 side panels)
@@ -76,10 +84,16 @@
     height: 5em;
     overflow-y: auto;
   }
+  .roomItems { // section listing items
+    max-height: 3em;
+    overflow-y: auto;
+  }
 }
 
 .liTreasure {
-    
+  color: $mellow-yellow;
+  border: 1px outset $mellow-yellow;
+  padding: 3px;
 }
 .liTreasure:hover {
   cursor: pointer;

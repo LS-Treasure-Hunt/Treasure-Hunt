@@ -1,9 +1,10 @@
 @import "/variables";
 
 .map {
-  position: relative;
-  height: 95em;
+  height: 100%;
   width: 100%;
+  position: relative;
+  min-height: 95em;
   margin-left: 12%;
 
   @media screen and (max-width: $breakpoint-desktop) {
@@ -36,13 +37,12 @@
     font-family: $accent-font;
     z-index: 80;
 
-    /* @media screen and (max-width: $breakpoint-tablet) {
+    @media screen and (max-width: $breakpoint-tablet) {
       height: 1rem;
       width: 1rem;
-      background-color: $brightest;
       border-radius: 5px;
-      border: 1px solid $purple;
-    } */
+      border: 1px solid $gray-lt;
+    }
   }
 
   .special {
