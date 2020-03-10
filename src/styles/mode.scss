@@ -12,10 +12,12 @@
   justify-content: space-around;
   flex-direction: row;
   margin-bottom: 1.5rem;
+  align-items: stretch
 }
 
 .modeButton {
   padding: 1.3rem;
+  flex-grow: 1;
 }
 
 // 4 containers, 1 for each mode
@@ -44,12 +46,30 @@
       display: flex;
       align-items: center;
     }
-    input{
+    input {
+      border: 1px solid $secondary-teal;
+      border-radius: 0.5rem;
+      background-color: $secondary-gray;
+      width: 5rem;
+      height: 2.5rem;
+      margin-right: .5rem;
+      color: $primary-aqua;
+      padding-left: .4rem
+    }
 
+    input:focus{
+      background-color: $tertiary-teal;
+      outline: none;
+    }
+    button {
+      height: 3rem;
     }
   }
 }
 
+.unqualified {
+  margin-top: 1rem;
+}
 
 .manual {
   flex-direction: row;

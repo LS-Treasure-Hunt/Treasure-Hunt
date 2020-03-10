@@ -50,6 +50,20 @@
   grid-auto-flow: column;
   margin-right: 0; // Adjust as needed
 
+  button {
+    border-radius: .5rem;
+    border: 3px outset $secondary-teal;
+    background-color: $primary-aqua;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  button:active { // active mode is the 1 selected game mode (defaulting to MANUAL)
+    color: $primary-black;
+    border: 3px inset $tertiary-teal;
+    background-color: $tertiary-teal;
+  }
+
   @media screen and (max-width: $breakpoint-tablet) {
     grid-row-gap: 0;
     grid-column-gap: 0.5rem;
@@ -101,12 +115,14 @@
   }
 }
 
-.inventoryButton:active {
+
+.inventoryButton:active, .inventoryPressed { //when inventory menu is open
   background-color: $primary-black;
   color: $gray-lt;
   border: 1px inset $secondary-teal;
 }
-.invValue {
+
+.invValue { // styles object name in "do what with" prompt
   color: $mellow-yellow;
 }
 .inventoryMenu {
@@ -125,16 +141,16 @@
 }
 
 .inventoryGrid {
+  width: 70%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 5rem 5rem 5rem;
   grid-gap: 1rem;
   grid-auto-flow: column;
   list-style-type: none;
 
   li {
     display: flex;
-    padding: 0.2rem;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -155,7 +171,7 @@
 }
 
 .inventoryActions {
-  width: 15vw;
+  width: 30%;
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -165,5 +181,8 @@
   .inventoryButton {
     font-variant-caps: all-small-caps;
     margin-top: 0.5rem;
+  }
+  .inventoryButton:hover {
+    cursor: pointer;
   }
 }
