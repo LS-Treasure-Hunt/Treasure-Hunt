@@ -183,6 +183,7 @@ export const getBalance = async dispatch => {
 };
 
 export const SET_PATH = "SET_PATH";
+export const UPDATE_PATH = "UPDATE_PATH";
 export const CLEAR_PATH = "CLEAR_PATH";
 
 export const START_PRAY = "START_PRAY";

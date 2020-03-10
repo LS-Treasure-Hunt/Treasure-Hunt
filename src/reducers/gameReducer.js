@@ -33,6 +33,7 @@ import {
   GET_BALANCE_SUCCESS,
   GET_BALANCE_ERROR,
   SET_PATH,
+  UPDATE_PATH,
   CLEAR_PATH,
   SET_MODE,
   SET_ITEM_LOGS,
@@ -107,6 +108,11 @@ export const gameReducer = (state, { type, payload }) => {
       return {
         ...state,
         path: payload
+      };
+    case UPDATE_PATH:
+      return {
+        ...state,
+        path: state.path.filter(room => !payload.includes(room))
       };
     case CLEAR_PATH:
       return {
