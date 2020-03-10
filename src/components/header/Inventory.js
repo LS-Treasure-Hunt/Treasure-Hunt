@@ -33,6 +33,7 @@ export const Inventory = () => {
   //-----
 
   const handleItem = (e, item) => {
+    e.preventDefault();
     setSelectedItem(item);
     // e.currentTarget.classList.toggle("pressed") - save it for a future sprint - complicates the user expectations
   };

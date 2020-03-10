@@ -36,7 +36,7 @@ const AutoSnitch = () => {
         <div className="autoLimit">
           Enter desired number of snitching attempts:
           <div className="autoInput">
-            <input type="number" placeholder="#" onChange={updateAttempts} />
+            <input type="number" min="0" placeholder="#" onChange={updateAttempts} />
             <button
               className="autoAction"
               onClick={() => {

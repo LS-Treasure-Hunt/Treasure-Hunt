@@ -69,7 +69,7 @@
     flex-wrap: wrap;
   }
   li {
-    margin-right: 0.2rem;
+    margin: .2rem;
     padding: 0 0.3rem;
   }
   .liDirection {
@@ -81,11 +81,11 @@
     margin: 0.2rem;
   }
   .otherPlayers { // section listing other players
-    height: 5em;
+    max-height: 5em;
     overflow-y: auto;
   }
   .roomItems { // section listing items
-    max-height: 3em;
+    max-height: 5em;
     overflow-y: auto;
   }
 }
