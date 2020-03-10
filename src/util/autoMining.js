@@ -2,17 +2,17 @@
 import {
   warp,
   recall,
-  examine,
   initGame,
   getLastProof,
   findProofOfWork,
   mine,
   getBalance,
-  CLEAR_PATH
+  CLEAR_PATH,
+  SET_ITEM_LOGS
 } from "../actions";
 import { traverse } from "./traverse";
 import { map } from "../util/map";
-import { compiledCPU } from "./cpu";
+import { decodedMessage } from "./cpu";
 
 export const mineCoin = async dispatch => {
   console.log("getting last proof...");
@@ -25,7 +25,7 @@ export const mineCoin = async dispatch => {
   return await mine(dispatch, newProof);
 };
 
-export const autoCoinMiner = async (dispatch, attempts) => {
+export const autoCoinMiner = async (dispatch, attempts, canDash, canFly) => {
   let count = 0;
   // First init to get starting room
   let init = await initGame(dispatch);
@@ -37,26 +37,31 @@ export const autoCoinMiner = async (dispatch, attempts) => {
   }
 
   while (count < attempts) {
-    let cpu = new compiledCPU();
     // Go to well (room 55)
     if (init.room_id !== 55) {
       await recall(dispatch);
-      await traverse(dispatch, 55, map);
+      await traverse(dispatch, 55, map, canDash, canFly);
       dispatch({ type: CLEAR_PATH });
     }
     // Examine (res.data.description === string to decode)
-    let message = await examine(dispatch, "Wishing Well");
-    // Decode to get room #
-    cpu.load(message.description);
-    let room_number = cpu.run();
-    console.log("room number", room_number);
+    let room_number = await decodedMessage(dispatch);
+    // console.log("room number", room_number);
+    let mine_message = `Go to room ${room_number} to mine a coin.`;
+    setTimeout(
+      () =>
+        dispatch({
+          type: SET_ITEM_LOGS,
+          payload: { description: mine_message }
+        }),
+      500
+    );
     // traverse to room
-    await traverse(dispatch, +room_number, map);
+    await traverse(dispatch, room_number, map, canDash, canFly);
     // mine coin
     await mineCoin(dispatch);
     await getBalance(dispatch);
     dispatch({ type: CLEAR_PATH });
-    init = { room_id: +room_number };
+    init = { room_id: room_number };
     count++;
   }
 };

@@ -34,7 +34,12 @@ const AutoMine = () => {
             <button
               className="autoAction"
               onClick={() => {
-                autoCoinMiner(dispatch, attempts);
+                autoCoinMiner(
+                  dispatch,
+                  attempts,
+                  playerState.abilities.includes("dash"),
+                  playerState.abilities.includes("fly")
+                );
                 console.log("autoMine");
               }}
             >
