@@ -1,5 +1,6 @@
 /* CPU functionality. */
 import * as sys from "sys";
+import { examine } from "../actions";
 export class compiledCPU {
   /* Main CPU class. */
   constructor() {
@@ -367,3 +368,10 @@ export class compiledCPU {
 }
 
 //# sourceMappingURL=kevinCPU.js.map
+export const decodedMessage = async dispatch => {
+  let cpu = new compiledCPU();
+  let message = await examine(dispatch, "Wishing Well");
+  cpu.load(message.description);
+  let room = cpu.run();
+  return +room;
+};

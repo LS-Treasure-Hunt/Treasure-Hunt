@@ -2,7 +2,6 @@
 import {
   warp,
   recall,
-  examine,
   take,
   initGame,
   playerStatus,
@@ -10,9 +9,9 @@ import {
 } from "../actions";
 import { traverse } from "./traverse";
 import { darkmap } from "../util/darkMap";
-import { compiledCPU } from "./cpu";
+import { decodedMessage } from "./cpu";
 
-export const autoSnitchMiner = async (dispatch, attempts) => {
+export const autoSnitchMiner = async (dispatch, attempts, canDash, canFly) => {
   let count = 0;
   // First init to get starting room
   let init = await initGame(dispatch);
@@ -24,22 +23,18 @@ export const autoSnitchMiner = async (dispatch, attempts) => {
   }
 
   while (count < attempts) {
-    let cpu = new compiledCPU();
     // Go to well (room 555)
     if (init.room_id !== 555) {
       await recall(dispatch);
       await warp(dispatch);
-      await traverse(dispatch, 555, darkmap);
+      await traverse(dispatch, 555, darkmap, canDash, canFly);
       dispatch({ type: CLEAR_PATH });
     }
     // Examine (res.data.description === string to decode)
-    let message = await examine(dispatch, "Wishing Well");
-    // Decode to get room #
-    cpu.load(message.description);
-    let room_number = cpu.run();
+    let room_number = await decodedMessage(dispatch);
     console.log("room number", room_number);
     // traverse to room
-    await traverse(dispatch, +room_number, darkmap);
+    await traverse(dispatch, room_number, darkmap, canDash, canFly);
     // pick up snitch
     let snitch = await take(dispatch, "golden snitch");
     if (
@@ -53,7 +48,7 @@ export const autoSnitchMiner = async (dispatch, attempts) => {
     }
     await playerStatus(dispatch);
     dispatch({ type: CLEAR_PATH });
-    init = { room_id: +room_number };
+    init = { room_id: room_number };
     count++;
   }
 };
