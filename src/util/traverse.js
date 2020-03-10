@@ -36,11 +36,12 @@ export async function traverse(
 
   let path = getPathToRoom(map[room.room_id], map, target);
   console.log("room", room, "path", path);
-  dispatch({ type: SET_PATH, payload: path });
 
   if (dash === false || fly === false) {
+    dispatch({ type: SET_PATH, payload: path });
     return await walkBack(dispatch, path);
   } else {
+    dispatch({ type: SET_PATH, payload: path.slice(1) });
     path = withDash(path, map);
     console.log("Dashed path", path);
     return await dashBack(dispatch, path);

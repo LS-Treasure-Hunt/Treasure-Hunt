@@ -1,12 +1,13 @@
 // write the algorithms to utilize dash and other powers that need to be figured out
-import { dash, fly, move } from "../actions";
+import { dash, fly, move, UPDATE_PATH } from "../actions";
 
 export async function dashBack(dispatch, path) {
   let startingRoom;
-  console.log(path)
+  console.log(path);
   while (path.length > 0) {
     startingRoom = path.shift();
     if (startingRoom.length > 3) {
+      let roomsToFilter = startingRoom.slice(1, startingRoom.length);
       let rooms = startingRoom
         .slice(1, startingRoom.length)
         .map(room => room.room_id)
@@ -17,6 +18,7 @@ export async function dashBack(dispatch, path) {
         startingRoom.length - 1,
         rooms
       );
+      dispatch({ type: UPDATE_PATH, payload: roomsToFilter });
       console.log("DASHING", dashing);
     } else {
       let direction = startingRoom[0];
@@ -26,6 +28,7 @@ export async function dashBack(dispatch, path) {
         } else {
           await move(dispatch, direction, `${startingRoom[i].room_id}`);
         }
+        dispatch({ type: UPDATE_PATH, payload: [startingRoom[i]] });
       }
     }
   }
