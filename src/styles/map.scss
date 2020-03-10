@@ -1,20 +1,24 @@
 @import "/variables";
-
-.map {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  min-height: 95em;
-  margin-top: 3%;
-  margin-left: 12%;
-
-  @media screen and (max-width: $breakpoint-desktop) {
-    margin-left: 0%;
-  }
+.mapContainer {
+  min-width: 70vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media screen and (max-width: $breakpoint-tablet) {
-    height: 85em;
-    margin-left: 7%;
+    align-items: flex-start;
+    margin-top: 2em;
+  }
+}
+
+.map {
+  width: 59.5em;
+  position: relative;
+  min-height: 72em;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    width: 25.5em;
+    min-height: 31em;
   }
 
   @media screen and (max-width: $breakpoint-mobile) {
@@ -39,8 +43,8 @@
     z-index: 80;
 
     @media screen and (max-width: $breakpoint-tablet) {
-      height: 1rem;
-      width: 1rem;
+      height: 0.75em;
+      width: 0.75em;
       border-radius: 5px;
       border: 1px solid $gray-lt;
     }
@@ -126,11 +130,13 @@
 }
 
 .darkWorld {
-  margin-top: 5%;
+  border: 1px solid blue;
+  width: 74.5em;
+  min-height: 77em;
 
-  @media screen and (max-width: $breakpoint-desktop) {
-    margin-top: 7%;
-    margin-left: 6%;
+  @media screen and (max-width: $breakpoint-tablet) {
+    width: 32em;
+    min-height: 33em;
   }
 
   .room {
