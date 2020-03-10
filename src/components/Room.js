@@ -40,16 +40,28 @@ const Room = ({ roomId, coordinates, exits, room }) => {
 
   if (width > 1000) {
     roomSize = 35;
-    xOffset = 47;
-    yOffset = 35;
+    if (gameState.room_id < 500) {
+      xOffset = 50;
+      yOffset = 46;
+    } else {
+      xOffset = 46;
+      yOffset = 46;
+    }
     nLefteBottom = 5;
     eLeftnBottom = 25;
     sLeftwBottom = 5;
     wLeftsBottom = 10;
   } else if (width > 700) {
     roomSize = 15;
-    xOffset = 45;
-    yOffset = 0;
+    if (gameState.room_id < 500) {
+      xOffset = 50;
+      yOffset = 46;
+    } else {
+      xOffset = 46;
+      yOffset = 46;
+    }
+    // xOffset = 45;
+    // yOffset = 0;
     nLefteBottom = 3;
     eLeftnBottom = 9;
     sLeftwBottom = 3;
