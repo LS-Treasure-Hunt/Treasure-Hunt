@@ -4,10 +4,8 @@ import { useStateValue } from "../../hooks/useStateValue";
 const Messages = () => {
   const [{ gameState }] = useStateValue();
 
-
   // console.log("gameState path: ", gameState.path);
   // console.log("gameState log: ", gameState.actionLog);
-
 
   useEffect(() => {
     // const updateScroll = () => {
