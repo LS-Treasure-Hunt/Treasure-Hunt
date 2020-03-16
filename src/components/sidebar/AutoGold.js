@@ -26,7 +26,7 @@ const AutoGold = () => {
       {playerState.abilities.includes("fly") &&
       playerState.abilities.includes("recall") ? (
         <div className="autoLimit">
-          Enter desired number of minutes to collect gold:
+          Enter desired number of trips to collect gold:
           <div className="autoInput">
             <input type="number" placeholder="#" onChange={updateAttempts} />
             <button
