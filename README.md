@@ -2,7 +2,14 @@
 
 Front End client built for interacting with the Lambda School Treasure Hunt server.
 
-Project specifications: [original repo](https://github.com/LambdaSchool/CS-Build-Week-2)
+Project Specifications: [original repo](https://github.com/LambdaSchool/CS-Build-Week-2)
+
+Live Site:
+[https://ls-treasure-hunt-fe.herokuapp.com/](https://ls-treasure-hunt-fe.herokuapp.com/)
+
+Video Presentation: [YouTube Link](https://youtu.be/GqxGJd4Cmx0)
+
+![Screenshot](src/styles/scrnshot.png)
 
 ## The Team
 
