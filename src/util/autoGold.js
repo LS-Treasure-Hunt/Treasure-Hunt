@@ -15,7 +15,6 @@ export async function sellTreasure(dispatch, room, inventory) {
     console.log("Going to shop");
   }
 
-  console.log("Inventory", inventory);
   for (let i = 0; i < inventory.length; i++) {
     await sell(dispatch, inventory[i]);
   }
@@ -57,17 +56,13 @@ export async function walkBackForGold(dispatch, path) {
       if (startingRoom.neighbors[dir] === nextRoom.room_id) {
         if (nextRoom.terrain !== "CAVE") {
           newRoom = await fly(dispatch, dir, `${nextRoom.room_id}`);
-          console.log("FLYING", newRoom);
         } else {
           newRoom = await move(dispatch, dir, nextRoom.room_id);
-          console.log("BOOSTED", newRoom);
         }
         startingRoom = nextRoom;
-        console.log("COOLDOWN", newRoom.cooldown);
 
         while (newRoom.items.length > 0) {
           let collected = await take(dispatch, newRoom.items[0]);
-          console.log("COLLECTING ITEMS!", "Items", newRoom.items);
           newRoom = collected;
           player = await playerStatus(dispatch);
         }

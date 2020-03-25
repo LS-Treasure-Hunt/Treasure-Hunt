@@ -16,7 +16,6 @@ const Mode = () => {
           className={`modeButton ${gameState.mode === "manual" &&
             "activeMode"}`}
           onClick={() => {
-            console.log("manual clicked");
             dispatch({ type: SET_MODE, payload: "manual" });
           }}
         >
@@ -27,7 +26,6 @@ const Mode = () => {
           className={`modeButton ${gameState.mode === "autoGold" &&
             "activeMode"}`}
           onClick={() => {
-            console.log("clicked gold");
             dispatch({ type: SET_MODE, payload: "autoGold" });
           }}
         >

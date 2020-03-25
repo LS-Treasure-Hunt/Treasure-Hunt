@@ -103,7 +103,6 @@ const Room = ({ roomId, coordinates, exits, room }) => {
             "targetRoom"} ${gameState.path.includes(room) && "path"}`}
           style={{ left: coords[0], bottom: coords[1] }}
           onClick={e => {
-            console.log(`Clicked ${roomId}`);
             goToRoom();
           }}
           onMouseOver={handleHovering}

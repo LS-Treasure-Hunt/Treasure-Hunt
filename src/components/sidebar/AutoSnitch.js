@@ -51,7 +51,6 @@ const AutoSnitch = () => {
                   playerState.abilities.includes("dash"),
                   playerState.abilities.includes("fly")
                 );
-                console.log("autoSnitch");
               }}
             >
               Collect Snitches
