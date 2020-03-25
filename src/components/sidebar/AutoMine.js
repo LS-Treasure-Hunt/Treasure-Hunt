@@ -40,7 +40,6 @@ const AutoMine = () => {
                   playerState.abilities.includes("dash"),
                   playerState.abilities.includes("fly")
                 );
-                console.log("autoMine");
               }}
             >
               Mine Coins

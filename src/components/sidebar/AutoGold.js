@@ -33,7 +33,6 @@ const AutoGold = () => {
               className="autoAction"
               onClick={() => {
                 collectTreasure(dispatch, map, attempts);
-                console.log("autoGold");
               }}
             >
               Make Gold

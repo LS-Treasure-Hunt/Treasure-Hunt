@@ -3,7 +3,6 @@ import { dash, fly, move, UPDATE_PATH } from "../actions";
 
 export async function dashBack(dispatch, path) {
   let startingRoom;
-  console.log(path);
   while (path.length > 0) {
     startingRoom = path.shift();
     if (startingRoom.length > 3) {
@@ -19,7 +18,6 @@ export async function dashBack(dispatch, path) {
         rooms
       );
       dispatch({ type: UPDATE_PATH, payload: roomsToFilter });
-      console.log("DASHING", dashing);
     } else {
       let direction = startingRoom[0];
       for (let i = 1; i < startingRoom.length; i++) {
@@ -49,7 +47,6 @@ export function withDash(path, map) {
   if (path.length <= 2) {
     dashPath.push(path[1]);
     finalPath.push(dashPath);
-    console.log("dash path", dashPath, "final path", finalPath);
   } else {
     for (let i = 1; i < path.length - 1; i++) {
       let nextRoom = path[i];

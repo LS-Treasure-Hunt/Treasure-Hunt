@@ -33,7 +33,6 @@ function validDirection(data, graph) {
 
 // finds the shortest path back to a valid room
 function bfs(startingRoom, graph) {
-  console.log("STARTING ROOM BFS", startingRoom);
   let queue = [];
   queue.push([startingRoom]);
   const visited = new Set();
@@ -65,10 +64,9 @@ export async function walkBack(dispatch, path) {
 
     for (let dir of directions) {
       if (startingRoom.neighbors[dir] === nextRoom.room_id) {
-        console.log("NEXT ROOM ID", nextRoom.room_id);
         await move(dispatch, dir, nextRoom.room_id);
         startingRoom = nextRoom;
-        path.shift()
+        path.shift();
         break;
       }
     }
