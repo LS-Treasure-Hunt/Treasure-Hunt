@@ -6,9 +6,10 @@ import "./styles/main.scss";
 
 // components
 import Dashboard from "./components/Dashboard";
+import Overlay from "./components/Overlay";
 
 function App() {
-  const [, dispatch] = useStateValue();
+  const [{ playerState, gameState }, dispatch] = useStateValue();
 
   useEffect(() => {
     async function fetchData() {
@@ -19,8 +20,11 @@ function App() {
     fetchData();
   }, [dispatch]);
 
+  
+
   return (
     <div className="app">
+      {(playerState.isLoading === true || gameState.isLoading === true || playerState.isLoading === true) ? <Overlay /> : null}
       <Dashboard />
     </div>
   );
