@@ -9,7 +9,7 @@ import Dashboard from "./components/Dashboard";
 import Overlay from "./components/Overlay";
 
 function App() {
-  const [{ playerState, gameStat, miningState }, dispatch] = useStateValue();
+  const [{ playerState, gameState, miningState }, dispatch] = useStateValue();
 
   useEffect(() => {
     async function fetchData() {
