@@ -9,7 +9,7 @@ import Dashboard from "./components/Dashboard";
 import Overlay from "./components/Overlay";
 
 function App() {
-  const [{ playerState, gameState }, dispatch] = useStateValue();
+  const [{ playerState, gameStat, miningState }, dispatch] = useStateValue();
 
   useEffect(() => {
     async function fetchData() {
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="app">
-      {(playerState.isLoading === true || gameState.isLoading === true || playerState.isLoading === true) ? <Overlay /> : null}
+      {(playerState.isLoading === true || gameState.isLoading === true || miningState.isLoading === true) ? <Overlay /> : null}
       <Dashboard />
     </div>
   );
