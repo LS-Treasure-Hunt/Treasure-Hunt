@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Overlay = () => {
   return (
@@ -9,7 +9,11 @@ const Overlay = () => {
         </p>
         <p className="modalSidenote">
           (Yup, waiting on these cooldowns can get annoying. Did we mention this
-          was a competition? ☺️)
+          was a competition?{' '}
+          <span role="img" aria-label="emoji">
+            ☺️
+          </span>
+          )
         </p>
       </div>
     </div>
