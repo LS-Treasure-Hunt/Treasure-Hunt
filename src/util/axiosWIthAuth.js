@@ -7,7 +7,7 @@ export const axiosWithAuth = () => {
       Authorization: `Token ${process.env.REACT_APP_KEY}`,
       // Authorization: `Token ${process.env.REACT_APP_TEST_KEY}`
     },
-    baseURL: 'http://l-t-h.herokuapp.com/api/',
+    baseURL: 'https://l-t-h.herokuapp.com/api/',
     // baseURL: "http://127.0.0.1:8000/api/"
   });
 };
