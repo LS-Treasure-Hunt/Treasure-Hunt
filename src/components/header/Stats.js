@@ -67,7 +67,7 @@ export const Stats = () => {
       </p>
       <p>
         Sugar Rush (secs):{" "}
-        <span className="statValue">{playerState.sugar_rush}</span>
+        <span className="statValue">{Math.round(playerState.sugar_rush)}</span>
       </p>
       {playerState.bodywear && (
         <button
