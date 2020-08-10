@@ -6,7 +6,7 @@ export const START_INIT = "START_INIT";
 export const INIT_SUCCESS = "INIT_SUCCESS";
 export const INIT_ERROR = "INIT_ERROR";
 
-export const initGame = async dispatch => {
+export const initGame = async (dispatch) => {
   dispatch({ type: START_INIT });
   try {
     const res = await axiosWithAuth().get("adv/init/");
@@ -65,9 +65,14 @@ export const sell = async (dispatch, item) => {
   try {
     const res = await axiosWithAuth().post("adv/sell/", {
       name: item,
-      confirm: "yes"
+      confirm: "yes",
     });
     dispatch({ type: SELL_SUCCESS, payload: res.data });
+    dispatch({
+      type: SET_ITEM_LOGS,
+      payload: { description: `Sold ${item}` },
+    });
+
     console.log(`Sold ${item}`);
     wait(res.data.cooldown);
     return res.data;
@@ -117,7 +122,7 @@ export const START_RECEIVE = "START_RECEIVE";
 export const RECEIVE_SUCCESS = "RECEIVE_SUCCESS";
 export const RECEIVE_ERROR = "RECEIVE_ERROR";
 
-export const receive = async dispatch => {
+export const receive = async (dispatch) => {
   dispatch({ type: START_RECEIVE });
   try {
     const res = await axiosWithAuth().post("adv/receive/");
@@ -135,7 +140,7 @@ export const START_STATUS = "START_STATUS";
 export const STATUS_SUCCESS = "STATUS_SUCCESS";
 export const STATUS_ERROR = "STATUS_ERROR";
 
-export const playerStatus = async dispatch => {
+export const playerStatus = async (dispatch) => {
   dispatch({ type: START_STATUS });
   try {
     const res = await axiosWithAuth().post("adv/status/");
@@ -169,7 +174,7 @@ export const START_GET_BALANCE = "START_GET_BALANCE";
 export const GET_BALANCE_SUCCESS = "GET_BALANCE_SUCCESS";
 export const GET_BALANCE_ERROR = "GET_BALANCE_ERROR";
 
-export const getBalance = async dispatch => {
+export const getBalance = async (dispatch) => {
   dispatch({ type: START_GET_BALANCE });
   try {
     const res = await axiosWithAuth().get("bc/get_balance/");
@@ -190,7 +195,7 @@ export const START_PRAY = "START_PRAY";
 export const PRAY_SUCCESS = "PRAY_SUCCESS";
 export const PRAY_ERROR = "PRAY_ERROR";
 
-export const pray = async dispatch => {
+export const pray = async (dispatch) => {
   dispatch({ type: START_PRAY });
   try {
     const res = await axiosWithAuth().post("adv/pray/");
@@ -211,12 +216,12 @@ export const BUY_DONUT = "BUY_DONUT";
 export const BUY_SUCCESS = "BUY_SUCCESS";
 export const BUY_ERROR = "BUY_ERROR";
 
-export const buy = async dispatch => {
+export const buy = async (dispatch) => {
   dispatch({ type: BUY_DONUT });
   try {
     const res = await axiosWithAuth().post("adv/buy/", {
       name: "donut",
-      confirm: "yes"
+      confirm: "yes",
     });
     dispatch({ type: BUY_SUCCESS, payload: res.data });
     wait(res.data.cooldown);

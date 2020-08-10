@@ -3,6 +3,7 @@
 import { initGame, take, sell, playerStatus } from "../actions/general";
 import { move, fly, recall } from "../actions/movement";
 import { getPathToRoom } from "./traverse";
+import { SET_ITEM_LOGS } from "../actions";
 
 export async function sellTreasure(dispatch, room, inventory) {
   if (room.room_id !== 0 && room.room_id !== 1) {
@@ -74,6 +75,17 @@ export async function walkBackForGold(dispatch, path) {
     // put in option to go to transmorg
     console.log(
       `Selling due to encumbrance. Current gold before selling: ${player.gold}`
+    );
+
+    let gold_message = `Selling due to encumbrance. Current gold before selling: ${player.gold}`;
+
+    setTimeout(
+      () =>
+        dispatch({
+          type: SET_ITEM_LOGS,
+          payload: { description: gold_message },
+        }),
+      500
     );
     await sellTreasure(dispatch, newRoom, player.inventory);
   }
