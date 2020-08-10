@@ -12,10 +12,10 @@ export const ManualActions = () => {
     374: "warp",
     461: "dash",
     492: "recall",
-    499: "carry"
+    499: "carry",
   };
 
-  const abilityStatus = ability => {
+  const abilityStatus = (ability) => {
     if (!playerState.abilities.includes(ability)) {
       return "locked";
     } else if (ability === "pray" && !shrines[gameState.room_id]) {
@@ -36,6 +36,7 @@ export const ManualActions = () => {
             pray(dispatch);
           }}
           title="For use at shrines"
+          disabled={abilityStatus("pray") !== "clickable" ? true : false}
         >
           {!playerState.abilities.includes("pray") && (
             <span aria-label="emoji" role="img">
@@ -51,6 +52,7 @@ export const ManualActions = () => {
             mine(dispatch);
           }}
           title="Mine for coins"
+          disabled={abilityStatus("mine") !== "clickable" ? true : false}
         >
           {!playerState.abilities.includes("mine") && (
             <span aria-label="emoji" role="img">
@@ -66,6 +68,7 @@ export const ManualActions = () => {
             warp(dispatch);
           }}
           title="Warp between dimensions"
+          disabled={abilityStatus("warp") !== "clickable" ? true : false}
         >
           {!playerState.abilities.includes("warp") && (
             <span aria-label="emoji" role="img">
@@ -81,6 +84,7 @@ export const ManualActions = () => {
             recall(dispatch);
           }}
           title="Recall back to room 0"
+          disabled={abilityStatus("recall") !== "clickable" ? true : false}
         >
           {!playerState.abilities.includes("recall") && (
             <span aria-label="emoji" role="img">
@@ -98,6 +102,7 @@ export const ManualActions = () => {
             playerState.abilities.includes("dash") ? "available" : "locked"
           }`}
           title="Dash in a straight line"
+          disabled={abilityStatus("dash") !== "clickable" ? true : false}
         >
           {!playerState.abilities.includes("dash") && (
             <span aria-label="emoji" role="img">
@@ -111,6 +116,7 @@ export const ManualActions = () => {
             playerState.abilities.includes("fly") ? "available" : "locked"
           }`}
           title="Fly over terrain (does not work in caves)"
+          disabled={abilityStatus("fly") !== "clickable" ? true : false}
         >
           {!playerState.abilities.includes("fly") && (
             <span aria-label="emoji" role="img">
@@ -124,6 +130,7 @@ export const ManualActions = () => {
             playerState.abilities.includes("carry") ? "available" : "locked"
           }`}
           title="Have Glasowyn carry an item"
+          disabled={abilityStatus("carry") !== "clickable" ? true : false}
         >
           {!playerState.abilities.includes("carry") && (
             <span aria-label="emoji" role="img">
